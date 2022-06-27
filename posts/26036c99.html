@@ -1,0 +1,956 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="https://qwerx29.coding.net/p/mycdn/d/img/git/raw/master/202205111741670.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="QWERx29">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Fluid 是一款很十分优雅的主题，那么写一篇优雅的文章搭配它呢？以下会从几个方面来简述，主要还是做几个推荐。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用Typora+Fluid优雅的写作">
+<meta property="og:url" content="https://qwerx29.github.io/posts/26036c99.html">
+<meta property="og:site_name" content="Φάντασος">
+<meta property="og:description" content="Fluid 是一款很十分优雅的主题，那么写一篇优雅的文章搭配它呢？以下会从几个方面来简述，主要还是做几个推荐。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qwerx29.coding.net/p/mycdn/d/img/git/raw/master/image-20220627101727553.png">
+<meta property="og:image" content="https://qwerx29.coding.net/p/mycdn/d/img/git/raw/master/202205111741670.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/vinceying/static@main/images/blog_fluid/2020-04-17_175244.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/vinceying/static@main/images/blog_fluid/2020-04-17_174841.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/vinceying/static@main/images/blog_fluid/2020-05-14_000557.png">
+<meta property="article:published_time" content="2022-06-27T06:25:43.000Z">
+<meta property="article:modified_time" content="2022-06-27T06:25:43.145Z">
+<meta property="article:author" content="QWERx29">
+<meta property="article:tag" content="杂谈">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://qwerx29.coding.net/p/mycdn/d/img/git/raw/master/image-20220627101727553.png">
+  
+  
+  
+  <title>如何使用Typora+Fluid优雅的写作 - Φάντασος</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.6/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/mac.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"qwerx29.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"24ea714b1933c2aeebeb7c89a81846f6","google":3555723727,"gtag":"G-0C6SJYXJ5C","tencent":{"sid":null,"cid":null},"woyaola":21311045,"cnzz":1281109328,"leancloud":{"app_id":"s3Q7tYo4SCMsahrY4fJVMyWl-MdYXbMMI","app_key":"7XHgb5CFp6nO5OU1H1D6Epif","server_url":null,"path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?24ea714b1933c2aeebeb7c89a81846f6";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', '3555723727', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.googletagmanager.com/gtag/js?id=G-0C6SJYXJ5C', function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-0C6SJYXJ5C');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+    <!-- 51.la Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('//js.users.51.la/21311045.js');
+      }
+    </script>
+  
+
+  
+    <!-- cnzz Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('//s4.cnzz.com/z_stat.php?id=1281109328&show=pic');
+      }
+    </script>
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Φάντασος</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="如何使用Typora+Fluid优雅的写作"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-27 14:25" pubdate>
+          2022年6月27日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">如何使用Typora+Fluid优雅的写作</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年6月27日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
+<p>Fluid 是一款很十分优雅的主题，那么写一篇优雅的文章搭配它呢？以下会从几个方面来简述，主要还是做几个推荐。</p>
+<h2 id="文章内容"><a class="markdownIt-Anchor" href="#文章内容"></a> 文章内容</h2>
+<h3 id="熟悉-markdown-语法"><a class="markdownIt-Anchor" href="#熟悉-markdown-语法"></a> 熟悉 Markdown 语法</h3>
+<h4 id="标题"><a class="markdownIt-Anchor" href="#标题"></a> 标题</h4>
+<ol>
+<li>
+<p>使用 <code>#</code> 表示标题，其中 <code>#</code> 号必须在行首</p>
+</li>
+<li>
+<p>使用 <code>===</code> 或者 <code>---</code> 表示。</p>
+</li>
+</ol>
+<p>示例：</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs clean"># 一级标题<br>## 二级标题<br>### 三级标题<br>#### 四级标题<br>##### 五级标题<br>###### 六级标题<br><br>一级标题<br>---<br>二级标题<br>===<br></code></pre></td></tr></table></figure>
+<p><img src="https://qwerx29.coding.net/p/mycdn/d/img/git/raw/master/image-20220627101727553.png" srcset="/img/loading.gif" lazyload alt="标题样式" /></p>
+<h4 id="分割线"><a class="markdownIt-Anchor" href="#分割线"></a> 分割线</h4>
+<p>使用三个或以上的 <code>-</code> 或者 <code>*</code> 表示，且这一行只有符号，<strong>注意不要被识别为二级标题即可</strong>，例如中间或者前面可以加空格。</p>
+<p>示例：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada"><span class="hljs-comment">------</span><br></code></pre></td></tr></table></figure>
+<hr />
+<h4 id="斜体和粗体"><a class="markdownIt-Anchor" href="#斜体和粗体"></a> 斜体和粗体</h4>
+<p>使用 <code>*</code> 和 <code>**</code> 分别表示斜体和粗体，删除线使用两个 <code>~</code> 表示</p>
+<p>示例：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-emphasis">*我是斜体*</span><br><span class="hljs-strong">**我是粗体**</span><br><span class="hljs-strong">**<span class="hljs-emphasis">*我又斜又粗*</span>**</span><br>~~我无了~~<br></code></pre></td></tr></table></figure>
+<p><em>我是斜体</em><br />
+<strong>我是粗体</strong><br />
+<em><strong>我又斜又粗</strong></em><br />
+<s>我无了</s></p>
+<h4 id="超链接和图片"><a class="markdownIt-Anchor" href="#超链接和图片"></a> 超链接和图片</h4>
+<p>链接和图片的写法类似，图片仅在超链接前多了一个 <code>!</code> ，一般是 [文字描述] (链接)</p>
+<p>示例：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">[百度](https:<span class="hljs-regexp">//</span>www.baidu.com)<br>![Logo](https:<span class="hljs-regexp">//</span>qwerx29.coding.net<span class="hljs-regexp">/p/my</span>cdn<span class="hljs-regexp">/d/img</span><span class="hljs-regexp">/git/</span>raw<span class="hljs-regexp">/master/</span><span class="hljs-number">202205111741670</span>.png)<br></code></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.baidu.com">百度</a><br />
+<img src="https://qwerx29.coding.net/p/mycdn/d/img/git/raw/master/202205111741670.png" srcset="/img/loading.gif" lazyload alt="Logo" /></p>
+<h4 id="无序列表"><a class="markdownIt-Anchor" href="#无序列表"></a> 无序列表</h4>
+<p>使用 <code>-</code>、<code>+</code> 和 <code>*</code> 表示无序列表，前后留一行空白，可嵌套，例如</p>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+<h4 id="有序列表"><a class="markdownIt-Anchor" href="#有序列表"></a> 有序列表</h4>
+<p>使用 <code>1.</code> （点号后面有个空格）表示有序列表，可嵌套。</p>
+<h4 id="文字引用"><a class="markdownIt-Anchor" href="#文字引用"></a> 文字引用</h4>
+<p>使用 <code>&gt;</code> 表示，可以有多个 <code>&gt;</code>，表示层级更深，例如</p>
+<blockquote>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+</blockquote>
+<h4 id="行内代码块"><a class="markdownIt-Anchor" href="#行内代码块"></a> 行内代码块</h4>
+<p>其实上面已经用过很多次了，即使用 ` 表示，例如</p>
+<p>扩展：很多字符是需要转义，使用反斜杠 <code>\</code> 进行转义</p>
+<h4 id="代码块"><a class="markdownIt-Anchor" href="#代码块"></a> 代码块</h4>
+<p>使用四个空格缩进表示代码块，一些 IDE 支持行数提示和着色，一般使用三个 ` 表示，例如</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">```python<br>print(<span class="hljs-string">&quot;Hello World&quot;</span>)<br>```<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello World&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h4 id="流程图"><a class="markdownIt-Anchor" href="#流程图"></a> 流程图</h4>
+<p>主要的语法为 <code>name=&gt;type: describe</code>，其中 type 主要有以下几种：<br />
+1.开始和结束：<code>start</code> <code>end</code><br />
+2.输入输出：<code>inputoutput</code><br />
+3.操作：<code>operation</code><br />
+4.条件：<code>condition</code><br />
+5.子程序：<code>subroutine</code></p>
+<p>更多语法参考：<a target="_blank" rel="noopener" href="http://adrai.github.io/flowchart.js/">流程图语法参考</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs flow">st=&gt;start: Start:&gt;https://phantasus.vercel.app[blank]<br>e=&gt;end:&gt;https://phantasus.vercel.app<br>op1=&gt;operation: My Operation<br>sub1=&gt;subroutine: My Subroutine<br>cond=&gt;condition: Yes<br>or No?:&gt;https://cn.bing.com[blank]<br>io=&gt;inputoutput: catch something...<br>para=&gt;parallel: parallel tasks<br><br>st-&gt;op1-&gt;cond<br>cond(yes)-&gt;io-&gt;e<br>cond(no)-&gt;para<br>para(path1, bottom)-&gt;sub1(right)-&gt;op1<br>para(path2, top)-&gt;op1<br><br><br></code></pre></td></tr></table></figure>
+<h4 id="数学公式"><a class="markdownIt-Anchor" href="#数学公式"></a> 数学公式</h4>
+<p>使用 <code>$</code> 表示，其中一个 <code>$</code> 表示在行内，两个 <code>$</code> 表示独占一行。</p>
+<p>eg : <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>a</mi><mi>i</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sum_{i=1}^n a_i=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></p>
+<p>支持 <strong>LaTeX</strong> 编辑显示支持，访问 <a target="_blank" rel="noopener" href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">MathJax </a>参考更多使用方法。</p>
+<p>推荐一个常用的数学公式在线编译网站：<a target="_blank" rel="noopener" href="https://www.latexlive.com/">https://www.latexlive.com/</a></p>
+<h4 id="表格"><a class="markdownIt-Anchor" href="#表格"></a> 表格</h4>
+<table>
+<thead>
+<tr>
+<th>站点</th>
+<th style="text-align:center">地址</th>
+<th style="text-align:right">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fluid Docs</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/">https://hexo.fluid-dev.com/docs/</a></td>
+<td style="text-align:right">Fluid 官方文档</td>
+</tr>
+<tr>
+<td>Hexo-theme-fluid</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">https://github.com/fluid-dev/hexo-theme-fluid</a></td>
+<td style="text-align:right">Fluid Github Repo</td>
+</tr>
+<tr>
+<td>Fluid Blog</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/">https://hexo.fluid-dev.com/</a></td>
+<td style="text-align:right">Fluid 官方博客</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk">站点|地址|介绍<br>--|:--:|--:<br>Fluid Docs|https:<span class="hljs-regexp">//</span>hexo.fluid-dev.com<span class="hljs-regexp">/docs/</span>|Fluid 官方文档<br>Hexo-theme-fluid|https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/fluid-dev/</span>hexo-theme-fluid|Fluid Github Repo<br>Fluid Blog|https:<span class="hljs-regexp">//</span>hexo.fluid-dev.com/|Fluid 官方博客<br></code></pre></td></tr></table></figure>
+<h4 id="脚注"><a class="markdownIt-Anchor" href="#脚注"></a> 脚注</h4>
+<p>默认渲染器下正常显示，不同渲染器显示效果不同，写法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">脚注演示[^1]<br>[<span class="hljs-symbol">^1</span>]: <span class="hljs-link">脚注内容演示</span><br></code></pre></td></tr></table></figure>
+<p><s>至于为什么有些公式、流程图无法渲染，是因为 <strong>Markdown 追求简洁式写作，默认渲染器不支持复杂渲染。</strong></s></p>
+<h3 id="善用-html"><a class="markdownIt-Anchor" href="#善用-html"></a> 善用 HTML</h3>
+<p>我们可以在 Markdown 中插入一些简单的 HTML 代码或 CSS 片段来获得更多扩展，使得文章内容更具有多样性。以下演示几个简单功能。</p>
+<p><a id="demo">跳转位置演示（跳转位置设置点）</a></p>
+<h4 id="文字颜色"><a class="markdownIt-Anchor" href="#文字颜色"></a> 文字颜色</h4>
+<p><span  style="color: #519D9E; ">#519D9E颜色演示</span></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>  <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;color: #519D9E; &quot;</span>&gt;</span>#519D9E颜色演示<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<hr />
+<h4 id="文字大小"><a class="markdownIt-Anchor" href="#文字大小"></a> 文字大小</h4>
+<p><span  style="font-size:0.7em;">0.7em 文字大小演示</span></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>  <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;font-size:0.7em;&quot;</span>&gt;</span>0.7em 文字大小演示<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<hr />
+<h4 id="文字位置"><a class="markdownIt-Anchor" href="#文字位置"></a> 文字位置</h4>
+<p style="text-align:center">内容居中演示</p> 
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;text-align:center&quot;</span>&gt;</span>内容居中演示<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span> # 可以修改 text-align 参数来设置文字位置。<br></code></pre></td></tr></table></figure>
+<hr />
+<h4 id="页内跳转"><a class="markdownIt-Anchor" href="#页内跳转"></a> 页内跳转</h4>
+<p><a href="#demo">点击到达跳转位置演示</a></p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">&lt;<span class="hljs-keyword">a</span> href=<span class="hljs-string">&quot;#demo&quot;</span>&gt;点击到达跳转位置演示&lt;/<span class="hljs-keyword">a</span>&gt; <span class="hljs-comment"># 在需要跳转的地方添加此代码。</span><br>&lt;<span class="hljs-keyword">a</span> id=<span class="hljs-string">&quot;demo&quot;</span>&gt;跳转位置演示（跳转位置设置点）&lt;/<span class="hljs-keyword">a</span>&gt; <span class="hljs-comment"># 在跳转位置添加此代码。</span><br></code></pre></td></tr></table></figure>
+<hr />
+<h4 id="综合演示"><a class="markdownIt-Anchor" href="#综合演示"></a> 综合演示</h4>
+<p style="text-align:center;color:#8EC0E4;font-size:1.5em;font-weight: bold;">
+综合演示
+<br>
+优雅使用 Fluid 写文章
+</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;text-align:center;color:#8EC0E4;font-size:1.5em;font-weight: bold;&quot;</span>&gt;</span><br>综合演示<br><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>优雅使用 Fluid 写文章<br><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h4 id="iframe-页面镶套"><a class="markdownIt-Anchor" href="#iframe-页面镶套"></a> iframe 页面镶套</h4>
+<p>iframe 页面镶套可以帮助我们更好的展示一个页面。比如以下演示页面。</p>
+<iframe src="https://phantasus.vercel.app/" name="topFrame" scrolling="yes" noresize="noresize" id="topFrame" width="100%" height="650" frameborder="0">
+</iframe>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://phantasus.vercel.app/&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;100%&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;500&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;topFrame&quot;</span> <span class="hljs-attr">scrolling</span>=<span class="hljs-string">&quot;yes&quot;</span>  <span class="hljs-attr">noresize</span>=<span class="hljs-string">&quot;noresize&quot;</span> <span class="hljs-attr">frameborder</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;topFrame&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>一些参数说明，<code>width=&quot;100%&quot;</code> 为宽度自适应，高度请根据实际需求跳转，<strong>注意移动端页面是否匹配。</strong> <code>scrolling</code> 为滚动条参数。<code>frameborder</code> 为边框参数。<code>noresize</code> 属性规定用户无法调整框架的大小。</p>
+<h4 id="details-标签"><a class="markdownIt-Anchor" href="#details-标签"></a> details 标签</h4>
+<p>用于展示代码较多需要折叠或折叠相关内容，以下为演示。<code>summary</code> 填写显示名称。</p>
+<details>
+<summary>Demo</summary>
+<p><b>。。。</b></p>
+<p><b>。。。</b></p>
+</details>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">details</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">summary</span>&gt;</span>Demo<span class="hljs-tag">&lt;/<span class="hljs-name">summary</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>好友申请备注：fluid<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>提问之前请先仔细查阅用户文档<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;200&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/wechat.png&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;wechat&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">details</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="善用-tag-组件"><a class="markdownIt-Anchor" href="#善用-tag-组件"></a> 善用 Tag 组件</h3>
+<p>Fluid 内置了许多 Tag 组件，包含便签、行内标签（已知不会出现间隔，谨慎使用）、勾选框、按钮和组图，可以使用这些组件来丰富文章内容，具体点击查看官方文档查看，<strong><a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/#tag-%E6%8F%92%E4%BB%B6">点击跳转到 Fluid Doc</a></strong>。</p>
+<h2 id="配图"><a class="markdownIt-Anchor" href="#配图"></a> 配图</h2>
+<p>众所周知，<strong>博客好不好看，配图占一半</strong>。这里给大家推荐几个我常用找配图的地方。<strong>另外，请遵循相关网站的版权协议。</strong></p>
+<h3 id="wallpaper-hub"><a class="markdownIt-Anchor" href="#wallpaper-hub"></a> Wallpaper Hub</h3>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/vinceying/static@main/images/blog_fluid/2020-04-17_175244.png"><img src="https://cdn.jsdelivr.net/gh/vinceying/static@main/images/blog_fluid/2020-04-17_175244.png" srcset="/img/loading.gif" lazyload alt="Wallpaper Hub" /></a>Wallpaper Hub</p>
+<p><strong><a target="_blank" rel="noopener" href="https://wallpaperhub.app/">点击跳转到 Wallpaper Hub</a></strong></p>
+<h3 id="wallhaven"><a class="markdownIt-Anchor" href="#wallhaven"></a> Wallhaven</h3>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/vinceying/static@main/images/blog_fluid/2020-04-17_174841.png"><img src="https://cdn.jsdelivr.net/gh/vinceying/static@main/images/blog_fluid/2020-04-17_174841.png" srcset="/img/loading.gif" lazyload alt="Wallhaven" /></a>Wallhaven</p>
+<p><strong><a target="_blank" rel="noopener" href="https://wallhaven.cc/">点击跳转到 Wallhaven</a></strong></p>
+<h3 id="unsplash"><a class="markdownIt-Anchor" href="#unsplash"></a> Unsplash</h3>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/vinceying/static@main/images/blog_fluid/2020-05-14_000557.png"><img src="https://cdn.jsdelivr.net/gh/vinceying/static@main/images/blog_fluid/2020-05-14_000557.png" srcset="/img/loading.gif" lazyload alt="Unsplash" /></a>Unsplash</p>
+<p><strong><a target="_blank" rel="noopener" href="https://unsplash.com/">点击跳转到 Unsplash</a></strong></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/" class="category-chain-item">技术教程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%9D%82%E8%B0%88/">#杂谈</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>如何使用Typora+Fluid优雅的写作</div>
+      <div>https://qwerx29.github.io/posts/26036c99.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>QWERx29</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月27日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2022年6月27日</div>
+        </div>
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/a205bd50.html" title="那个夏天，希望你也能实现你的梦想">
+                        <span class="hidden-mobile">那个夏天，希望你也能实现你的梦想</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://lib.baomitu.com/waline/2.5.1/waline.min.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/waline/2.5.1/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline-og4uonkgt-qwerx29.vercel.app","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/qq","https://unpkg.com/@waline/emojis@1.0.1/tieba"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"placeholder":null,"avatar":"retro","avatarCDN":"https://seccdn.libravatar.org/avatar/","avatarForce":false,"highlight":true},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br/> <div style="font-size: 0.85rem"> <span id="jinrishici-sentence">正在加载今日诗词....</span> <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> <br/> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> <br/> <a href="https://icp.gov.moe/?keyword=20229229" target="_blank">萌ICP备20229229号</a>
+
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+    <!-- cnzz Analytics Icon -->
+    <span id="cnzz_stat_icon_1281109328" style="display: none"></span>
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/diy/caidai.js"></script>
+<script src="/js/diy/text.js"></script>
+<script src="/js/diy/title.js"></script>
+<script src="/js/diy/star.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"log":false});</script></body>
+</html>
