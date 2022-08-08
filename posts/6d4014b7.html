@@ -1,0 +1,860 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="https://qwerx29.coding.net/p/mycdn/d/img/git/raw/master/202205111741670.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="QWERx29">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【笔记】堆">
+<meta property="og:url" content="https://qwerx29.github.io/posts/6d4014b7.html">
+<meta property="og:site_name" content="Φάντασος">
+<meta property="og:description" content="？">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-08T05:46:53.000Z">
+<meta property="article:modified_time" content="2022-08-08T05:46:53.503Z">
+<meta property="article:author" content="QWERx29">
+<meta property="article:tag" content="学习">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>【笔记】堆 - Φάντασος</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.6/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/mac.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"qwerx29.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"24ea714b1933c2aeebeb7c89a81846f6","google":3555723727,"gtag":"G-0C6SJYXJ5C","tencent":{"sid":null,"cid":null},"woyaola":21311045,"cnzz":1281109328,"leancloud":{"app_id":"s3Q7tYo4SCMsahrY4fJVMyWl-MdYXbMMI","app_key":"7XHgb5CFp6nO5OU1H1D6Epif","server_url":null,"path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?24ea714b1933c2aeebeb7c89a81846f6";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', '3555723727', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.googletagmanager.com/gtag/js?id=G-0C6SJYXJ5C', function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-0C6SJYXJ5C');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+    <!-- 51.la Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('//js.users.51.la/21311045.js');
+      }
+    </script>
+  
+
+  
+    <!-- cnzz Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('//s4.cnzz.com/z_stat.php?id=1281109328&show=pic');
+      }
+    </script>
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Φάντασος</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【笔记】堆"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-08-08 13:46" pubdate>
+          2022年8月8日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【笔记】堆</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年8月8日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>堆是一种树形数据结构，每个结点的键值都大于等于（或小于等于）其父节点的键值。</p>
+<p>按堆顶（即树根）键值是全堆的最大或最小值，堆可以分为大根堆与小根堆。</p>
+<p>所有堆支持的三种基本操作是<strong>插入元素</strong>、<strong>查询堆顶</strong>、<strong>删除堆顶</strong>。</p>
+<p>STL中的<strong>容器适配器</strong> <code>std::priority_queue</code> 在默认情况下是使用 <code>std::vector</code> 存储的二叉大根堆。</p>
+<h3 id="手写二叉堆"><a class="markdownIt-Anchor" href="#手写二叉堆"></a> 手写二叉堆</h3>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://oi.wiki/ds/binary-heap/">二叉堆 - OI Wiki</a></p>
+</blockquote>
+<p>最简单的堆是二叉堆，其形态是一棵完全二叉树。二叉堆可以直接使用数组进行存储，结点 <code>x</code> 的左右儿子为 <code>2x = x&lt;&lt;1</code> 与 <code>2x+1 = x&lt;&lt;1|1</code>。</p>
+<p>堆的应用范围较广，除了在 Dijkstra 算法中维护最近结点外，还广泛应用于在贪心题目中维护最优决策。</p>
+<div class="note note-primary">
+            <h6 id="例题-2523-heap-a"><a class="markdownIt-Anchor" href="#例题-2523-heap-a"></a> 例题 #2523 Heap A</h6><p>将 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 件工具依次编号为 ，工作台上最多可以同时摆放 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span> 件工具，其余工具都在工具箱中，初始时工作台上没有工具。</p><p>现在要依次使用  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span> 件工具，若工作台上有当前需要的工具则可以直接使用，否则需要去工具箱中取出相应的工具，若工作台上的工具数量大于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>  ，则必须将其中一件工具重新放回箱中。</p><p>求最少需要从工具箱中取多少次工具。</p>
+          </div>
+<div class="note note-success">
+            <h6 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h6><p>贪心策略：若桌面空间不足，则桌面上下一次使用最晚的工具放回工具箱。</p><p>感性理解正确性：让下一次使用较早的工具留在桌面上更有可能使之后几次不需要取新工具。</p>
+          </div>
+<h3 id="可撤回贪心"><a class="markdownIt-Anchor" href="#可撤回贪心"></a> 可撤回贪心</h3>
+<div class="note note-primary">
+            <h6 id="例题-2524-heap-b"><a class="markdownIt-Anchor" href="#例题-2524-heap-b"></a> 例题 #2524 Heap B</h6><p>一个环形广场周围有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 个空位，第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>个空位有一个美观度 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 。</p><p>现在想把 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span> 棵树种进这些空位中，每个种了树的位置都会为广场提供其相应的美观度。</p><p>由于某些规划问题，相邻两个空位中不能同时种上树，试求可能取得的最大美观度。</p>
+          </div>
+<div class="note note-success">
+            <h6 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h6><p>堆与双向链表实现可撤回贪心。</p><p>每次贪心地选择美观度最大的，如果要撤回一棵树的选择，那么只可能是因为选择这棵树相邻的两棵树收益更大。因此可以在选择一棵树 <code>i</code> 后把这棵树及相邻的两棵树合并成一棵新的“树”，新树的美观度为 <code>a[pre[i]]+a[nex[i]]-a[i]</code> 如果选择了这颗新“树”，就代表撤回树 <code>i</code> 并选择 <code>pre[i]</code> 和 <code>nex[i]</code>。使用双向循环链表维护树之间的前趋后继关系，用堆维护美观度最大的树即可。</p>
+          </div>
+<h3 id="左偏树"><a class="markdownIt-Anchor" href="#左偏树"></a> 左偏树</h3>
+<p><strong>左偏树</strong>是一种<strong>可并堆</strong>，具有堆的性质，可以快速合并。</p>
+<h4 id="text-dist-的定义和性质"><a class="markdownIt-Anchor" href="#text-dist-的定义和性质"></a> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text {dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 的定义和性质</h4>
+<p>对于一棵二叉树，我们定义 <strong>外节点</strong> 为左儿子或右儿子为空的节点，定义一个外节点的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text {dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> ，一个不是外节点的节点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text {dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 为其到子树中最近的外节点的距离加一。空节点的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>  。</p>
+<p><strong>一棵有</strong> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> <strong>个节点的二叉树，根的</strong> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> <strong>不超过</strong> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo fence="true">⌈</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo fence="true">⌉</mo></mrow><annotation encoding="application/x-tex">\left\lceil\log (n+1)\right\rceil</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">⌈</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mclose delimcenter" style="top:0em;">⌉</span></span></span></span></span>（ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> <strong>性质</strong>），因为一棵根的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> 的二叉树至少有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 层是满二叉树，那么就至少有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>x</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^x-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.747722em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个节点。注意这个性质是所有二叉树都具有的，并不是左偏树所特有的。</p>
+<h4 id="左偏树的定义和性质"><a class="markdownIt-Anchor" href="#左偏树的定义和性质"></a> 左偏树的定义和性质</h4>
+<p>左偏树是一棵二叉树，它不仅具有堆的性质，并且是「<strong>左偏</strong>」的：每个节点左儿子的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 都大于等于右儿子的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 。</p>
+<p>因此，<strong>左偏树每个节点的</strong> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> <strong>都等于其右儿子的</strong> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> <strong>加</strong> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>（<strong>左偏性质</strong>）。</p>
+<p>需要注意的是， <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 不是深度， <strong>左偏树的深度没有保证</strong> ，一条向左的链也是左偏树。</p>
+<h4 id="核心操作-合并merge"><a class="markdownIt-Anchor" href="#核心操作-合并merge"></a> 核心操作 - 合并（<code>merge</code>)</h4>
+<p>合并两个堆时，由于要满足堆性质，先取值较大的那个根作为合并后堆的根节点，然后将这个根的左儿子作为合并后堆的左儿子，递归地合并其<strong>右儿子</strong>与另一个堆，作为合并后的堆的右儿子。为了满足左偏性质，合并后若左儿子的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 小于右儿子的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> ，就交换两个儿子。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">node</span>&#123;<br>    <span class="hljs-type">int</span> val,ls,rs,d;<br>&#125; h[N];<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (!x || !y) <span class="hljs-keyword">return</span> x | y;         <span class="hljs-comment">// 若一个堆为空则返回另一个堆</span><br>    <span class="hljs-keyword">if</span> (t[x].val &lt; t[y].val) std::<span class="hljs-built_in">swap</span>(x, y);  <span class="hljs-comment">// 取值较大的作为根</span><br>    t[x].rs = <span class="hljs-built_in">merge</span>(t[x].rs, y);        <span class="hljs-comment">// 递归合并右儿子与另一个堆</span><br>    <span class="hljs-keyword">if</span> (t[t[x].rs].d &gt; t[t[x].ls].d)<br>        std::<span class="hljs-built_in">swap</span>(t[x].ls, t[x].rs);    <span class="hljs-comment">// 若不满足左偏性质则交换左右儿子</span><br>    t[x].d = t[t[x].rs].d + <span class="hljs-number">1</span>;          <span class="hljs-comment">// 更新dist</span><br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>由于<strong>左偏性质</strong>，每递归一层，其中一个堆根节点的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 就会减小  ，又根据 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> <strong>性质</strong>，合并两个大小分别为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span> 的堆复杂度是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>+</mo><mi>log</mi><mo>⁡</mo><mi>m</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log n+\log m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span> 。</p>
+<p>左偏树还有一种无需交换左右儿子的写法：将 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 较大的儿子视作左儿子，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 较小的儿子视作右儿子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span>&amp; <span class="hljs-title">rs</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123; <span class="hljs-keyword">return</span> t[x].ch[t[t[x].ch[<span class="hljs-number">1</span>]].d &lt; t[t[x].ch[<span class="hljs-number">0</span>]].d]; &#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123;<br>  <span class="hljs-keyword">if</span> (!x || !y) <span class="hljs-keyword">return</span> x | y;<br>  <span class="hljs-keyword">if</span> (t[x].val &lt; t[y].val) <span class="hljs-built_in">swap</span>(x, y);<br>  <span class="hljs-built_in">rs</span>(x) = <span class="hljs-built_in">merge</span>(<span class="hljs-built_in">rs</span>(x), y);<br>  t[x].d = t[<span class="hljs-built_in">rs</span>(x)].d + <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">return</span> x;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="其它操作"><a class="markdownIt-Anchor" href="#其它操作"></a> 其它操作</h4>
+<h5 id="插入节点"><a class="markdownIt-Anchor" href="#插入节点"></a> 插入节点</h5>
+<p>单个节点也可以视为一个堆，合并即可。</p>
+<h5 id="删除根"><a class="markdownIt-Anchor" href="#删除根"></a> 删除根</h5>
+<p>合并根的左右儿子即可。</p>
+<h5 id="删除任意节点"><a class="markdownIt-Anchor" href="#删除任意节点"></a> 删除任意节点</h5>
+<h6 id="做法"><a class="markdownIt-Anchor" href="#做法"></a> 做法</h6>
+<p>先将左右儿子合并，然后自底向上更新 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span>、不满足左偏性质时交换左右儿子，当 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 无需更新时结束递归：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span>&amp; <span class="hljs-title">rs</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123; <span class="hljs-keyword">return</span> t[x].ch[t[t[x].ch[<span class="hljs-number">1</span>]].d &lt; t[t[x].ch[<span class="hljs-number">0</span>]].d]; &#125;<br><br><span class="hljs-comment">// 有了 pushup，直接 merge 左右儿子就实现了删除节点并保持左偏性质</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123;<br>  <span class="hljs-keyword">if</span> (!x || !y) <span class="hljs-keyword">return</span> x | y;<br>  <span class="hljs-keyword">if</span> (t[x].val &lt; t[y].val) <span class="hljs-built_in">swap</span>(x, y);<br>  t[<span class="hljs-built_in">rs</span>(x) = <span class="hljs-built_in">merge</span>(<span class="hljs-built_in">rs</span>(x), y)].fa = x;<br>  <span class="hljs-built_in">pushup</span>(x);<br>  <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">pushup</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>  <span class="hljs-keyword">if</span> (!x) <span class="hljs-keyword">return</span>;<br>  <span class="hljs-keyword">if</span> (t[x].d != t[<span class="hljs-built_in">rs</span>(x)].d + <span class="hljs-number">1</span>) &#123;<br>    t[x].d = t[<span class="hljs-built_in">rs</span>(x)].d + <span class="hljs-number">1</span>;<br>    <span class="hljs-built_in">pushup</span>(t[x].fa);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h6 id="复杂度证明"><a class="markdownIt-Anchor" href="#复杂度证明"></a> 复杂度证明</h6>
+<p>我们令当前 <code>pushup</code> 的这个节点为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> ，其父亲为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> ，一个节点的“初始 ” <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 为它在 <code>pushup</code> 前的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 。我们先 <code>pushup</code> 一下删除的节点，然后从其父亲开始起讨论复杂度。</p>
+<p>继续递归下去有两种情况：</p>
+<ol>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> 是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> 的右儿子，此时 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> 的初始 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> 的初始 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 加一。</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> 是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> 的左儿子，只有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> 的左右儿子初始 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 相等时（此时左儿子 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 减一会导致左右儿子互换）才会继续递归下去，因此 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> 的初始 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 仍然是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> 的初始 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 加一。</li>
+</ol>
+<p>所以，我们得到，除了第一次 <code>pushup</code>（因为被删除节点的父亲的初始 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 不一定等于被删除节点左右儿子合并后的初始 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 加一），每递归一层 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> 的初始 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 就会加一，因此最多递归 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> 层。</p>
+<h5 id="整个堆加上减去一个值-乘上一个正数"><a class="markdownIt-Anchor" href="#整个堆加上减去一个值-乘上一个正数"></a> 整个堆加上/减去一个值、乘上一个正数</h5>
+<p>其实可以打标记且不改变相对大小的操作都可以。</p>
+<p>在根打上标记，删除根/合并堆（访问儿子）时下传标记即可：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123;<br>  <span class="hljs-keyword">if</span> (!x || !y) <span class="hljs-keyword">return</span> x | y;<br>  <span class="hljs-keyword">if</span> (t[x].val &gt; t[y].val) <span class="hljs-built_in">swap</span>(x, y);<br>  <span class="hljs-built_in">pushdown</span>(x);<br>  t[x].rs = <span class="hljs-built_in">merge</span>(t[x].rs, y);<br>  <span class="hljs-keyword">if</span> (t[t[x].rs].d &gt; t[t[x].ls].d) <span class="hljs-built_in">swap</span>(t[x].ls, t[x].rs);<br>  t[x].d = t[t[x].rs].d + <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">pop</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>  <span class="hljs-built_in">pushdown</span>(x);<br>  <span class="hljs-keyword">return</span> <span class="hljs-built_in">merge</span>(t[x].ls, t[x].rs);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h5 id="随机合并"><a class="markdownIt-Anchor" href="#随机合并"></a> 随机合并</h5>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123;<br>  <span class="hljs-keyword">if</span> (!x || !y) <span class="hljs-keyword">return</span> x | y;<br>  <span class="hljs-keyword">if</span> (t[y].val &lt; t[x].val) <span class="hljs-built_in">swap</span>(x, y);<br>  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">rand</span>() &amp; <span class="hljs-number">1</span>)  <span class="hljs-comment">// 随机选择是否交换左右子节点</span><br>    <span class="hljs-built_in">swap</span>(t[x].ls, t[x].rs);<br>  t[x].ls = <span class="hljs-built_in">merge</span>(t[x].ls, y);<br>  <span class="hljs-keyword">return</span> x;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>可以看到该实现方法唯一不同之处便是采用了随机数来实现合并，这样一来便可以省去 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>dist</mtext></mrow><annotation encoding="application/x-tex">\text{dist}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">dist</span></span></span></span></span> 的相关计算。且平均时间复杂度亦为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> ，详细证明可参考 <a target="_blank" rel="noopener" href="https://cp-algorithms.com/data_structures/randomized_heap.html">Randomized Heap</a>。</p>
+<h4 id="注意事项"><a class="markdownIt-Anchor" href="#注意事项"></a> 注意事项</h4>
+<p>一般需要用数组记录每个堆的堆顶编号/指针。</p>
+<p>题目中通常需要操作的是「 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> 所在的堆」，这时一般需要同时维护<strong>并查集</strong>用于查询「 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> 所在的堆」的根结点。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-chain-item">数据结构</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>【笔记】堆</div>
+      <div>https://qwerx29.github.io/posts/6d4014b7.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>QWERx29</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年8月8日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2022年8月8日</div>
+        </div>
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/f4df537b.html" title="VuePress搭建个人博客">
+                        <span class="hidden-mobile">VuePress搭建个人博客</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://lib.baomitu.com/waline/2.5.1/waline.min.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/waline/2.5.1/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline-og4uonkgt-qwerx29.vercel.app","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/qq","https://unpkg.com/@waline/emojis@1.0.1/tieba"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"placeholder":null,"avatar":"retro","avatarCDN":"https://seccdn.libravatar.org/avatar/","avatarForce":false,"highlight":true},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br/> <div style="font-size: 0.85rem"> <span id="jinrishici-sentence">正在加载今日诗词....</span> <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> <br/> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> <br/> <a href="https://icp.gov.moe/?keyword=20229229" target="_blank">萌ICP备20229229号</a>
+
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+    <!-- cnzz Analytics Icon -->
+    <span id="cnzz_stat_icon_1281109328" style="display: none"></span>
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/diy/caidai.js"></script>
+<script src="/js/diy/text.js"></script>
+<script src="/js/diy/title.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"log":false});</script></body>
+</html>
