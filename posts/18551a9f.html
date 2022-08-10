@@ -16,26 +16,26 @@
   <meta name="author" content="QWERx29">
   <meta name="keywords" content="">
   
-    <meta name="description" content="如题。">
+    <meta name="description" content="《一网打尽所有静态博客框架》">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hugo搭建个人博客">
-<meta property="og:url" content="https://qwerx29.github.io/posts/3bc0bbc9.html">
+<meta property="og:title" content="5分钟搭建博客系列">
+<meta property="og:url" content="https://qwerx29.github.io/posts/18551a9f.html">
 <meta property="og:site_name" content="Φάντασος">
-<meta property="og:description" content="如题。">
+<meta property="og:description" content="《一网打尽所有静态博客框架》">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/08/08/UurlkDcMdIZ49xN.png">
-<meta property="article:published_time" content="2022-08-08T12:21:58.000Z">
-<meta property="article:modified_time" content="2022-08-08T12:25:40.381Z">
+<meta property="og:image" content="https://s2.loli.net/2022/08/10/mWVi6X9Q143Bh2q.webp">
+<meta property="article:published_time" content="2022-08-10T13:48:01.000Z">
+<meta property="article:modified_time" content="2022-08-10T13:55:19.873Z">
 <meta property="article:author" content="QWERx29">
 <meta property="article:tag" content="杂谈">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.loli.net/2022/08/08/UurlkDcMdIZ49xN.png">
+<meta name="twitter:image" content="https://s2.loli.net/2022/08/10/mWVi6X9Q143Bh2q.webp">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Hugo搭建个人博客 - Φάντασος</title>
+  <title>5分钟搭建博客系列 - Φάντασος</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -276,13 +276,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('http://imgapi.xl0408.top/index.php') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hugo搭建个人博客"></span>
+            <span id="subtitle" data-typed-text="5分钟搭建博客系列"></span>
           
         </div>
 
@@ -293,8 +293,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-08 20:21" pubdate>
-          2022年8月8日 晚上
+        <time datetime="2022-08-10 21:48" pubdate>
+          2022年8月10日 晚上
         </time>
       </span>
     
@@ -305,7 +305,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          874 字
         
       </span>
     
@@ -366,12 +366,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hugo搭建个人博客</h1>
+            <h1 style="display: none">5分钟搭建博客系列</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年8月8日 晚上
+                    本文最后更新于：2022年8月10日 晚上
                   
                 
               </p>
@@ -379,50 +379,54 @@
             
               <div class="markdown-body">
                 
-                <h3 id="️开始"><a class="markdownIt-Anchor" href="#️开始"></a> 🎟️开始</h3>
-<h4 id="0安装chocolatey或scoop"><a class="markdownIt-Anchor" href="#0安装chocolatey或scoop"></a> 0.安装<a target="_blank" rel="noopener" href="https://chocolatey.org/">Chocolatey</a>或<a target="_blank" rel="noopener" href="https://scoop.sh/">Scoop</a></h4>
-<p>以下以Chocolatey为例，Scoop与之相似，可参阅<a target="_blank" rel="noopener" href="https://gohugo.io/getting-started/installing">官方文档</a>。</p>
-<p>安装后打开终端，输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ choco --version<br></code></pre></td></tr></table></figure>
-<p>检查安装是否成功</p>
-<h4 id="1安装hugo"><a class="markdownIt-Anchor" href="#1安装hugo"></a> 1.安装Hugo</h4>
-<p>输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ choco install hugo -confirm    <span class="hljs-comment">#普通版本</span><br></code></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ choco install hugo-extended -confirm    <span class="hljs-comment">#带有Sass/SCSS的扩展版本</span><br></code></pre></td></tr></table></figure>
-<h4 id="2创建站点"><a class="markdownIt-Anchor" href="#2创建站点"></a> 2.创建站点</h4>
-<p>输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hugo new site quickstart<br></code></pre></td></tr></table></figure>
-<p>就会在<code>quickstart</code>目录下创建Hugo站点</p>
-<h4 id="3添加主题"><a class="markdownIt-Anchor" href="#3添加主题"></a> 3.添加主题</h4>
-<p>此处以<code>Kagome</code>为例，<a target="_blank" rel="noopener" href="https://themes.gohugo.io/">其他主题</a></p>
-<p>依次执行以下三行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> quickstart<br>$ git init<br>$ git submodule add https://github.com/miiiku/hugo-theme-kagome.git ./themes/kagome    <span class="hljs-comment">#此处的链接可根据需求替换</span><br></code></pre></td></tr></table></figure>
-<p>然后更改配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">echo</span> theme = \&quot;ananke\&quot; &gt;&gt; config.toml<br></code></pre></td></tr></table></figure>
-<h4 id="4写下第一篇文章"><a class="markdownIt-Anchor" href="#4写下第一篇文章"></a> 4.写下第一篇文章</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hugo new posts/my-first-post.md<br></code></pre></td></tr></table></figure>
-<p>文章会带一个<code>Format Matter</code></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">---<br>title: &quot;My First Post&quot;<br>date: 2022-08-08T20:00:11+08:00<br><span class="hljs-section">draft: true</span><br><span class="hljs-section">---</span><br></code></pre></td></tr></table></figure>
-<p>当要发布文章时，将<code>draft: true</code> 改为<code>false</code>即可</p>
-<h4 id="5本地预览"><a class="markdownIt-Anchor" href="#5本地预览"></a> 5.本地预览</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hugo server -D<br></code></pre></td></tr></table></figure>
-<p>打开<a target="_blank" rel="noopener" href="http://localhost:1313">http://localhost:1313</a>查看效果</p>
-<h4 id="6主题配置"><a class="markdownIt-Anchor" href="#6主题配置"></a> 6.主题配置</h4>
-<p>在<code>config.toml</code>中编辑即可</p>
-<h3 id="部署"><a class="markdownIt-Anchor" href="#部署"></a> 🪁部署</h3>
+                <h2 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h2>
+<p>本文是作者目前已知的<strong>所有</strong>静态博客框架的合集，您可以自行查询想要使用的框架。</p>
+<p>这里介绍的都是一些基本操作，进阶内容详见—&gt;🕊️</p>
+<p>如果这里没有您想要了解的，欢迎在评论区留言~~</p>
+<h3 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h3>
+<ul>
+<li>Git环境和GitHub账号</li>
+<li>终端</li>
+</ul>
+<hr />
+<h2 id="mkdocsmaterial主题"><a class="markdownIt-Anchor" href="#mkdocsmaterial主题"></a> MkDocs(Material主题)</h2>
+<p><a target="_blank" rel="noopener" href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a> 是 <a target="_blank" rel="noopener" href="https://www.mkdocs.org">MkDocs</a> 的主题，是一个面向（技术）项目文档的静态站点生成器。</p>
+<h3 id="️开始"><a class="markdownIt-Anchor" href="#️开始"></a> 🎗️开始</h3>
+<h4 id="配置环境"><a class="markdownIt-Anchor" href="#配置环境"></a> 配置环境</h4>
+<p>安装<a target="_blank" rel="noopener" href="https://www.python.org/downloads/">Python</a></p>
+<h4 id="安装material-for-mkdocs"><a class="markdownIt-Anchor" href="#安装material-for-mkdocs"></a> 安装Material for MkDocs</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pip install mkdocs-material<br></code></pre></td></tr></table></figure>
+<h3 id="创建站点"><a class="markdownIt-Anchor" href="#创建站点"></a> 🎍创建站点</h3>
 <h4 id="初始化"><a class="markdownIt-Anchor" href="#初始化"></a> 初始化</h4>
-<p>执行<code>hugo -D</code>生成<code>./public</code>文件夹后，依次执行以下指令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> ~/quickstart/public  <span class="hljs-comment"># 生成的 HTML 文件保存在 &quot;public&quot; 目录中，&quot;public&quot; 文件夹会被转换为 Git 库。 </span><br>$ git init  <span class="hljs-comment"># 初始化 Git 库。</span><br></code></pre></td></tr></table></figure>
-<h4 id="添加远程库"><a class="markdownIt-Anchor" href="#添加远程库"></a> 添加远程库</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git remote add origin git@github.com:&lt;YOURNAME&gt;/&lt;YOURNAME&gt;.github.io.git<br></code></pre></td></tr></table></figure>
-<h4 id="提交更改"><a class="markdownIt-Anchor" href="#提交更改"></a> 提交更改</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git status  <span class="hljs-comment"># 查看当前修改状态。</span><br>$ git add .  <span class="hljs-comment"># 添加所有修改过的文件。你也可以只添加某个文件。</span><br>$ git commit -m <span class="hljs-string">&quot;Add a new post&quot;</span>  <span class="hljs-comment"># commit message.</span><br></code></pre></td></tr></table></figure>
-<h4 id="推送"><a class="markdownIt-Anchor" href="#推送"></a> 推送</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git push -u origin main<br></code></pre></td></tr></table></figure>
-<h4 id="完结撒花"><a class="markdownIt-Anchor" href="#完结撒花"></a> 完结撒花🎉</h4>
-<h3 id="进阶"><a class="markdownIt-Anchor" href="#进阶"></a> ✨进阶</h3>
-<p>略</p>
+<p>完成安装后，转到您希望项目所在的目录，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ mkdocs new .<br></code></pre></td></tr></table></figure>
+<p>生成的文件如下</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">.<br>├─ docs/<br>│  └─ index.md<br>└─ mkdocs.yml<br></code></pre></td></tr></table></figure>
+<h4 id="设置主题"><a class="markdownIt-Anchor" href="#设置主题"></a> 设置主题</h4>
+<p>在<code>mkdocs.yml</code>中添加下面几行</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">theme:</span><br>  <span class="hljs-attr">name:</span> <span class="hljs-string">material</span><br></code></pre></td></tr></table></figure>
+<h4 id="高级配置"><a class="markdownIt-Anchor" href="#高级配置"></a> 高级配置</h4>
+<blockquote>
+<p>咕咕咕</p>
+</blockquote>
+<h4 id="本地预览"><a class="markdownIt-Anchor" href="#本地预览"></a> 本地预览</h4>
+<p>输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ mkdocs serve <br></code></pre></td></tr></table></figure>
+<p>后打开<a target="_blank" rel="noopener" href="http://localhost:8000/">http://localhost:8000/</a>就会看到下图所示界面</p>
+<p><img src="https://s2.loli.net/2022/08/10/9eMrI2oTxNGEftu.png" srcset="/img/loading.gif" lazyload alt="MkDocs预览" /></p>
+<h4 id="生成静态文件"><a class="markdownIt-Anchor" href="#生成静态文件"></a> 生成静态文件</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ mkdocs build<br></code></pre></td></tr></table></figure>
+<h3 id="写作"><a class="markdownIt-Anchor" href="#写作"></a> 🪄写作</h3>
+<p>在<code>/docs</code>目录下创建<code>Markdown</code>文档即可</p>
+<p>例如目录结构如下</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">.<br>├─ docs/<br>│  ├─ foo/<br>|  |  ├─ bar.md<br>|  |  └─ index.md<br>│  └─ index.md<br>└─ mkdocs.yml<br></code></pre></td></tr></table></figure>
+<p>则URL为</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">docs/index.md        =&gt; http://domain.com<br>docs/foo/bar.md      =&gt; http://domain.com/foo/bar/<br>docs/foo/index.md    =&gt; http://domain.com/foo/<br></code></pre></td></tr></table></figure>
+<h3 id="部署"><a class="markdownIt-Anchor" href="#部署"></a> 🏹部署</h3>
+<p>添加远程库并执行自带的部署命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git init<br>$ git remote add origin https://github.com/&lt;YOURNMAE&gt;/&lt;PROJECT_NAME&gt;.git<br>$ mkdocs gh-deploy<br></code></pre></td></tr></table></figure>
+<p>片刻后就会在<code>&lt;YOURNAME&gt;.github.io/&lt;PROJECT_NAME&gt;</code>看到搭建好的网站</p>
+<h3 id=""><a class="markdownIt-Anchor" href="#"></a> 🎉</h3>
 
                 
               </div>
@@ -468,8 +472,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hugo搭建个人博客</div>
-      <div>https://qwerx29.github.io/posts/3bc0bbc9.html</div>
+      <div>5分钟搭建博客系列</div>
+      <div>https://qwerx29.github.io/posts/18551a9f.html</div>
     </div>
     <div class="license-meta">
       
@@ -481,13 +485,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月8日</div>
+          <div>2022年8月10日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年8月8日</div>
+          <div>2022年8月10日</div>
         </div>
       
       <div class="license-meta-item">
@@ -516,18 +520,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/fab451a5.html" title="并查集">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">并查集</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/6d4014b7.html" title="堆">
-                        <span class="hidden-mobile">堆</span>
+                      <a href="/posts/850f2080.html" title="哈希表">
+                        <span class="hidden-mobile">哈希表</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
