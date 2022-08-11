@@ -16,26 +16,26 @@
   <meta name="author" content="QWERx29">
   <meta name="keywords" content="">
   
-    <meta name="description" content="也是一种数据结构">
+    <meta name="description" content="字符串or数据结构?">
 <meta property="og:type" content="article">
-<meta property="og:title" content="并查集">
-<meta property="og:url" content="https://qwerx29.github.io/posts/fab451a5.html">
+<meta property="og:title" content="字典树">
+<meta property="og:url" content="https://qwerx29.github.io/posts/eea60a6a.html">
 <meta property="og:site_name" content="Φάντασος">
-<meta property="og:description" content="也是一种数据结构">
+<meta property="og:description" content="字符串or数据结构?">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://api.paugram.com/wallpaper/">
-<meta property="article:published_time" content="2022-08-10T05:01:27.000Z">
-<meta property="article:modified_time" content="2022-08-11T04:28:06.679Z">
+<meta property="og:image" content="https://api.dujin.org/pic/ghibli">
+<meta property="article:published_time" content="2022-08-11T04:36:58.000Z">
+<meta property="article:modified_time" content="2022-08-11T04:37:10.450Z">
 <meta property="article:author" content="QWERx29">
 <meta property="article:tag" content="学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://api.paugram.com/wallpaper/">
+<meta name="twitter:image" content="https://api.dujin.org/pic/ghibli">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>并查集 - Φάντασος</title>
+  <title>字典树 - Φάντασος</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -282,7 +282,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="并查集"></span>
+            <span id="subtitle" data-typed-text="字典树"></span>
           
         </div>
 
@@ -293,8 +293,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-10 13:01" pubdate>
-          2022年8月10日 下午
+        <time datetime="2022-08-11 12:36" pubdate>
+          2022年8月11日 下午
         </time>
       </span>
     
@@ -305,7 +305,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          1.2k 字
         
       </span>
     
@@ -316,7 +316,7 @@
         
         
         
-          4 分钟
+          2 分钟
         
       </span>
     
@@ -366,12 +366,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">并查集</h1>
+            <h1 style="display: none">字典树</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年8月11日 中午
+                    本文最后更新于：2022年8月11日 下午
                   
                 
               </p>
@@ -379,55 +379,30 @@
             
               <div class="markdown-body">
                 
-                <blockquote>
-<p><a target="_blank" rel="noopener" href="https://faioj.brynhild.online/wiki/notes/OI-Wiki/ds/dsu/">并查集 - OI Wiki</a></p>
-</blockquote>
-<p>并查集是一种树形的数据结构，能够处理一些不交集的<strong>合并</strong>及<strong>查询</strong>问题。</p>
-<h3 id="初始化"><a class="markdownIt-Anchor" href="#初始化"></a> 初始化</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">makeSet</span><span class="hljs-params">(<span class="hljs-type">int</span> size)</span> </span>&#123;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; size; i++) fa[i] = i;  <span class="hljs-comment">// i 就在它本身的集合里</span><br>  <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <p><strong>字典树</strong>（<code>trie</code>），是一种维护许多<strong>字符串</strong>构成的“字典”的数据结构。当然，整数也可以按其在某种进制下的表示被当作字符串。</p>
+<p>字典树用边来代表字母，从根结点到树上某一结点的路径代表了一个字符串。比如下图中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>→</mo><mn>4</mn><mo>→</mo><mn>8</mn><mo>→</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">1\to4\to 8\to 12</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">2</span></span></span></span> 表示的就是字符串 <code>caa</code>：</p>
+<p><img src="https://s2.loli.net/2022/08/11/ESRjK6tp2bc1IUD.png" srcset="/img/loading.gif" lazyload alt="" /></p>
+<h3 id="结构"><a class="markdownIt-Anchor" href="#结构"></a> 结构</h3>
+<p>字典树的结构非常易懂，我们用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>δ</mi><mo stretchy="false">(</mo><mi>u</mi><mo separator="true">,</mo><mi>c</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\delta(u,c)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathdefault">u</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">c</span><span class="mclose">)</span></span></span></span> 表示结点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">u</span></span></span></span> 的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span> 字符指向的下一个结点，或着说是结点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">u</span></span></span></span> 代表的字符串后面添加一个字符 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span> 形成的字符串的结点。（ 的取值范围和字符集大小有关，不一定总是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mn>26</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">[0,26)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mord">6</span><span class="mclose">)</span></span></span></span> ）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">node</span>&#123;<br>    <span class="hljs-type">int</span> c[<span class="hljs-number">26</span>];<br>    <span class="hljs-type">int</span> tag;<br>&#125;a[N];<br><span class="hljs-type">int</span> rot,tot=<span class="hljs-number">0</span>;<br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span>&#123; rot=++tot; &#125;<br></code></pre></td></tr></table></figure>
+<h3 id="插入"><a class="markdownIt-Anchor" href="#插入"></a> 插入</h3>
+<p>有时需要标记插入进字典树的是哪些字符串，每次插入完成时在这个字符串所代表的节点处打上标记即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-type">char</span>* s)</span></span>&#123;<br>    <span class="hljs-type">int</span> pos=rot,val;<br>    <span class="hljs-keyword">for</span>(;*s;++s)&#123;<br>        val=(*s)-<span class="hljs-string">&#x27;a&#x27;</span>;<br>        <span class="hljs-keyword">if</span>(!a[pos].c[val])a[pos].c[val]=++tot;  <span class="hljs-comment">//不存在则新建子结点</span><br>        pos=a[pos].c[val];<br>    &#125;<br>    a[pos].tag++;   <span class="hljs-comment">//标记尾结点</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="查找"><a class="markdownIt-Anchor" href="#查找"></a> 查找</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> fa[MAXN];  <span class="hljs-comment">// 记录某个人的爸爸是谁，特别规定，祖先的爸爸是他自己</span><br><br><span class="hljs-comment">// 递归</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>  <span class="hljs-comment">// 寻找x的祖先</span><br>  <span class="hljs-keyword">if</span> (fa[x] == x)  <span class="hljs-comment">// 如果 x 是祖先则返回</span><br>    <span class="hljs-keyword">return</span> x;<br>  <span class="hljs-keyword">else</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">find</span>(fa[x]);  <span class="hljs-comment">// 如果不是则 x 的爸爸问 x 的爷爷</span><br>&#125;<br><br><span class="hljs-comment">// 非递归</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>  <span class="hljs-keyword">while</span> (x != fa[x])  <span class="hljs-comment">// 如果 x 不是祖先，就一直往上一辈找</span><br>  &#123;<br>    x = fa[x];<br>  &#125;<br>  <span class="hljs-keyword">return</span> x;  <span class="hljs-comment">// 如果 x 是祖先则返回</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="合并"><a class="markdownIt-Anchor" href="#合并"></a> 合并</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">unionSet</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123;<br>  <span class="hljs-comment">// x 与 y 所在家族合并</span><br>  x = <span class="hljs-built_in">find</span>(x);<br>  y = <span class="hljs-built_in">find</span>(y);<br>  fa[x] = y;  <span class="hljs-comment">// 把 x 的祖先变成 y 的祖先的儿子</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="优化"><a class="markdownIt-Anchor" href="#优化"></a> 优化</h3>
-<p>不加任何优化的并查集有可能退化成一条链，导致查询复杂度退化为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> 。并查集常见的优化有<strong>路径压缩</strong>与<strong>按秩合并</strong>两种。</p>
-<h4 id="路径压缩"><a class="markdownIt-Anchor" href="#路径压缩"></a> 路径压缩</h4>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> f[N];<br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123; <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=n; ++i)f[i]=i; &#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123; <span class="hljs-keyword">return</span> x==f[x]?x:f[x]=<span class="hljs-built_in">find</span>(f[x]); &#125;    <span class="hljs-comment">// 路径压缩</span><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span>&#123; f[<span class="hljs-built_in">find</span>(x)]=<span class="hljs-built_in">find</span>(y); &#125; <br></code></pre></td></tr></table></figure>
-<h4 id="按秩合并"><a class="markdownIt-Anchor" href="#按秩合并"></a> 按秩合并</h4>
-<p>这里的“秩”既可以取为树的深度也可以取为集合大小，但取秩为树的深度与路径压缩不兼容。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> f[N], s[N];  <span class="hljs-comment">// 取秩为集合大小</span><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123; <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=n; ++i)f[i]=i, s[i]=<span class="hljs-number">1</span>; &#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123; <span class="hljs-keyword">return</span> x==f[x]?x:f[x]=<span class="hljs-built_in">find</span>(f[x]); &#125;   <span class="hljs-comment">// 路径压缩</span><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span>&#123;                        <span class="hljs-comment">// 按秩合并</span><br>    x=<span class="hljs-built_in">find</span>(x), y=<span class="hljs-built_in">find</span>(y);<br>    <span class="hljs-keyword">if</span>(x==y)<span class="hljs-keyword">return</span>;<br>    <span class="hljs-keyword">if</span>(s[x]&gt;s[y])<span class="hljs-built_in">swap</span>(x, y);<br>    f[x]=y, s[y]+=s[x]; <br>&#125; <br></code></pre></td></tr></table></figure>
-<p>需要注意的是，如果合并时祖孙关系不能颠倒，那么就不能使用按秩合并优化。</p>
-<h4 id="时间复杂度"><a class="markdownIt-Anchor" href="#时间复杂度"></a> 时间复杂度</h4>
-<table>
-<thead>
-<tr>
-<th>优化</th>
-<th>时间复杂度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>无</td>
-<td>最坏 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>m</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(nm)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span></td>
-</tr>
-<tr>
-<td>按秩合并</td>
-<td>最坏 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>m</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(m\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></td>
-</tr>
-<tr>
-<td>路径压缩</td>
-<td>平均 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>m</mi><mi>α</mi><mo stretchy="false">(</mo><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(m\alpha(m,n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span></td>
-</tr>
-<tr>
-<td>路径压缩&amp;按秩合并</td>
-<td>平均 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>m</mi><mi>α</mi><mo stretchy="false">(</mo><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(m\alpha(m,n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span></td>
-</tr>
-</tbody>
-</table>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\alpha(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> 为反阿克曼函数，增长极其缓慢，在OI数据范围内可以认为是较小的常数。</p>
-<h3 id="带权并查集"><a class="markdownIt-Anchor" href="#带权并查集"></a> 带权并查集</h3>
-<p>在并查集的边上可以维护一个权值（并需要定义路径压缩时权值使用的运算），这样的并查集叫做<strong>带权并查集</strong>，能够实现更复杂的功能。<strong>路径压缩</strong>与<strong>按秩合并</strong>两种优化在带权并查集中仍能够使用。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> std::pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; pii;<br><span class="hljs-type">int</span> f[N], s[N], d[N];  <span class="hljs-comment">// 取秩为集合大小</span><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123; <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=n; ++i)f[i]=i, s[i]=<span class="hljs-number">1</span>, d[i]=<span class="hljs-number">0</span>; &#125;<br><span class="hljs-function">pii <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;      <br>    <span class="hljs-keyword">if</span>(x==f[x])<span class="hljs-keyword">return</span> <span class="hljs-built_in">pii</span>(f[x],d[x]);<br>    pii res=<span class="hljs-built_in">find</span>(f[x]);<br>    f[x]=res.first, d[x]+=res.second;   <span class="hljs-comment">// 路径压缩</span><br>    res.second=d[x];<br>    <span class="hljs-keyword">return</span> res;<br>&#125;   <br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, <span class="hljs-type">int</span> z)</span></span>&#123; <span class="hljs-comment">// x --z-&gt; y</span><br>    pii px=<span class="hljs-built_in">find</span>(x), py=<span class="hljs-built_in">find</span>(y);<br>    z+=py.second-px.second;<br>    x=px.first, y=py.first;<br>    <span class="hljs-keyword">if</span>(x==y)<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">if</span>(s[x]&gt;s[y])<span class="hljs-built_in">swap</span>(x, y), z=-z;      <span class="hljs-comment">// 按秩合并</span><br>    f[x]=y, s[y]+=s[x], d[x]=z; <br>&#125;<br></code></pre></td></tr></table></figure>
+<p>字典树最基础的应用就是查找一个字符串是否在“字典”中出现过（更进一步地，判断一个字符串是否是字典树中某串的<strong>前缀</strong>）。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">char</span>* s)</span></span>&#123;<br>    <span class="hljs-type">int</span> pos=rot,val;<br>    <span class="hljs-keyword">for</span>(;*s;++s)&#123;<br>        val=(*s)-<span class="hljs-string">&#x27;a&#x27;</span>;<br>        <span class="hljs-keyword">if</span>(!a[pos].c[val])<span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;    <span class="hljs-comment">//未找到</span><br>        pos=a[pos].c[val];<br>    &#125;<br>    <span class="hljs-keyword">return</span> a[pos].tag;  <span class="hljs-comment">//返回尾结点的标记</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="01-trie"><a class="markdownIt-Anchor" href="#01-trie"></a> 01-trie</h3>
+<p><strong>01-trie</strong> 是将整数的二进制表示（位数固定，补前导零）看做一个字符串，按二进制位<strong>从高到低</strong>的顺序插入构建出的字符集为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{0,1\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose">}</span></span></span></span> 的字典树。</p>
+<p>事实上，与平衡树类似，01-trie也可以用于维护一个有序集合，支持插入、删除、数查排名、排名查数等操作。但由于空间开销大等原因，很少见到这样使用01-trie的OI选手。</p>
+<p>01-trie 最常见的应用是快速计算数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> 与字典树中所有数异或结果的<strong>最大值</strong>或最小值。以最大值为例，具体的做法是从树根开始（即按二进制位从高到低）贪心：</p>
+<ul>
+<li>若存在与 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> 当前位上的值相反的边，则走这条边，使这一位的异或结果成为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> ；</li>
+<li>若不存在，则走相同的边，使这一位的异或结果为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 。</li>
+</ul>
+<p>答案从高位到低位依次构造，正确性显然。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://oi.wiki/string/trie/">Tire- OI wiki</a></p>
+</blockquote>
 
                 
               </div>
@@ -456,7 +431,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-chain-item">数据结构</a>
+  <a href="/categories/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="category-chain-item">字符串</a>
   
   
 
@@ -483,8 +458,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>并查集</div>
-      <div>https://qwerx29.github.io/posts/fab451a5.html</div>
+      <div>字典树</div>
+      <div>https://qwerx29.github.io/posts/eea60a6a.html</div>
     </div>
     <div class="license-meta">
       
@@ -496,7 +471,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月10日</div>
+          <div>2022年8月11日</div>
         </div>
       
       
@@ -531,9 +506,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/13859c4d.html" title="ST表/稀疏表">
+                      <a href="/posts/59a0de58.html" title="树状数组">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ST表/稀疏表</span>
+                        <span class="hidden-mobile">树状数组</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -541,8 +516,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/3bc0bbc9.html" title="Hugo搭建个人博客">
-                        <span class="hidden-mobile">Hugo搭建个人博客</span>
+                      <a href="/posts/18551a9f.html" title="5分钟搭建博客系列">
+                        <span class="hidden-mobile">5分钟搭建博客系列</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
