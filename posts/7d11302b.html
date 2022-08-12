@@ -16,12 +16,12 @@
   <meta name="author" content="QWERx29">
   <meta name="keywords" content="">
   
-    <meta name="description" content="作为一名OIer，在OJ上刷题时，经常会遇见本地运行无误而提交后WA的情况。这大概率是由于系统环境不同导致的。所以，我们有必要在NOI Linux上调试程序">
+    <meta name="description" content="作为一名OIer，在OJ上刷题时，经常会遇见本地运行无误而提交后WA的情况。这大概率是由于系统环境不同导致的。所以，我们有必要在NOI Linux上调试程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NOI Linux的安装及其美化教程">
 <meta property="og:url" content="https://qwerx29.github.io/posts/7d11302b.html">
 <meta property="og:site_name" content="Φάντασος">
-<meta property="og:description" content="作为一名OIer，在OJ上刷题时，经常会遇见本地运行无误而提交后WA的情况。这大概率是由于系统环境不同导致的。所以，我们有必要在NOI Linux上调试程序">
+<meta property="og:description" content="作为一名OIer，在OJ上刷题时，经常会遇见本地运行无误而提交后WA的情况。这大概率是由于系统环境不同导致的。所以，我们有必要在NOI Linux上调试程序">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/08/08/RV9eoKS8FbhyrsX.png">
 <meta property="article:published_time" content="2022-05-10T08:27:57.000Z">
@@ -46,8 +46,6 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.6/katex.min.css" />
 
 
 
@@ -305,7 +303,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.9k 字
+          3k 字
         
       </span>
     
@@ -316,7 +314,7 @@
         
         
         
-          5 分钟
+          6 分钟
         
       </span>
     
@@ -379,103 +377,129 @@
             
               <div class="markdown-body">
                 
-                <p>作为一名OIer，在OJ上刷题时，经常会遇见本地运行无误而提交后WA的情况。这大概率是由于系统环境不同导致的。所以，我们有必要在NOI Linux上调试程序<span id="more"></span>（其实比赛的时候就是用这个，早晚都得用），顺便美化一下</p>
-<h2 id="安装noi-linux"><a class="markdownIt-Anchor" href="#安装noi-linux"></a> 安装NOI Linux</h2>
-<h5 id="1安装vmware"><a class="markdownIt-Anchor" href="#1安装vmware"></a> 1.安装VMware</h5>
-<p><s>（如果你真的想在实体机安装也行）</s></p>
-<p><a target="_blank" rel="noopener" href="https://www.vmware.com/go/getworkstation-win">官方下载</a>（有点慢，可以上网找国内镜像）</p>
+                <p>作为一名OIer，在OJ上刷题时，经常会遇见本地运行无误而提交后WA的情况。这大概率是由于系统环境不同导致的。所以，我们有必要在NOI
+Linux上调试程序<span id="more"></span>（其实比赛的时候就是用这个，早晚都得用），顺便美化一下</p>
+<h2 id="安装noi-linux">安装NOI Linux</h2>
+<h5 id="安装vmware">1.安装VMware</h5>
+<p><del>（如果你真的想在实体机安装也行）</del></p>
+<p><a
+target="_blank" rel="noopener" href="https://www.vmware.com/go/getworkstation-win">官方下载</a>（有点慢，可以上网找国内镜像）</p>
 <p>（还有精简版，但是似乎不是很稳定）</p>
-<p>激活密钥：<code>ZF3R0-FHED2-M80TY-8QYGC-NPKYF</code>        （16版本）</p>
-<h5 id="2下载noi-linux镜像"><a class="markdownIt-Anchor" href="#2下载noi-linux镜像"></a> 2.下载NOI Linux镜像</h5>
+<p>激活密钥：<code>ZF3R0-FHED2-M80TY-8QYGC-NPKYF</code> （16版本）</p>
+<h5 id="下载noi-linux镜像">2.下载NOI Linux镜像</h5>
 <p>从CCF官网下载就行</p>
-<p><a target="_blank" rel="noopener" href="https://noiresources.ccf.org.cn/ubuntu-noi-v2.0.iso">下载链接</a></p>
-<h5 id="3创建虚拟机"><a class="markdownIt-Anchor" href="#3创建虚拟机"></a> 3.创建虚拟机</h5>
+<p><a
+target="_blank" rel="noopener" href="https://noiresources.ccf.org.cn/ubuntu-noi-v2.0.iso">下载链接</a></p>
+<h5 id="创建虚拟机">3.创建虚拟机</h5>
 <p>在<code>VMware Workstation</code>中按<code>Ctrl+N</code>新建虚拟机，配置选择典型，安装来源选择下载好的<code>NOILinux</code>镜像，操作系统选择<code>Linux-Ubuntu 64位</code></p>
-<p><img src="https://s2.loli.net/2022/08/08/eZBGF5aATbtWR6M.png" srcset="/img/loading.gif" lazyload alt="选择操作系统" /></p>
+<figure>
+<img src="https://s2.loli.net/2022/08/08/eZBGF5aATbtWR6M.png" srcset="/img/loading.gif" lazyload
+alt="选择操作系统" />
+<figcaption aria-hidden="true">选择操作系统</figcaption>
+</figure>
 <p>名称随便选，位置除了C盘随便放（剩余空间尽可能大），磁盘大小符合你的硬盘容量，并将虚拟磁盘储存为单个文件</p>
-<p><img src="https://s2.loli.net/2022/08/08/LuTwl12ic5zQv3m.png" srcset="/img/loading.gif" lazyload alt="磁盘容量设置" /></p>
+<figure>
+<img src="https://s2.loli.net/2022/08/08/LuTwl12ic5zQv3m.png" srcset="/img/loading.gif" lazyload
+alt="磁盘容量设置" />
+<figcaption aria-hidden="true">磁盘容量设置</figcaption>
+</figure>
 <p>完成后即可看到下面的样子</p>
-<p><img src="https://s2.loli.net/2022/08/08/AskIHfY3pyaFBLU.png" srcset="/img/loading.gif" lazyload alt="完成设置" /></p>
+<figure>
+<img src="https://s2.loli.net/2022/08/08/AskIHfY3pyaFBLU.png" srcset="/img/loading.gif" lazyload
+alt="完成设置" />
+<figcaption aria-hidden="true">完成设置</figcaption>
+</figure>
 <p>点击左面设备信息即可更改设置，如虚拟机内存和处理器个数，可以根据实际情况稍微调大一点。</p>
 <p>需要注意的是，CCF说安装时不能联网，怕破坏它封装的系统。这个时候，我们就可以设置网络适配器，把启动时连接勾掉就行</p>
 <p>点击顶部工具栏的绿箭头，启动虚拟机</p>
-<h5 id="4安装系统"><a class="markdownIt-Anchor" href="#4安装系统"></a> 4.安装系统</h5>
+<h5 id="安装系统">4.安装系统</h5>
 <p>等进度条滚完，看到下面这个界面，不要怕，下面有简体中文，选他，并点击右面的“安装Ubuntu”</p>
-<p><img src="https://s2.loli.net/2022/08/08/FHcbWoL2k9YGjPE.png" srcset="/img/loading.gif" lazyload alt="安装界面" /></p>
+<figure>
+<img src="https://s2.loli.net/2022/08/08/FHcbWoL2k9YGjPE.png" srcset="/img/loading.gif" lazyload
+alt="安装界面" />
+<figcaption aria-hidden="true">安装界面</figcaption>
+</figure>
 <p>一路继续即可，用户名等选项自己选，然后又是漫长的等待。。。。</p>
 <p>之后重启，在引导界面点击回车（确认已移除安装媒介）</p>
 <p>进入系统，画面如下</p>
-<p><img src="https://s2.loli.net/2022/08/08/bpv5GaWhZSPu7JO.png" srcset="/img/loading.gif" lazyload alt="NOI-Linux界面" /></p>
-<p><s>（内心独白：这什么破玩意，长这个熊样，还奇小无比）</s></p>
+<figure>
+<img src="https://s2.loli.net/2022/08/08/bpv5GaWhZSPu7JO.png" srcset="/img/loading.gif" lazyload
+alt="NOI-Linux界面" />
+<figcaption aria-hidden="true">NOI-Linux界面</figcaption>
+</figure>
+<p><del>（内心独白：这什么破玩意，长这个熊样，还奇小无比）</del></p>
 <p>为了解决画面问题，我们需要安装<code>VMWare Tools</code></p>
 <p>在上方点击<code>虚拟机-安装VMWare Tools</code>，系统会再入一个光盘，打开并解压其中内容</p>
-<p><img src="https://s2.loli.net/2022/08/08/XoTvc6gUpE8L79r.png" srcset="/img/loading.gif" lazyload alt="解压后的文件目录" /></p>
+<figure>
+<img src="https://s2.loli.net/2022/08/08/XoTvc6gUpE8L79r.png" srcset="/img/loading.gif" lazyload
+alt="解压后的文件目录" />
+<figcaption aria-hidden="true">解压后的文件目录</figcaption>
+</figure>
 <p>右键，选择在终端中打开，输入下面指令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo ./vmware-install.pl<br></code></pre></td></tr></table></figure>
 <p>输入密码，一路回车即可。待脚本执行完毕，重启系统，系统就会自适应你的屏幕大小</p>
 <p>至此第一部分结束</p>
-<h2 id="美化系统"><a class="markdownIt-Anchor" href="#美化系统"></a> 美化系统</h2>
-<h5 id="换源"><a class="markdownIt-Anchor" href="#换源"></a> 换源</h5>
+<h2 id="美化系统">美化系统</h2>
+<h5 id="换源">换源</h5>
 <p>这个时候在右下角找到网络连接的图标，点击连接</p>
 <p>点击系统左下角的九个点，找到软件和更新，将下载服务器改为其他站点-阿里云/清华云</p>
-<p><img src="https://s2.loli.net/2022/08/08/wRUYOQDIick4fnA.png" srcset="/img/loading.gif" lazyload alt="软件源服务器" /></p>
+<figure>
+<img src="https://s2.loli.net/2022/08/08/wRUYOQDIick4fnA.png" srcset="/img/loading.gif" lazyload
+alt="软件源服务器" />
+<figcaption aria-hidden="true">软件源服务器</figcaption>
+</figure>
 <p>点击关闭，重新加载并重启虚拟机</p>
 <p><code>Ctrl+Alt+T</code>打开终端，执行以下命令</p>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">sudo apt update<br>sudo apt <span class="hljs-keyword">install </span>gnome-tweaks chrome-gnome-<span class="hljs-keyword">shell</span><br><span class="hljs-keyword"></span>sudo apt <span class="hljs-keyword">install </span>gtk2-engines-murrine gtk2-engines-pixbuf <br>sudo apt <span class="hljs-keyword">install </span>sassc optipng inkscape libcanberra-gtk-module libglib2.<span class="hljs-number">0</span>-dev libxml2-utils<br></code></pre></td></tr></table></figure>
-<h5 id="安装一些必要的插件"><a class="markdownIt-Anchor" href="#安装一些必要的插件"></a> 安装一些必要的插件</h5>
-<p><code>Ubuntu 20.04</code> （即<code>NOI Linux</code>所使用的系统）默认使用的是 <code>gnome</code> 的桌面环境，本文的美化也是基于 <code>gnome</code> 桌面环境，美化 <code>gnome</code> 桌面环境少不了安装 <code>gnome</code> 插件，<code>gnome</code>插件的网址是：<a href="https://link.zhihu.com/?target=https%3A//extensions.gnome.org">https://extensions.gnome.org</a></p>
-<p>首次打开，提示要在 <code>Firefox</code> 浏览器中安装 <code>gnome extensions</code> 的扩展包，点击安装，安装浏览器弹出的提示依次确认即可。安装好扩展包后刷新以下浏览器页面就可以开始安装<code>gnome</code> 插件了。我们需要预先安装的插件有如下几个，分别搜索出来安装就可以了。</p>
+<h5 id="安装一些必要的插件">安装一些必要的插件</h5>
+<p><code>Ubuntu 20.04</code>
+（即<code>NOI Linux</code>所使用的系统）默认使用的是 <code>gnome</code>
+的桌面环境，本文的美化也是基于 <code>gnome</code> 桌面环境，美化
+<code>gnome</code> 桌面环境少不了安装 <code>gnome</code>
+插件，<code>gnome</code>插件的网址是：<a
+href="https://link.zhihu.com/?target=https%3A//extensions.gnome.org">https://extensions.gnome.org</a></p>
+<p>首次打开，提示要在 <code>Firefox</code> 浏览器中安装
+<code>gnome extensions</code>
+的扩展包，点击安装，安装浏览器弹出的提示依次确认即可。安装好扩展包后刷新以下浏览器页面就可以开始安装<code>gnome</code>
+插件了。我们需要预先安装的插件有如下几个，分别搜索出来安装就可以了。</p>
 <ul>
 <li>user themes</li>
 <li>dash to dock</li>
 <li>netspeed</li>
 </ul>
 <p>在<code>gnome</code>插件首页搜索要安装的插件,点进去之后右手边有一个黑框,设为<code>on</code>即可</p>
-<h5 id="下载必要的美化包"><a class="markdownIt-Anchor" href="#下载必要的美化包"></a> 下载必要的美化包</h5>
-<p>所有的美化包都可以从 <a href="https://link.zhihu.com/?target=https%3A//www.gnome-look.org/">https://www.gnome-look.org</a> 这个网站下载的，我列出本次美化需要下载的美化包的详细下载地址。</p>
+<h5 id="下载必要的美化包">下载必要的美化包</h5>
+<p>所有的美化包都可以从 <a
+href="https://link.zhihu.com/?target=https%3A//www.gnome-look.org/">https://www.gnome-look.org</a>
+这个网站下载的，我列出本次美化需要下载的美化包的详细下载地址。</p>
 <ul>
-<li>
-<p>主题包：<code>WhiteSur Gtk Theme</code></p>
-</li>
-<li>
-<ul>
-<li><a href="https://link.zhihu.com/?target=https%3A//www.gnome-look.org/p/1403328/">https://www.gnome-look.org/p/1403328/</a></li>
+<li><p>主题包：<code>WhiteSur Gtk Theme</code></p></li>
+<li><ul>
+<li><a
+href="https://link.zhihu.com/?target=https%3A//www.gnome-look.org/p/1403328/">https://www.gnome-look.org/p/1403328/</a></li>
+</ul></li>
+<li><p>Icons 图标：<code>WhiteSur icon theme</code></p></li>
+<li><ul>
+<li><a
+href="https://link.zhihu.com/?target=https%3A//www.pling.com/p/1405756/">https://www.pling.com/p/1405756/</a></li>
+</ul></li>
+<li><p>鼠标图标：<code>McMojave cursors</code></p></li>
+<li><ul>
+<li><a
+href="https://link.zhihu.com/?target=https%3A//www.pling.com/p/1355701/">https://www.pling.com/p/1355701/</a></li>
+</ul></li>
+<li><p>壁纸：<code>WhiteSur Wallpaper</code></p></li>
+<li><ul>
+<li><a
+href="https://link.zhihu.com/?target=https%3A//www.pling.com/p/1398833/">https://www.pling.com/p/1398833/</a></li>
+</ul></li>
+<li><p>Firefox 浏览器美化：</p></li>
+<li><ul>
+<li>参考：<a
+href="https://link.zhihu.com/?target=https%3A//github.com/vinceliuice/WhiteSur-gtk-theme/tree/master/src/other/firefox">https://github.com/vinceliuice/WhiteSur-gtk-theme/tree/master/src/other/firefox</a></li>
+</ul></li>
 </ul>
-</li>
-<li>
-<p>Icons 图标：<code>WhiteSur icon theme</code></p>
-</li>
-<li>
-<ul>
-<li><a href="https://link.zhihu.com/?target=https%3A//www.pling.com/p/1405756/">https://www.pling.com/p/1405756/</a></li>
-</ul>
-</li>
-<li>
-<p>鼠标图标：<code>McMojave cursors</code></p>
-</li>
-<li>
-<ul>
-<li><a href="https://link.zhihu.com/?target=https%3A//www.pling.com/p/1355701/">https://www.pling.com/p/1355701/</a></li>
-</ul>
-</li>
-<li>
-<p>壁纸：<code>WhiteSur Wallpaper</code></p>
-</li>
-<li>
-<ul>
-<li><a href="https://link.zhihu.com/?target=https%3A//www.pling.com/p/1398833/">https://www.pling.com/p/1398833/</a></li>
-</ul>
-</li>
-<li>
-<p>Firefox 浏览器美化：</p>
-</li>
-<li>
-<ul>
-<li>参考：<a href="https://link.zhihu.com/?target=https%3A//github.com/vinceliuice/WhiteSur-gtk-theme/tree/master/src/other/firefox">https://github.com/vinceliuice/WhiteSur-gtk-theme/tree/master/src/other/firefox</a></li>
-</ul>
-</li>
-</ul>
-<h5 id="安装主题包"><a class="markdownIt-Anchor" href="#安装主题包"></a> 安装主题包</h5>
+<h5 id="安装主题包">安装主题包</h5>
 <p>Ubuntu 20.04 为所有用户提供的默认存放主题的文件夹分别如下：</p>
 <ul>
 <li>主题包：<code>/usr/share/themes/</code></li>
@@ -496,36 +520,71 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo ./install.sh<br></code></pre></td></tr></table></figure>
 <p>上面的操作一定要保证正确无误，接下来（如有必要可重启虚拟机）就可以选择这些主题包，并让其生效了。</p>
 <p>打开 <code>gnome-tweaks</code> （优化）工具，如下图：</p>
-<p><img src="https://s2.loli.net/2022/08/08/9HzESC3tkTrlsV1.png" srcset="/img/loading.gif" lazyload alt="设置主题" /></p>
-<p>选中后桌面和图标、鼠标图标，<code>shell</code> 主题等都相应的变化了，注意对比。</p>
-<h5 id="安装-plank-dock-工具"><a class="markdownIt-Anchor" href="#安装-plank-dock-工具"></a> 安装 Plank Dock 工具</h5>
+<figure>
+<img src="https://s2.loli.net/2022/08/08/9HzESC3tkTrlsV1.png" srcset="/img/loading.gif" lazyload
+alt="设置主题" />
+<figcaption aria-hidden="true">设置主题</figcaption>
+</figure>
+<p>选中后桌面和图标、鼠标图标，<code>shell</code>
+主题等都相应的变化了，注意对比。</p>
+<h5 id="安装-plank-dock-工具">安装 Plank Dock 工具</h5>
 <p>打开终端 ，输入如下命令安装 <code>plank</code>。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo apt install plank<br></code></pre></td></tr></table></figure>
-<p>安装好后打开 <code>gnome-tweaks</code> 工具，设置 <code>Plank</code> 为开机启动，如下图：</p>
-<p><img src="https://s2.loli.net/2022/08/08/5oFRGV9NlJS21Wf.png" srcset="/img/loading.gif" lazyload alt="设置Plank开机启动" /></p>
-<p>还记得之前在浏览器安装的 <code>dash to dock</code> 吗？现在有了 <code>plank</code>，我们就不再需要它了，现在在浏览器上打开<code>gnome</code> 插件的网站，在已安装的插件中找到 <code>dash to dock</code>。删除它之前我们还要用它做一些配置，点击像扳手一样的图标进行设置。</p>
+<p>安装好后打开 <code>gnome-tweaks</code> 工具，设置 <code>Plank</code>
+为开机启动，如下图：</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/08/5oFRGV9NlJS21Wf.png" srcset="/img/loading.gif" lazyload
+alt="设置Plank开机启动" />
+<figcaption aria-hidden="true">设置Plank开机启动</figcaption>
+</figure>
+<p>还记得之前在浏览器安装的 <code>dash to dock</code> 吗？现在有了
+<code>plank</code>，我们就不再需要它了，现在在浏览器上打开<code>gnome</code>
+插件的网站，在已安装的插件中找到
+<code>dash to dock</code>。删除它之前我们还要用它做一些配置，点击像扳手一样的图标进行设置。</p>
 <p>选择 <code>dock</code> 在底部显示</p>
-<p><img src="https://s2.loli.net/2022/08/08/rvFRCPTitqJOoAN.png" srcset="/img/loading.gif" lazyload alt="Plank设置-1" /></p>
-<p><code>plank</code> 默认没有动画效果，将鼠标放在 <code>plank</code> 边缘，然后右键出现如下菜单，选择首选项进行设置。</p>
-<p><img src="https://s2.loli.net/2022/08/08/6YWrl5FwROeQk9a.png" srcset="/img/loading.gif" lazyload alt="Plank设置-2" /></p>
-<h5 id="gnome-tweaks-设置"><a class="markdownIt-Anchor" href="#gnome-tweaks-设置"></a> gnome-tweaks 设置</h5>
+<figure>
+<img src="https://s2.loli.net/2022/08/08/rvFRCPTitqJOoAN.png" srcset="/img/loading.gif" lazyload
+alt="Plank设置-1" />
+<figcaption aria-hidden="true">Plank设置-1</figcaption>
+</figure>
+<p><code>plank</code> 默认没有动画效果，将鼠标放在 <code>plank</code>
+边缘，然后右键出现如下菜单，选择首选项进行设置。</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/08/6YWrl5FwROeQk9a.png" srcset="/img/loading.gif" lazyload
+alt="Plank设置-2" />
+<figcaption aria-hidden="true">Plank设置-2</figcaption>
+</figure>
+<h5 id="gnome-tweaks-设置">gnome-tweaks 设置</h5>
 <ul>
 <li>关闭桌面显示的图标</li>
 </ul>
-<p>桌面有个家目录和回收站的图标，居然删除不了，别担心，打开 gnome-tweaks 软件，如下图，点击 Desktop icons 插件后面的设置图标，弹出右边的设置菜单。</p>
-<p><img src="https://s2.loli.net/2022/08/08/2eCqnScI7rjBZF5.png" srcset="/img/loading.gif" lazyload alt="Gnome-Tweaks扩展" /></p>
+<p>桌面有个家目录和回收站的图标，居然删除不了，别担心，打开 gnome-tweaks
+软件，如下图，点击 Desktop icons
+插件后面的设置图标，弹出右边的设置菜单。</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/08/2eCqnScI7rjBZF5.png" srcset="/img/loading.gif" lazyload
+alt="Gnome-Tweaks扩展" />
+<figcaption aria-hidden="true">Gnome-Tweaks扩展</figcaption>
+</figure>
 <p>将设置菜单中的两个开关关闭即可，如下图：</p>
-<p><img src="https://s2.loli.net/2022/08/08/nkIC4iWJ2jPS9fw.png" srcset="/img/loading.gif" lazyload alt="Desktop Icons设置" /></p>
+<figure>
+<img src="https://s2.loli.net/2022/08/08/nkIC4iWJ2jPS9fw.png" srcset="/img/loading.gif" lazyload
+alt="Desktop Icons设置" />
+<figcaption aria-hidden="true">Desktop Icons设置</figcaption>
+</figure>
 <ul>
 <li>部状态栏显示设置</li>
 </ul>
 <p>如上图，将后边的开关都打开，注意顶部状态栏的变化。</p>
-<h5 id="firefox-浏览器设置"><a class="markdownIt-Anchor" href="#firefox-浏览器设置"></a> Firefox 浏览器设置</h5>
+<h5 id="firefox-浏览器设置">Firefox 浏览器设置</h5>
 <p>在下载的<code>White Sur</code> 主题目录打开终端，运行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo ./tweaks.sh -f<br></code></pre></td></tr></table></figure>
-<p>重启 <code>Firefox</code>浏览器，在地址栏输入<code>about:config</code>，回车，在打开的页面点击接受，接着在打开的页面中搜索：</p>
-<p><code>toolkit.legacyUserProfileCustomizations.stylesheets</code> 双击把它的值改为<code>true</code></p>
-<p><code>layers.acceleration.force-enabled</code>双击把它的值改为 <code>true</code></p>
+<p>重启
+<code>Firefox</code>浏览器，在地址栏输入<code>about:config</code>，回车，在打开的页面点击接受，接着在打开的页面中搜索：</p>
+<p><code>toolkit.legacyUserProfileCustomizations.stylesheets</code>
+双击把它的值改为<code>true</code></p>
+<p><code>layers.acceleration.force-enabled</code>双击把它的值改为
+<code>true</code></p>
 <p>重启浏览器看效果吧。</p>
 <p>重启后点击浏览器右上角的设置按钮，选择设置-个性化，在底部微调浏览器样式</p>
 
@@ -737,6 +796,7 @@
 
 
 
+
     
 
     
@@ -924,6 +984,37 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+                        options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
   <script defer src="/js/leancloud.js" ></script>
 

@@ -47,8 +47,6 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.6/katex.min.css" />
-
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -379,45 +377,79 @@
             
               <div class="markdown-body">
                 
-                <h3 id="vuepress介绍"><a class="markdownIt-Anchor" href="#vuepress介绍"></a> VuePress介绍</h3>
-<p><code>VuePress</code>由两部分组成：第一部分是一个<a target="_blank" rel="noopener" href="https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/core">极简静态网站生成器</a><a target="_blank" rel="noopener" href="https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/core"> </a>，它包含由 <code>Vue</code> 驱动的<a target="_blank" rel="noopener" href="https://www.vuepress.cn/theme/">主题系统</a>和<a target="_blank" rel="noopener" href="https://www.vuepress.cn/plugin/">插件 API</a>，另一个部分是为书写技术文档而优化的<a target="_blank" rel="noopener" href="https://www.vuepress.cn/theme/default-theme-config.html">默认主题</a>，它的诞生初衷是为了支持 <code>Vue</code> 及其子项目的文档需求。</p>
-<p>每一个由 <code>VuePress</code> 生成的页面都带有预渲染好的 <code>HTML</code>，也因此具有非常好的加载性能和搜索引擎优化（<code>SEO</code>）。同时，一旦页面被加载，<code>Vue</code> 将接管这些静态内容，并将其转换成一个完整的单页应用（<code>SPA</code>），其他的页面则会只在用户浏览到的时候才按需加载。</p>
-<h4 id="工作原理"><a class="markdownIt-Anchor" href="#工作原理"></a> 工作原理</h4>
-<p>事实上，一个 <code>VuePress</code> 网站是一个由 <a target="_blank" rel="noopener" href="http://vuejs.org/">Vue</a><a target="_blank" rel="noopener" href="http://vuejs.org/"> </a>、<a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-router">Vue Router</a> 和 <a target="_blank" rel="noopener" href="http://webpack.js.org/">webpack</a><a target="_blank" rel="noopener" href="http://webpack.js.org/"> </a>驱动的单页应用。如果你以前使用过 <code>Vue</code> 的话，当你在开发一个自定义主题的时候，你会感受到非常熟悉的开发体验，你甚至可以使用 <code>Vue DevTools</code> 去调试你的自定义主题。</p>
-<p>在构建时，我们会为应用创建一个服务端渲染（<code>SSR</code>）的版本，然后通过虚拟访问每一条路径来渲染对应的HTML。这种做法的灵感来源于 <a target="_blank" rel="noopener" href="https://nuxtjs.org/">Nuxt</a>的 <code>nuxt generate</code> 命令，以及其他的一些项目，比如 <a target="_blank" rel="noopener" href="https://www.gatsbyjs.org/">Gatsby</a>。</p>
-<h4 id="主题"><a class="markdownIt-Anchor" href="#主题"></a> 主题</h4>
+                <h3 id="vuepress介绍">VuePress介绍</h3>
+<p><code>VuePress</code>由两部分组成：第一部分是一个<a
+target="_blank" rel="noopener" href="https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/core">极简静态网站生成器</a><a
+target="_blank" rel="noopener" href="https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/core"></a>，它包含由
+<code>Vue</code> 驱动的<a
+target="_blank" rel="noopener" href="https://www.vuepress.cn/theme/">主题系统</a>和<a
+target="_blank" rel="noopener" href="https://www.vuepress.cn/plugin/">插件
+API</a>，另一个部分是为书写技术文档而优化的<a
+target="_blank" rel="noopener" href="https://www.vuepress.cn/theme/default-theme-config.html">默认主题</a>，它的诞生初衷是为了支持
+<code>Vue</code> 及其子项目的文档需求。</p>
+<p>每一个由 <code>VuePress</code> 生成的页面都带有预渲染好的
+<code>HTML</code>，也因此具有非常好的加载性能和搜索引擎优化（<code>SEO</code>）。同时，一旦页面被加载，<code>Vue</code>
+将接管这些静态内容，并将其转换成一个完整的单页应用（<code>SPA</code>），其他的页面则会只在用户浏览到的时候才按需加载。</p>
+<h4 id="工作原理">工作原理</h4>
+<p>事实上，一个 <code>VuePress</code> 网站是一个由 <a
+target="_blank" rel="noopener" href="http://vuejs.org/">Vue</a><a target="_blank" rel="noopener" href="http://vuejs.org/"></a>、<a
+target="_blank" rel="noopener" href="https://github.com/vuejs/vue-router">Vue Router</a> 和 <a
+target="_blank" rel="noopener" href="http://webpack.js.org/">webpack</a><a
+target="_blank" rel="noopener" href="http://webpack.js.org/"></a>驱动的单页应用。如果你以前使用过
+<code>Vue</code>
+的话，当你在开发一个自定义主题的时候，你会感受到非常熟悉的开发体验，你甚至可以使用
+<code>Vue DevTools</code> 去调试你的自定义主题。</p>
+<p>在构建时，我们会为应用创建一个服务端渲染（<code>SSR</code>）的版本，然后通过虚拟访问每一条路径来渲染对应的HTML。这种做法的灵感来源于
+<a target="_blank" rel="noopener" href="https://nuxtjs.org/">Nuxt</a>的 <code>nuxt generate</code>
+命令，以及其他的一些项目，比如 <a
+target="_blank" rel="noopener" href="https://www.gatsbyjs.org/">Gatsby</a>。</p>
+<h4 id="主题">主题</h4>
 <p>本文以<code>vuepress-theme-hope</code> 为例</p>
-<p>主题不仅在默认主题的基础上<strong>大幅提高美观性</strong>，同时搭配各种插件，<strong>在各种细节与功能上为 VuePress 提供全方位的增强</strong>。</p>
+<p>主题不仅在默认主题的基础上<strong>大幅提高美观性</strong>，同时搭配各种插件，<strong>在各种细节与功能上为
+VuePress 提供全方位的增强</strong>。</p>
 <p><a target="_blank" rel="noopener" href="https://www.vuepress.cn/">VuePress文档</a></p>
-<p><a target="_blank" rel="noopener" href="https://vuepress-theme-hope.github.io/v2/zh/">主题文档</a></p>
-<h3 id="安装使用"><a class="markdownIt-Anchor" href="#安装使用"></a> 🔭安装/使用</h3>
-<h4 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h4>
-<p>在当前项目的 <code>[dir]</code> 文件夹内创建 vuepress-theme-hope 项目:</p>
+<p><a
+target="_blank" rel="noopener" href="https://vuepress-theme-hope.github.io/v2/zh/">主题文档</a></p>
+<h3 id="安装使用">🔭安装/使用</h3>
+<h4 id="安装">安装</h4>
+<p>在当前项目的 <code>[dir]</code> 文件夹内创建 vuepress-theme-hope
+项目:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm init vuepress-theme-hope@next [<span class="hljs-built_in">dir</span>]<br></code></pre></td></tr></table></figure>
-<p>注：这里的 <code>[dir]</code> 是一个参数，你需要使用真实的文件夹名称替换它，例如 <code>docs</code>、<code>src</code> 或其他你喜欢的名称。</p>
+<p>注：这里的 <code>[dir]</code>
+是一个参数，你需要使用真实的文件夹名称替换它，例如
+<code>docs</code>、<code>src</code> 或其他你喜欢的名称。</p>
 <p>具体流程如下：</p>
-<p><img src="https://s2.loli.net/2022/08/08/XRK8Ntl1YELqQDj.png" srcset="/img/loading.gif" lazyload alt="安装流程" /></p>
-<h4 id="使用"><a class="markdownIt-Anchor" href="#使用"></a> 使用</h4>
-<p>请在配置文件中导入并使用 <code>hopeTheme</code> 以使用 <code>vuepress-theme-hope</code>。</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/08/XRK8Ntl1YELqQDj.png" srcset="/img/loading.gif" lazyload
+alt="安装流程" />
+<figcaption aria-hidden="true">安装流程</figcaption>
+</figure>
+<h4 id="使用">使用</h4>
+<p>请在配置文件中导入并使用 <code>hopeTheme</code> 以使用
+<code>vuepress-theme-hope</code>。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// .vuepress/config.ts</span><br><span class="hljs-keyword">import</span> &#123; defineUserConfig &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vuepress&quot;</span>;<br><span class="hljs-keyword">import</span> theme <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./theme&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; hopeTheme &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vuepress-theme-hope&quot;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineUserConfig</span>(&#123;<br>  <span class="hljs-attr">base</span>: <span class="hljs-string">&quot;/docs/&quot;</span>,<br><br>  <span class="hljs-attr">locales</span>: &#123;<br>    <span class="hljs-string">&quot;/&quot;</span>: &#123;<br>      <span class="hljs-attr">lang</span>: <span class="hljs-string">&quot;en-US&quot;</span>,<br>      <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;&quot;</span>,<br>    &#125;,<br>    <span class="hljs-string">&quot;/zh/&quot;</span>: &#123;<br>      <span class="hljs-attr">lang</span>: <span class="hljs-string">&quot;zh-CN&quot;</span>,<br>      <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;&quot;</span>,<br>    &#125;,<br>  &#125;,<br><br>  theme,<br>&#125;);<br></code></pre></td></tr></table></figure>
-<p>可以查看 <a target="_blank" rel="noopener" href="https://github.com/vuepress-theme-hope/vuepress-theme-hope/blob/main/docs/theme/src/.vuepress/config.ts">主题文档配置</a>作为一个配置参考。</p>
-<h3 id="️功能"><a class="markdownIt-Anchor" href="#️功能"></a> 🖌️功能</h3>
-<p><a target="_blank" rel="noopener" href="https://vuepress-theme-hope.github.io/v2/zh/guide/get-started/markdown.html">Markdown</a></p>
-<p><a target="_blank" rel="noopener" href="https://vuepress-theme-hope.github.io/v2/zh/guide/interface/#%E7%9B%AE%E5%BD%95">界面</a></p>
-<p><a target="_blank" rel="noopener" href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/">Markdown增强</a></p>
-<p><a target="_blank" rel="noopener" href="https://vuepress-theme-hope.github.io/v2/zh/guide/layout/">布局</a></p>
-<p><a target="_blank" rel="noopener" href="https://vuepress-theme-hope.github.io/v2/zh/guide/feature">功能</a></p>
-<p><a target="_blank" rel="noopener" href="https://vuepress-theme-hope.github.io/v2/zh/guide/blog/">博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://vuepress-theme-hope.github.io/v2/zh/guide/advanced/">高级</a></p>
-<h3 id="部署到github"><a class="markdownIt-Anchor" href="#部署到github"></a> 🛹部署到GitHub</h3>
-<ol>
-<li>
-<p>到<code>&lt;USERNAME&gt;.github.io</code>：参见前文</p>
-</li>
-<li>
-<p>到<code>&lt;USERNAME&gt;.github.io/&lt;REPO&gt;/</code></p>
-<p>在仓库中新建<code>gh-pages</code>分支即可</p>
-</li>
+<p>可以查看 <a
+target="_blank" rel="noopener" href="https://github.com/vuepress-theme-hope/vuepress-theme-hope/blob/main/docs/theme/src/.vuepress/config.ts">主题文档配置</a>作为一个配置参考。</p>
+<h3 id="功能">🖌️功能</h3>
+<p><a
+target="_blank" rel="noopener" href="https://vuepress-theme-hope.github.io/v2/zh/guide/get-started/markdown.html">Markdown</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://vuepress-theme-hope.github.io/v2/zh/guide/interface/#%E7%9B%AE%E5%BD%95">界面</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/">Markdown增强</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://vuepress-theme-hope.github.io/v2/zh/guide/layout/">布局</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://vuepress-theme-hope.github.io/v2/zh/guide/feature">功能</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://vuepress-theme-hope.github.io/v2/zh/guide/blog/">博客</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://vuepress-theme-hope.github.io/v2/zh/guide/advanced/">高级</a></p>
+<h3 id="部署到github">🛹部署到GitHub</h3>
+<ol type="1">
+<li><p>到<code>&lt;USERNAME&gt;.github.io</code>：参见前文</p></li>
+<li><p>到<code>&lt;USERNAME&gt;.github.io/&lt;REPO&gt;/</code></p>
+<p>在仓库中新建<code>gh-pages</code>分支即可</p></li>
 </ol>
 <p>为了方便部署,我们可以安装一个插件叫做 <code>gh-pages</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yarn add -D gh-pages<br></code></pre></td></tr></table></figure>
@@ -626,6 +658,7 @@
 
 
 
+
     
 
     
@@ -813,6 +846,37 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+                        options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
   <script defer src="/js/leancloud.js" ></script>
 

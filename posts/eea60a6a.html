@@ -47,8 +47,6 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.6/katex.min.css" />
-
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -380,24 +378,40 @@
               <div class="markdown-body">
                 
                 <p><strong>字典树</strong>（<code>trie</code>），是一种维护许多<strong>字符串</strong>构成的“字典”的数据结构。当然，整数也可以按其在某种进制下的表示被当作字符串。</p>
-<p>字典树用边来代表字母，从根结点到树上某一结点的路径代表了一个字符串。比如下图中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>→</mo><mn>4</mn><mo>→</mo><mn>8</mn><mo>→</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">1\to4\to 8\to 12</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">2</span></span></span></span> 表示的就是字符串 <code>caa</code>：</p>
-<p><img src="https://s2.loli.net/2022/08/11/ESRjK6tp2bc1IUD.png" srcset="/img/loading.gif" lazyload alt="" /></p>
-<h3 id="结构"><a class="markdownIt-Anchor" href="#结构"></a> 结构</h3>
-<p>字典树的结构非常易懂，我们用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>δ</mi><mo stretchy="false">(</mo><mi>u</mi><mo separator="true">,</mo><mi>c</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\delta(u,c)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathdefault">u</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">c</span><span class="mclose">)</span></span></span></span> 表示结点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">u</span></span></span></span> 的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span> 字符指向的下一个结点，或着说是结点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">u</span></span></span></span> 代表的字符串后面添加一个字符 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span> 形成的字符串的结点。（ 的取值范围和字符集大小有关，不一定总是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mn>26</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">[0,26)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mord">6</span><span class="mclose">)</span></span></span></span> ）</p>
+<p>字典树用边来代表字母，从根结点到树上某一结点的路径代表了一个字符串。比如下图中
+<span class="math inline">\(1\to4\to 8\to 12\)</span> 表示的就是字符串
+<code>caa</code>：</p>
+<p><img src="https://s2.loli.net/2022/08/11/ESRjK6tp2bc1IUD.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="结构">结构</h3>
+<p>字典树的结构非常易懂，我们用 <span
+class="math inline">\(\delta(u,c)\)</span> 表示结点 <span
+class="math inline">\(u\)</span> 的 <span
+class="math inline">\(c\)</span> 字符指向的下一个结点，或着说是结点
+<span class="math inline">\(u\)</span> 代表的字符串后面添加一个字符
+<span class="math inline">\(c\)</span> 形成的字符串的结点。（
+的取值范围和字符集大小有关，不一定总是 <span
+class="math inline">\([0,26)\)</span> ）</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">node</span>&#123;<br>    <span class="hljs-type">int</span> c[<span class="hljs-number">26</span>];<br>    <span class="hljs-type">int</span> tag;<br>&#125;a[N];<br><span class="hljs-type">int</span> rot,tot=<span class="hljs-number">0</span>;<br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span>&#123; rot=++tot; &#125;<br></code></pre></td></tr></table></figure>
-<h3 id="插入"><a class="markdownIt-Anchor" href="#插入"></a> 插入</h3>
+<h3 id="插入">插入</h3>
 <p>有时需要标记插入进字典树的是哪些字符串，每次插入完成时在这个字符串所代表的节点处打上标记即可。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-type">char</span>* s)</span></span>&#123;<br>    <span class="hljs-type">int</span> pos=rot,val;<br>    <span class="hljs-keyword">for</span>(;*s;++s)&#123;<br>        val=(*s)-<span class="hljs-string">&#x27;a&#x27;</span>;<br>        <span class="hljs-keyword">if</span>(!a[pos].c[val])a[pos].c[val]=++tot;  <span class="hljs-comment">//不存在则新建子结点</span><br>        pos=a[pos].c[val];<br>    &#125;<br>    a[pos].tag++;   <span class="hljs-comment">//标记尾结点</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="查找"><a class="markdownIt-Anchor" href="#查找"></a> 查找</h3>
+<h3 id="查找">查找</h3>
 <p>字典树最基础的应用就是查找一个字符串是否在“字典”中出现过（更进一步地，判断一个字符串是否是字典树中某串的<strong>前缀</strong>）。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">char</span>* s)</span></span>&#123;<br>    <span class="hljs-type">int</span> pos=rot,val;<br>    <span class="hljs-keyword">for</span>(;*s;++s)&#123;<br>        val=(*s)-<span class="hljs-string">&#x27;a&#x27;</span>;<br>        <span class="hljs-keyword">if</span>(!a[pos].c[val])<span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;    <span class="hljs-comment">//未找到</span><br>        pos=a[pos].c[val];<br>    &#125;<br>    <span class="hljs-keyword">return</span> a[pos].tag;  <span class="hljs-comment">//返回尾结点的标记</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="01-trie"><a class="markdownIt-Anchor" href="#01-trie"></a> 01-trie</h3>
-<p><strong>01-trie</strong> 是将整数的二进制表示（位数固定，补前导零）看做一个字符串，按二进制位<strong>从高到低</strong>的顺序插入构建出的字符集为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{0,1\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose">}</span></span></span></span> 的字典树。</p>
+<h3 id="trie">01-trie</h3>
+<p><strong>01-trie</strong>
+是将整数的二进制表示（位数固定，补前导零）看做一个字符串，按二进制位<strong>从高到低</strong>的顺序插入构建出的字符集为
+<span class="math inline">\(\{0,1\}\)</span> 的字典树。</p>
 <p>事实上，与平衡树类似，01-trie也可以用于维护一个有序集合，支持插入、删除、数查排名、排名查数等操作。但由于空间开销大等原因，很少见到这样使用01-trie的OI选手。</p>
-<p>01-trie 最常见的应用是快速计算数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> 与字典树中所有数异或结果的<strong>最大值</strong>或最小值。以最大值为例，具体的做法是从树根开始（即按二进制位从高到低）贪心：</p>
+<p>01-trie 最常见的应用是快速计算数 <span
+class="math inline">\(x\)</span>
+与字典树中所有数异或结果的<strong>最大值</strong>或最小值。以最大值为例，具体的做法是从树根开始（即按二进制位从高到低）贪心：</p>
 <ul>
-<li>若存在与 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> 当前位上的值相反的边，则走这条边，使这一位的异或结果成为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> ；</li>
-<li>若不存在，则走相同的边，使这一位的异或结果为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 。</li>
+<li>若存在与 <span class="math inline">\(x\)</span>
+当前位上的值相反的边，则走这条边，使这一位的异或结果成为 <span
+class="math inline">\(1\)</span> ；</li>
+<li>若不存在，则走相同的边，使这一位的异或结果为 <span
+class="math inline">\(0\)</span> 。</li>
 </ul>
 <p>答案从高位到低位依次构造，正确性显然。</p>
 <blockquote>
@@ -612,6 +626,7 @@
 
 
 
+
     
 
     
@@ -799,6 +814,37 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+                        options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
   <script defer src="/js/leancloud.js" ></script>
 

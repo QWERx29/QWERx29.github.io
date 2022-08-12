@@ -47,8 +47,6 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.6/katex.min.css" />
-
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -305,7 +303,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1.5k 字
         
       </span>
     
@@ -379,78 +377,91 @@
             
               <div class="markdown-body">
                 
-                <h2 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h2>
+                <h2 id="写在前面">写在前面</h2>
 <p>本文是作者目前已知的<strong>所有</strong>静态博客框架的合集，您可以自行查询想要使用的框架。</p>
-<p>这里介绍的都是一些基本操作，进阶内容详见—&gt;🕊️</p>
+<p>这里介绍的都是一些基本操作，进阶内容详见---&gt;🕊️</p>
 <p>如果这里没有您想要了解的，欢迎在评论区留言~~</p>
-<h3 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h3>
+<h3 id="准备工作">准备工作</h3>
 <ul>
 <li>Git环境和GitHub账号</li>
 <li>终端</li>
 </ul>
 <hr />
-<h2 id="mkdocsmaterial主题"><a class="markdownIt-Anchor" href="#mkdocsmaterial主题"></a> MkDocs(Material主题)</h2>
-<p><a target="_blank" rel="noopener" href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a> 是 <a target="_blank" rel="noopener" href="https://www.mkdocs.org">MkDocs</a> 的主题，是一个面向（技术）项目文档的静态站点生成器。</p>
-<h3 id="️开始"><a class="markdownIt-Anchor" href="#️开始"></a> 🎗️开始</h3>
-<h4 id="配置环境"><a class="markdownIt-Anchor" href="#配置环境"></a> 配置环境</h4>
+<h2 id="mkdocsmaterial主题">MkDocs(Material主题)</h2>
+<p><a target="_blank" rel="noopener" href="https://squidfunk.github.io/mkdocs-material/">Material for
+MkDocs</a> 是 <a target="_blank" rel="noopener" href="https://www.mkdocs.org">MkDocs</a>
+的主题，是一个面向（技术）项目文档的静态站点生成器。</p>
+<h3 id="开始">🎗️开始</h3>
+<h4 id="配置环境">配置环境</h4>
 <p>安装<a target="_blank" rel="noopener" href="https://www.python.org/downloads/">Python</a></p>
-<h4 id="安装material-for-mkdocs"><a class="markdownIt-Anchor" href="#安装material-for-mkdocs"></a> 安装Material for MkDocs</h4>
+<h4 id="安装material-for-mkdocs">安装Material for MkDocs</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pip install mkdocs-material<br></code></pre></td></tr></table></figure>
-<h3 id="创建站点"><a class="markdownIt-Anchor" href="#创建站点"></a> 🎍创建站点</h3>
-<h4 id="初始化"><a class="markdownIt-Anchor" href="#初始化"></a> 初始化</h4>
+<h3 id="创建站点">🎍创建站点</h3>
+<h4 id="初始化">初始化</h4>
 <p>完成安装后，转到您希望项目所在的目录，输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ mkdocs new .<br></code></pre></td></tr></table></figure>
 <p>生成的文件如下</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">.<br>├─ docs/<br>│  └─ index.md<br>└─ mkdocs.yml<br></code></pre></td></tr></table></figure>
-<h4 id="设置主题"><a class="markdownIt-Anchor" href="#设置主题"></a> 设置主题</h4>
+<h4 id="设置主题">设置主题</h4>
 <p>在<code>mkdocs.yml</code>中添加下面几行</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">theme:</span><br>  <span class="hljs-attr">name:</span> <span class="hljs-string">material</span><br></code></pre></td></tr></table></figure>
-<h4 id="高级配置"><a class="markdownIt-Anchor" href="#高级配置"></a> 高级配置</h4>
+<h4 id="高级配置">高级配置</h4>
 <blockquote>
 <p>咕咕咕</p>
 </blockquote>
-<h4 id="本地预览"><a class="markdownIt-Anchor" href="#本地预览"></a> 本地预览</h4>
+<h4 id="本地预览">本地预览</h4>
 <p>输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ mkdocs serve <br></code></pre></td></tr></table></figure>
-<p>后打开<a target="_blank" rel="noopener" href="http://localhost:8000/">http://localhost:8000/</a>就会看到下图所示界面</p>
-<p><img src="https://s2.loli.net/2022/08/10/9eMrI2oTxNGEftu.png" srcset="/img/loading.gif" lazyload alt="MkDocs预览" /></p>
-<h4 id="生成静态文件"><a class="markdownIt-Anchor" href="#生成静态文件"></a> 生成静态文件</h4>
+<p>后打开<a
+target="_blank" rel="noopener" href="http://localhost:8000/">http://localhost:8000/</a>就会看到下图所示界面</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/9eMrI2oTxNGEftu.png" srcset="/img/loading.gif" lazyload
+alt="MkDocs预览" />
+<figcaption aria-hidden="true">MkDocs预览</figcaption>
+</figure>
+<h4 id="生成静态文件">生成静态文件</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ mkdocs build<br></code></pre></td></tr></table></figure>
-<h3 id="写作"><a class="markdownIt-Anchor" href="#写作"></a> 🪄写作</h3>
+<h3 id="写作">🪄写作</h3>
 <p>在<code>/docs</code>目录下创建<code>Markdown</code>文档即可</p>
 <p>例如目录结构如下</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">.<br>├─ docs/<br>│  ├─ foo/<br>|  |  ├─ bar.md<br>|  |  └─ index.md<br>│  └─ index.md<br>└─ mkdocs.yml<br></code></pre></td></tr></table></figure>
 <p>则URL为</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">docs/index.md        =&gt; http://domain.com<br>docs/foo/bar.md      =&gt; http://domain.com/foo/bar/<br>docs/foo/index.md    =&gt; http://domain.com/foo/<br></code></pre></td></tr></table></figure>
-<h3 id="部署"><a class="markdownIt-Anchor" href="#部署"></a> 🏹部署</h3>
+<h3 id="部署">🏹部署</h3>
 <p>添加远程库并执行自带的部署命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git init<br>$ git remote add origin https://github.com/&lt;YOURNMAE&gt;/&lt;PROJECT_NAME&gt;.git<br>$ mkdocs gh-deploy<br></code></pre></td></tr></table></figure>
 <p>片刻后就会在<code>&lt;YOURNAME&gt;.github.io/&lt;PROJECT_NAME&gt;</code>看到搭建好的网站</p>
-<h3 id=""><a class="markdownIt-Anchor" href="#"></a> 🎉</h3>
-<h2 id="docsify"><a class="markdownIt-Anchor" href="#docsify"></a> Docsify</h2>
-<p>docsify 可以快速帮你生成文档网站。不同于 GitBook、Hexo 的地方是它不会生成静态的 <code>.html</code> 文件，所有转换工作都是在运行时。如果你想要开始使用它，只需要创建一个 <code>index.html</code> 就可以开始编写文档并直接部署在 GitHub Pages。</p>
-<h3 id="开始"><a class="markdownIt-Anchor" href="#开始"></a> 🛝开始</h3>
-<h4 id="配置环境-2"><a class="markdownIt-Anchor" href="#配置环境-2"></a> 配置环境</h4>
+<h3 id="section">🎉</h3>
+<h2 id="docsify">Docsify</h2>
+<p>docsify 可以快速帮你生成文档网站。不同于 GitBook、Hexo
+的地方是它不会生成静态的 <code>.html</code>
+文件，所有转换工作都是在运行时。如果你想要开始使用它，只需要创建一个
+<code>index.html</code> 就可以开始编写文档并直接部署在 GitHub
+Pages。</p>
+<h3 id="开始-1">🛝开始</h3>
+<h4 id="配置环境-1">配置环境</h4>
 <p>安装npm</p>
-<h4 id="安装docsify-cli-工具"><a class="markdownIt-Anchor" href="#安装docsify-cli-工具"></a> 安装<code>docsify-cli</code> 工具</h4>
+<h4 id="安装docsify-cli-工具">安装<code>docsify-cli</code> 工具</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm i docsify-cli -g<br></code></pre></td></tr></table></figure>
-<h3 id="创建站点-2"><a class="markdownIt-Anchor" href="#创建站点-2"></a> 🏐创建站点</h3>
-<h4 id="初始化-2"><a class="markdownIt-Anchor" href="#初始化-2"></a> 初始化</h4>
+<h3 id="创建站点-1">🏐创建站点</h3>
+<h4 id="初始化-1">初始化</h4>
 <p>执行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docsify init ./docs<br></code></pre></td></tr></table></figure>
 <p>即可在<code>./docs</code>目录下创建站点</p>
-<h4 id="本地预览-2"><a class="markdownIt-Anchor" href="#本地预览-2"></a> 本地预览</h4>
+<h4 id="本地预览-1">本地预览</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docsify serve docs<br></code></pre></td></tr></table></figure>
-<p>在 <a target="_blank" rel="noopener" href="http://localhost:3000">http://localhost:3000</a> 查看效果</p>
-<h4 id="个性化"><a class="markdownIt-Anchor" href="#个性化"></a> 个性化</h4>
-<p>参见<a target="_blank" rel="noopener" href="https://docsify.js.org/#/zh-cn/">主题文档</a><strong>🕊️</strong></p>
-<h3 id="写作-2"><a class="markdownIt-Anchor" href="#写作-2"></a> 💡写作</h3>
+<p>在 <a target="_blank" rel="noopener" href="http://localhost:3000">http://localhost:3000</a>
+查看效果</p>
+<h4 id="个性化">个性化</h4>
+<p>参见<a
+target="_blank" rel="noopener" href="https://docsify.js.org/#/zh-cn/">主题文档</a><strong>🕊️</strong></p>
+<h3 id="写作-1">💡写作</h3>
 <p>直接写<code>Markdown</code>文档</p>
-<h3 id="部署-2"><a class="markdownIt-Anchor" href="#部署-2"></a> 📸部署</h3>
-<p><s>经典操作</s></p>
+<h3 id="部署-1">📸部署</h3>
+<p><del>经典操作</del></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git init<br>$ git add .<br>$ git commit -m <span class="hljs-string">&#x27;&lt;COMMIT_MESSAGE&gt;&#x27;</span><br>$ git remote add origin https://github.com/&lt;YOURNAME&gt;/&lt;PROJECT_NAME&gt;.git<br>$ git push -u origin main<br></code></pre></td></tr></table></figure>
-<p>转到GitHub仓库设置----Pages----Branch选择main，就可以在``<YOURNAME>.github.io/&lt;PROJECT_NAME&gt;`看到搭建好的网站</p>
-<h3 id="-2"><a class="markdownIt-Anchor" href="#-2"></a> 🎉</h3>
+<p>转到GitHub仓库设置----Pages----Branch选择main，就可以在`<code>&lt;YOURNAME&gt;.github.io/&lt;PROJECT_NAME&gt;</code>看到搭建好的网站</p>
+<h3 id="section-1">🎉</h3>
 
                 
               </div>
@@ -650,6 +661,7 @@
 
 
 
+
     
 
     
@@ -837,6 +849,37 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+                        options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
   <script defer src="/js/leancloud.js" ></script>
 

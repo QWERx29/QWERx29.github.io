@@ -46,8 +46,6 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.6/katex.min.css" />
-
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -304,7 +302,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          167 字
         
       </span>
     
@@ -378,7 +376,9 @@
             
               <div class="markdown-body">
                 
-                <iframe height=498 width=750 src='//player.bilibili.com/player.html?aid=981575637&bvid=BV14t4y1x7LM&cid=721194219&page=1' frameborder=0 'allowfullscreen'></iframe>
+                <p>&lt;iframe height=498 width=750
+src='//player.bilibili.com/player.html?aid=981575637&amp;bvid=BV14t4y1x7LM&amp;cid=721194219&amp;page=1'
+frameborder=0 'allowfullscreen'&gt;</iframe></p>
 
                 
               </div>
@@ -519,6 +519,7 @@
 
   
   
+
 
 
 
@@ -714,6 +715,37 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+                        options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
   <script defer src="/js/leancloud.js" ></script>
 

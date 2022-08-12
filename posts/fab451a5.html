@@ -47,8 +47,6 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.6/katex.min.css" />
-
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -380,52 +378,57 @@
               <div class="markdown-body">
                 
                 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://faioj.brynhild.online/wiki/notes/OI-Wiki/ds/dsu/">并查集 - OI Wiki</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://faioj.brynhild.online/wiki/notes/OI-Wiki/ds/dsu/">并查集 -
+OI Wiki</a></p>
 </blockquote>
 <p>并查集是一种树形的数据结构，能够处理一些不交集的<strong>合并</strong>及<strong>查询</strong>问题。</p>
-<h3 id="初始化"><a class="markdownIt-Anchor" href="#初始化"></a> 初始化</h3>
+<h3 id="初始化">初始化</h3>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">makeSet</span><span class="hljs-params">(<span class="hljs-type">int</span> size)</span> </span>&#123;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; size; i++) fa[i] = i;  <span class="hljs-comment">// i 就在它本身的集合里</span><br>  <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="查找"><a class="markdownIt-Anchor" href="#查找"></a> 查找</h3>
+<h3 id="查找">查找</h3>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> fa[MAXN];  <span class="hljs-comment">// 记录某个人的爸爸是谁，特别规定，祖先的爸爸是他自己</span><br><br><span class="hljs-comment">// 递归</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>  <span class="hljs-comment">// 寻找x的祖先</span><br>  <span class="hljs-keyword">if</span> (fa[x] == x)  <span class="hljs-comment">// 如果 x 是祖先则返回</span><br>    <span class="hljs-keyword">return</span> x;<br>  <span class="hljs-keyword">else</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">find</span>(fa[x]);  <span class="hljs-comment">// 如果不是则 x 的爸爸问 x 的爷爷</span><br>&#125;<br><br><span class="hljs-comment">// 非递归</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>  <span class="hljs-keyword">while</span> (x != fa[x])  <span class="hljs-comment">// 如果 x 不是祖先，就一直往上一辈找</span><br>  &#123;<br>    x = fa[x];<br>  &#125;<br>  <span class="hljs-keyword">return</span> x;  <span class="hljs-comment">// 如果 x 是祖先则返回</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="合并"><a class="markdownIt-Anchor" href="#合并"></a> 合并</h3>
+<h3 id="合并">合并</h3>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">unionSet</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123;<br>  <span class="hljs-comment">// x 与 y 所在家族合并</span><br>  x = <span class="hljs-built_in">find</span>(x);<br>  y = <span class="hljs-built_in">find</span>(y);<br>  fa[x] = y;  <span class="hljs-comment">// 把 x 的祖先变成 y 的祖先的儿子</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="优化"><a class="markdownIt-Anchor" href="#优化"></a> 优化</h3>
-<p>不加任何优化的并查集有可能退化成一条链，导致查询复杂度退化为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> 。并查集常见的优化有<strong>路径压缩</strong>与<strong>按秩合并</strong>两种。</p>
-<h4 id="路径压缩"><a class="markdownIt-Anchor" href="#路径压缩"></a> 路径压缩</h4>
+<h3 id="优化">优化</h3>
+<p>不加任何优化的并查集有可能退化成一条链，导致查询复杂度退化为 <span
+class="math inline">\(O(n)\)</span>
+。并查集常见的优化有<strong>路径压缩</strong>与<strong>按秩合并</strong>两种。</p>
+<h4 id="路径压缩">路径压缩</h4>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> f[N];<br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123; <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=n; ++i)f[i]=i; &#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123; <span class="hljs-keyword">return</span> x==f[x]?x:f[x]=<span class="hljs-built_in">find</span>(f[x]); &#125;    <span class="hljs-comment">// 路径压缩</span><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span>&#123; f[<span class="hljs-built_in">find</span>(x)]=<span class="hljs-built_in">find</span>(y); &#125; <br></code></pre></td></tr></table></figure>
-<h4 id="按秩合并"><a class="markdownIt-Anchor" href="#按秩合并"></a> 按秩合并</h4>
+<h4 id="按秩合并">按秩合并</h4>
 <p>这里的“秩”既可以取为树的深度也可以取为集合大小，但取秩为树的深度与路径压缩不兼容。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> f[N], s[N];  <span class="hljs-comment">// 取秩为集合大小</span><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123; <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=n; ++i)f[i]=i, s[i]=<span class="hljs-number">1</span>; &#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123; <span class="hljs-keyword">return</span> x==f[x]?x:f[x]=<span class="hljs-built_in">find</span>(f[x]); &#125;   <span class="hljs-comment">// 路径压缩</span><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span>&#123;                        <span class="hljs-comment">// 按秩合并</span><br>    x=<span class="hljs-built_in">find</span>(x), y=<span class="hljs-built_in">find</span>(y);<br>    <span class="hljs-keyword">if</span>(x==y)<span class="hljs-keyword">return</span>;<br>    <span class="hljs-keyword">if</span>(s[x]&gt;s[y])<span class="hljs-built_in">swap</span>(x, y);<br>    f[x]=y, s[y]+=s[x]; <br>&#125; <br></code></pre></td></tr></table></figure>
 <p>需要注意的是，如果合并时祖孙关系不能颠倒，那么就不能使用按秩合并优化。</p>
-<h4 id="时间复杂度"><a class="markdownIt-Anchor" href="#时间复杂度"></a> 时间复杂度</h4>
+<h4 id="时间复杂度">时间复杂度</h4>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>优化</th>
 <th>时间复杂度</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>无</td>
-<td>最坏 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>m</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(nm)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span></td>
+<td>最坏 <span class="math inline">\(O(nm)\)</span></td>
 </tr>
-<tr>
+<tr class="even">
 <td>按秩合并</td>
-<td>最坏 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>m</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(m\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></td>
+<td>最坏 <span class="math inline">\(O(m\log n)\)</span></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>路径压缩</td>
-<td>平均 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>m</mi><mi>α</mi><mo stretchy="false">(</mo><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(m\alpha(m,n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span></td>
+<td>平均 <span class="math inline">\(O(m\alpha(m,n))\)</span></td>
 </tr>
-<tr>
+<tr class="even">
 <td>路径压缩&amp;按秩合并</td>
-<td>平均 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>m</mi><mi>α</mi><mo stretchy="false">(</mo><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(m\alpha(m,n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span></td>
+<td>平均 <span class="math inline">\(O(m\alpha(m,n))\)</span></td>
 </tr>
 </tbody>
 </table>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\alpha(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> 为反阿克曼函数，增长极其缓慢，在OI数据范围内可以认为是较小的常数。</p>
-<h3 id="带权并查集"><a class="markdownIt-Anchor" href="#带权并查集"></a> 带权并查集</h3>
+<p><span class="math inline">\(\alpha(n)\)</span>
+为反阿克曼函数，增长极其缓慢，在OI数据范围内可以认为是较小的常数。</p>
+<h3 id="带权并查集">带权并查集</h3>
 <p>在并查集的边上可以维护一个权值（并需要定义路径压缩时权值使用的运算），这样的并查集叫做<strong>带权并查集</strong>，能够实现更复杂的功能。<strong>路径压缩</strong>与<strong>按秩合并</strong>两种优化在带权并查集中仍能够使用。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> std::pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; pii;<br><span class="hljs-type">int</span> f[N], s[N], d[N];  <span class="hljs-comment">// 取秩为集合大小</span><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123; <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=n; ++i)f[i]=i, s[i]=<span class="hljs-number">1</span>, d[i]=<span class="hljs-number">0</span>; &#125;<br><span class="hljs-function">pii <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;      <br>    <span class="hljs-keyword">if</span>(x==f[x])<span class="hljs-keyword">return</span> <span class="hljs-built_in">pii</span>(f[x],d[x]);<br>    pii res=<span class="hljs-built_in">find</span>(f[x]);<br>    f[x]=res.first, d[x]+=res.second;   <span class="hljs-comment">// 路径压缩</span><br>    res.second=d[x];<br>    <span class="hljs-keyword">return</span> res;<br>&#125;   <br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, <span class="hljs-type">int</span> z)</span></span>&#123; <span class="hljs-comment">// x --z-&gt; y</span><br>    pii px=<span class="hljs-built_in">find</span>(x), py=<span class="hljs-built_in">find</span>(y);<br>    z+=py.second-px.second;<br>    x=px.first, y=py.first;<br>    <span class="hljs-keyword">if</span>(x==y)<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">if</span>(s[x]&gt;s[y])<span class="hljs-built_in">swap</span>(x, y), z=-z;      <span class="hljs-comment">// 按秩合并</span><br>    f[x]=y, s[y]+=s[x], d[x]=z; <br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -637,6 +640,7 @@
 
 
 
+
     
 
     
@@ -824,6 +828,37 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+                        options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
   <script defer src="/js/leancloud.js" ></script>
 
