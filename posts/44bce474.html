@@ -1,0 +1,1276 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="QWERx29">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="寄">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组合数学">
+<meta property="og:url" content="https://qwerx29.github.io/posts/44bce474.html">
+<meta property="og:site_name" content="Φάντασος">
+<meta property="og:description" content="寄">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://api.ixiaowai.cn/mcapi/mcapi.php">
+<meta property="article:published_time" content="2022-08-12T12:30:17.000Z">
+<meta property="article:modified_time" content="2022-08-12T13:57:25.357Z">
+<meta property="article:author" content="QWERx29">
+<meta property="article:tag" content="学习">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://api.ixiaowai.cn/mcapi/mcapi.php">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>组合数学 - Φάντασος</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"qwerx29.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"24ea714b1933c2aeebeb7c89a81846f6","google":3555723727,"gtag":"G-0C6SJYXJ5C","tencent":{"sid":null,"cid":null},"woyaola":21311045,"cnzz":1281109328,"leancloud":{"app_id":"s3Q7tYo4SCMsahrY4fJVMyWl-MdYXbMMI","app_key":"7XHgb5CFp6nO5OU1H1D6Epif","server_url":null,"path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?24ea714b1933c2aeebeb7c89a81846f6";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', '3555723727', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.googletagmanager.com/gtag/js?id=G-0C6SJYXJ5C', function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-0C6SJYXJ5C');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+    <!-- 51.la Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('//js.users.51.la/21311045.js');
+      }
+    </script>
+  
+
+  
+    <!-- cnzz Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('//s4.cnzz.com/z_stat.php?id=1281109328&show=pic');
+      }
+    </script>
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Φάντασος</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="组合数学"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-08-12 20:30" pubdate>
+          2022年8月12日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          15 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">组合数学</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年8月12日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="排列组合">排列组合</h2>
+<h3 id="加法原理">加法原理</h3>
+<p>完成一件事有 <span class="math inline">\(i\)</span>
+种方法，其中每种方法有 <span class="math inline">\(a_i\)</span>
+种方案完成，则总方案数为 <span class="math inline">\(\displaystyle\sum
+a_i\)</span> 。</p>
+<h3 id="乘法原理">乘法原理</h3>
+<p>完成一件事有 <span class="math inline">\(i\)</span>
+个步骤，其中每个步骤有 <span class="math inline">\(a_i\)</span>
+种方案完成，则总方案数为 <span class="math inline">\(\displaystyle\prod
+a_i\)</span> 。</p>
+<h3 id="全排列">全排列</h3>
+<p><span class="math inline">\(n\)</span>
+个不同的物品排成一列，求方案数。</p>
+<p>选出的第一个物品有 <span class="math inline">\(n\)</span>
+种方案，第二个物品有 <span class="math inline">\(n-1\)</span>
+种方案<span class="math inline">\(\dots\dots\)</span>第 <span
+class="math inline">\(n\)</span> 个物品有 <span
+class="math inline">\(1\)</span> 种方案。</p>
+<p>因此，总方案数为 <span class="math inline">\(n(n-1)\cdots
+1=n!\)</span> 。</p>
+<h3 id="排列数">排列数</h3>
+<p><span class="math inline">\(n\)</span> 个不同的物品，选出 <span
+class="math inline">\(m\)</span> 个排成一列，<span
+class="math inline">\(n\le n\)</span> ，求方案数。</p>
+<p>选出的第一个物品有 <span class="math inline">\(n\)</span>
+种方案，第二个物品有 <span class="math inline">\(n-1\)</span>
+种方案<span class="math inline">\(\dots \dots\)</span>第 <span
+class="math inline">\(m\)</span> 个物品有 <span
+class="math inline">\(n-m+1\)</span> 种方案。</p>
+<p>因此，总方案数为 <span class="math inline">\(n(n-1)\cdots
+(n-m+1)=\dfrac {n!}{(n-m)!}\)</span></p>
+<p>记该方案数为 <span class="math inline">\(\text{P}_n^m\)</span> 或
+<span class="math inline">\(\text A_n^m\)</span> 。</p>
+<p>特别地，若 <span class="math inline">\(m=n\)</span> ，则排列方案数为
+<span class="math inline">\(\text A_n^n=n!\)</span> 。</p>
+<h3 id="组合数">组合数</h3>
+<p><span class="math inline">\(n\)</span> 个不同的物品，选出 <span
+class="math inline">\(m\)</span> 个，<span class="math inline">\(n\le
+m\)</span> ，求方案数。<strong>顺序不同的算作一种</strong>。</p>
+<p>因为顺序不同的算一种，所以方案数就是 <span
+class="math inline">\(\dfrac{\text
+A_n^m}{m!}=\dfrac{n!}{m!(n-m)!}\)</span> 。</p>
+<p>记该方案数为 <span class="math inline">\(\text C_n^m\)</span> 或
+<span class="math inline">\(\dbinom{n}{m}\)</span> 或 <span
+class="math inline">\(\dfrac{n^{\underline{m}}}{m!}\)</span> 。</p>
+<h3 id="常见排列组合结论">常见排列组合结论</h3>
+<p><del>基本的高考知识点。</del></p>
+<h4 id="圆排列">圆排列</h4>
+<p><span class="math inline">\(n\)</span>
+个不同的物品排成一个环，旋转可得的算同一种方案，方案数为：<span
+class="math inline">\(\dfrac{\text A_n^n}{n}=(n-1)!\)</span> 。</p>
+<p><span class="math inline">\(n\)</span> 个不同的物品选出 <span
+class="math inline">\(m\)</span>
+个排成一个环，旋转可得的算同一种方案，方案数为：<span
+class="math inline">\(\dbinom{n}{m} (m-1)! = \dfrac{\text
+A_n^m}{m}\)</span> 。</p>
+<h4 id="可重集排列">可重集排列</h4>
+<p><span class="math inline">\(n\)</span>
+种物品，每种物品都有无穷多个，选出 <span
+class="math inline">\(m\)</span> 个物品排成一列，方案数为：<span
+class="math inline">\(n^m\)</span> 。</p>
+<h4 id="可重集组合">可重集组合</h4>
+<p><span class="math inline">\(n\)</span>
+种物品，每种物品都有无穷多个，选出 <span
+class="math inline">\(m\)</span> 个物品（等价于求 <span
+class="math inline">\(x_1+x_2+\cdots+x_n=m\)</span>
+的非负整数解组数），方案数为：<span
+class="math inline">\(\dbinom{n+m-1}{n-1}\)</span> 。</p>
+<p>若每种物品必须至少被选择一次（等价于求正整数解组数），方案数为：<span
+class="math inline">\(\dbinom{m-1}{n-1}\)</span> 。</p>
+<h4 id="多重全排列">多重全排列</h4>
+<p><span class="math inline">\(n\)</span> 种物品，第 <span
+class="math inline">\(i\)</span> 种物品有 <span
+class="math inline">\(a_i\)</span>
+个，将所有物品排成一列，方案数为：<span
+class="math inline">\(\dfrac{(\displaystyle\sum_{i=1}^n
+a_i)!}{\displaystyle\prod_{i=1}^n (a_i!)}\)</span></p>
+<h3 id="杨辉三角">杨辉三角</h3>
+<p>我们把组合数排成一个正三角形： <span class="math display">\[
+\begin{matrix}
+&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;1\\
+&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;1&amp;&amp;1\\
+&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;1&amp;&amp;2&amp;&amp;1\\
+&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;1&amp;&amp;3&amp;&amp;3&amp;&amp;1\\
+&amp;&amp;&amp;&amp;&amp;&amp;&amp;1&amp;&amp;4&amp;&amp;6&amp;&amp;4&amp;&amp;1\\
+&amp;&amp;&amp;&amp;&amp;&amp;1&amp;&amp;5&amp;&amp;10&amp;&amp;10&amp;&amp;5&amp;&amp;1\\
+&amp;&amp;&amp;&amp;&amp;1&amp;&amp;6&amp;&amp;15&amp;&amp;20&amp;&amp;15&amp;&amp;6&amp;&amp;1\\
+&amp;&amp;&amp;&amp;1&amp;&amp;7&amp;&amp;21&amp;&amp;35&amp;&amp;35&amp;&amp;21&amp;&amp;7&amp;&amp;1\\
+&amp;&amp;&amp;1&amp;&amp;8&amp;&amp;28&amp;&amp;56&amp;&amp;70&amp;&amp;56&amp;&amp;28&amp;&amp;8&amp;&amp;1\\
+&amp;&amp;1&amp;&amp;9&amp;&amp;36&amp;&amp;84&amp;&amp;126&amp;&amp;126&amp;&amp;84&amp;&amp;36&amp;&amp;9&amp;&amp;1\\
+&amp;1&amp;&amp;10&amp;&amp;45&amp;&amp;120&amp;&amp;210&amp;&amp;252&amp;&amp;210&amp;&amp;120&amp;&amp;45&amp;&amp;10&amp;&amp;1\\
+\cdots&amp;&amp;\cdots&amp;&amp;\cdots&amp;&amp;\cdots&amp;&amp;\cdots&amp;&amp;\cdots&amp;&amp;\cdots&amp;&amp;\cdots&amp;&amp;\cdots&amp;&amp;\cdots&amp;&amp;\cdots&amp;&amp;\cdots
+\end{matrix}
+\]</span> 这个三角形就称为杨辉三角。</p>
+<p>容易发现下面的数恰好是上面两个数的和，即 <span
+class="math display">\[
+\dbinom nm=\dbinom {n-1}{m}+\dbinom{n-1}{m-1}
+\]</span> 考虑实际意义。如果最后一个物品选了，那么其余部分的方案数为
+<span class="math inline">\(\dbinom{n-1}{m-1}\)</span>
+；没选，其余部分方案数为 <span
+class="math inline">\(\dbinom{n-1}{m}\)</span>
+。因此总方案数就是二者相加。</p>
+<h3 id="二项式定理">二项式定理</h3>
+<p>二项式就是形如 <span class="math inline">\((x+y)^n\)</span>
+的式子。它完全展开一共有 <span class="math inline">\(2^n\)</span>
+项。</p>
+<p>我们合并同类项时，考虑 <span
+class="math inline">\(x^iy^{n-i}\)</span> 有多少项。</p>
+<p>在 <span class="math inline">\(n\)</span> 个数中选 <span
+class="math inline">\(i\)</span> 个填 <span
+class="math inline">\(x\)</span> ，<span
+class="math inline">\(n-i\)</span> 个填 <span
+class="math inline">\(y\)</span> ，因此有 <span
+class="math inline">\(\dbinom{n}{i}\)</span> 项。故 <span
+class="math display">\[
+(a+b)^n = \displaystyle\sum_{i=0}^n \dbinom{n}{i} a^i b^{n-i}
+\]</span> 一些结论：</p>
+<ul>
+<li><span class="math inline">\(2^n = \displaystyle\sum_{i=0}^n
+\dbinom{n}{i}\)</span></li>
+<li><span class="math inline">\(0^n = \displaystyle\sum_{i=0}^n (-1)^i
+\dbinom{n}{i}\)</span> （定义 <span class="math inline">\(0^0=1\)</span>
+）</li>
+<li><span class="math inline">\(\dbinom{n+1}{k+1} = \dbinom{n}{k+1} +
+\dbinom{n}{k}\)</span></li>
+<li><span class="math inline">\(\dbinom{n+m}{m} =
+\displaystyle\sum_{i=0}^m \dbinom{m}{m-i} \dbinom{n}{i} \Rightarrow
+\dbinom{2n}{n} = \displaystyle\sum_{i=0}^n \dbinom{n}{i}^2\)</span></li>
+<li><span class="math inline">\(\dbinom{n}{k} =
+\dbinom{n}{n-k}\)</span></li>
+<li><span class="math inline">\(\displaystyle\sum_{i=0}^n i
+\dbinom{n}{i} = n 2^{n-1}\)</span></li>
+</ul>
+<h3 id="多项式定理">多项式定理</h3>
+<p>二项式定理的扩展。 <span class="math display">\[
+(x_1+x_2+\cdots +x_m)^n=\sum_{\sum_{i=1}^m{a_i}=n}P(n;a_1,a_2,\cdots
+,a_m)x_1^{a_1}x_2^{a_2}\cdots x_n^{a_n}
+\]</span></p>
+<h2 id="计数理论">计数理论</h2>
+<h3 id="容斥原理">容斥原理</h3>
+<p>设 <span class="math inline">\(S_1,S_2\)</span> 为有限集，令 <span
+class="math inline">\(|S|\)</span> 表示 <span
+class="math inline">\(S\)</span> 的大小，则： <span
+class="math display">\[
+|S_1 \cup S_2| = |S_1| + |S_2| - |S_1 \cap S_2|
+\]</span> 设 <span class="math inline">\(S_1,S_2\)</span> 为有限集，则：
+<span class="math display">\[
+|S_1 \cup S_2 \cup S_3| = |S_1| + |S_2| + |S_3| - |S_1 \cap S_2| - |S_1
+\cap S_3| - |S_2 \cap S_3| + |S_1 \cap S_2 \cap S_3|
+\]</span> 一般地，设 <span
+class="math inline">\(S_1,S_2,\cdots,S_n\)</span> 为 <span
+class="math inline">\(n\)</span> 个有限集，则： <span
+class="math display">\[
+\left|\bigcup_{i=1}^n S_i \right| = \sum_{1 \le i \le n} |S_i| - \sum_{1
+\le i \lt j \le n} |S_i \cap S_j| + \cdots +(-1)^{n-1}
+\left|\bigcap_{i=1}^n S_i \right|
+\]</span></p>
+<h3 id="错排问题">错排问题</h3>
+<p><span class="math inline">\(n\)</span> 个球装入 <span
+class="math inline">\(n\)</span> 个箱子，每个箱子装一个球。要求第 <span
+class="math inline">\(i\)</span> 个球不能装入第 <span
+class="math inline">\(i\)</span> 个箱子，方案数为： <span
+class="math display">\[
+\begin{aligned}
+D(n) &amp;= (n-1) [D(n-1)+D(n-2)] \\
+&amp;= n! - \dbinom{n}{1} (n-1)! + \dbinom{n}{2} (n-2)! - \cdots +
+(-1)^n \dbinom{n}{n} 0! \\
+&amp;= n! \sum_{i=0}^n \frac{(-1)^n}{i!} \\
+\end{aligned}
+\]</span> 其中，$D(1)=0,D(2)=1 $ 。</p>
+<h4 id="有冗余元素的错排问题">有冗余元素的错排问题</h4>
+<p><span class="math inline">\(n\)</span> 个球，<span
+class="math inline">\(n\)</span> 个箱子，每个箱子装一个球，另有 <span
+class="math inline">\(m\)</span> 个多余的球。要求第 <span
+class="math inline">\(i\)</span> 个球不能装入第 <span
+class="math inline">\(i\)</span> 个箱子，方案数为： <span
+class="math display">\[
+\begin{aligned}
+D_m(n) &amp;= (n-1) [D_m(n-1) + D_m(n-2)] + mD_m(n-1) \\
+&amp;= (n+m-1) D_m(n-1) + (n-1) D_m(n-2) \\
+&amp;= \sum_{i=0}^n (-1)^i \dbinom{n}{i} \text A_{m+i}^i \\
+\end{aligned}
+\]</span> 其中，<span
+class="math inline">\(D_m(1)=m,D_m(2)=m^2+m+1.\)</span> 。</p>
+<h4 id="错排问题的容斥解法">错排问题的容斥解法</h4>
+<p><span class="math display">\[
+D(n)=n!-\dbinom n1(n-1)!+\dbinom n2(n-2)!-\cdots +(-1)^n\dbinom nn0!
+\]</span></p>
+<p><span class="math display">\[
+D(n)=n!\sum_{i=0}^n\dfrac{(-1)^n}{i!}
+\]</span></p>
+<p><span class="math display">\[
+D_m(n)=P_{n+m}^n-\dbinom n1P_{n+m-1}^{n-1}+\dbinom
+n2P_{n+m-2}^{n-2}-\cdots +(-1)^n\dbinom nnP_{m}^0
+\]</span></p>
+<h3 id="第二类-stirling-数">第二类 stirling 数</h3>
+<p><span class="math inline">\(n\)</span> 个人分成 <span
+class="math inline">\(m\)</span> 个小组（组没有编号）的方案数。 <span
+class="math display">\[
+S(0,0)=1
+\]</span></p>
+<p><span class="math display">\[
+S(n,m)=S(n-1,m-1)+mS(n-1,m)
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}S(n,m)&amp;=\dfrac{1}{m!}\displaystyle\sum_{i=0}^m(-1)^i\dbinom{m}{i}(m-i)^n\\
+\\
+&amp;=\displaystyle\sum_{i=0}^m\dfrac{(-1)^i(m-i)^n}{i!(m-i)!}\end{aligned}
+\]</span></p>
+<h3 id="划分数">划分数</h3>
+<p>把 <span class="math inline">\(n\in\mathbb{N}_+\)</span> 划分为 <span
+class="math inline">\(m\)</span> 个 <span
+class="math inline">\(a_i\)</span> ，<span class="math inline">\(a_i\in
+\mathbb{N}_+\)</span> 。<span class="math inline">\(P(0,0)=1\)</span>
+<span class="math display">\[
+P(n,m)=P(n-1,m-1)+P(n-m,m)
+\]</span></p>
+<h3 id="自然数幂和">自然数幂和</h3>
+<p>设 <span
+class="math inline">\(s_{k,n}=\displaystyle\sum_{i=1}^ni^k\)</span>
+<span class="math display">\[
+\begin{aligned}
+n^{k+1}&amp;=\sum_{i=1}^n(i^{k+1}-(i-1)^{k+1})\\
+&amp;=\sum_{i=1}^n[i^{k+1}+\sum_{j=0}^{k+1}\dbinom{k+1}{j}i^j(-1)^{k-j}]\\
+&amp;=\sum_{i=1}^n[i^{k+1}-i^{k+1}+\sum_{j=0}^{k}\dbinom{k+1}{j}i^j(-1)^{k-j}]\\
+&amp;=\sum_{i=1}^n\sum_{j=0}^{k}\dbinom{k+1}{j}i^j(-1)^{k-j}\\
+&amp;=\sum_{j=0}^{k}(-1)^{k-j}\dbinom{k+1}{j}\sum_{i=1}^ni^j\\
+&amp;=\sum_{j=0}^{k}(-1)^{k-j}\dbinom{k+1}{j}s_{j,n}\\
+&amp;=\sum_{j=0}^{k-1}(-1)^{k-j}\dbinom{k+1}{j}s_{j,n}+(k+1)s_{k,n}\Rightarrow
+s_{k,n}=\dfrac{1}{k+1}[n^{k+1}-\sum_{j=0}^{k-1}(-1)^{k-j}\dbinom{k+1}{j}s_{j,n}]
+\end{aligned}
+\]</span></p>
+<blockquote>
+<p><strong>拉格朗日插值法</strong></p>
+<p>令 <span class="math inline">\(f(n) = \sum_{i=1}^n i^k\)</span>
+，最后一项为 <span class="math inline">\(n^k\)</span> ，由于是 <span
+class="math inline">\(n\)</span> 个数相加，所以结果为 <span
+class="math inline">\(k+1\)</span> 次，于是需要 <span
+class="math inline">\(k+2\)</span> 组 <span
+class="math inline">\((x_i,f(x_i))\)</span> 才能求出 <span
+class="math inline">\(f(n)\)</span> （如果 <span
+class="math inline">\(n\le k+2\)</span> 就直接暴力求），我们取 <span
+class="math inline">\(x_i=i\)</span> ，并计算出对应的 <span
+class="math inline">\(f(i)\)</span> 即可求出任意 <span
+class="math inline">\(f(n),n&gt;k+2\)</span> 。 <span
+class="math display">\[
+\begin{aligned}
+f(n) = \sum_{i=1}^n i^k &amp;= \sum_{i=1}^{k+2} f(x_i) \prod_{i \ne j}
+\frac{n-x_i}{x_j-x_i} \\
+&amp;= \sum_{i=1}^{k+2} f(i) \prod_{i=1,i \ne j}^{k+2} \frac{n-i}{j-i}
+\\
+&amp;= \sum_{i=1}^{k+2} f(i) \frac{\prod_{i=1,i \ne j}^{k+2}
+(n-i)}{\prod_{i=1,i \ne j}^{k+2} (j-i)} \\
+&amp;= \sum_{i=1}^{k+2} f(i) \frac{\prod_{j = 1}^{k+2} (n-j)}{n-i}
+\times \frac{(-1)^{k+2-i}}{(i-1)!(k+2-i)!} \\
+&amp;= \prod_{j = 1}^{k+2} (n-j) \sum_{i=1}^{k+2} \frac{(-1)^{k-i}
+f(i)}{(n-i)(i-1)!(k+2-i)!} \\
+\end{aligned}
+\]</span> 预处理出阶乘、阶乘逆元即可快速求出自然幂数和。</p>
+</blockquote>
+<h3 id="卡特兰数">卡特兰数</h3>
+<p>卡特兰数 <span class="math inline">\(C(n)\)</span> 定义为凸 <span
+class="math inline">\(n+2\)</span> 边形不同的三角剖分数。 <span
+class="math display">\[
+C(1)=1,C(2)=2,C(3)=5,C(4)=14,C(5)=42,C(6)=132,\cdots
+\]</span> 根据这个定义，可得递推公式： <span class="math display">\[
+C(n)=\sum_{i=0}^{n-1}C(i)C(n-i-1)
+\]</span> 卡特兰数有若干种等价定义。例如：</p>
+<ul>
+<li><span class="math inline">\(n\)</span> 个数按 <span
+class="math inline">\(1\sim n\)</span> 的次序入栈，不同的出栈序列数为
+<span class="math inline">\(C(n)\)</span> 。</li>
+<li><span class="math inline">\(n\)</span>
+个点的二叉搜索树个数（即根的序号大于左儿子，小于右儿子）为 <span
+class="math inline">\(C(n)\)</span> 。</li>
+<li><span class="math inline">\(n\)</span> 个 <span
+class="math inline">\(1\)</span> 和 <span
+class="math inline">\(n\)</span> 个 <span
+class="math inline">\(-1\)</span> 组成一个长 <span
+class="math inline">\(2n\)</span>
+的序列，且满足序列的所有前缀和都非负，序列数量为 <span
+class="math inline">\(C(n)\)</span> 。</li>
+</ul>
+<p>卡特兰数的通项和递推式： <span class="math display">\[
+\begin{aligned}
+C(n)&amp;=\dbinom {2n}n-\dbinom {2n}{n+1}\\
+\\
+C(n)&amp;=\dfrac {\dbinom{2n}n}{n+1}\\
+C(n)&amp;=C(n-1)·\dfrac{4n-2}{n+1}.
+\end{aligned}
+\]</span></p>
+<h3 id="卢卡斯定理">卢卡斯定理</h3>
+<p><span class="math display">\[
+\dbinom nm \mod p=\dbinom {\lfloor \dfrac{n}{p}\rfloor}{\lfloor \dfrac
+{m}{p}\rfloor} \dbinom {n\operatorname{mod}p}{m\operatorname{mod}p} \mod
+p
+\]</span></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">ll <span class="hljs-title">C</span><span class="hljs-params">(<span class="hljs-type">int</span> n,<span class="hljs-type">int</span> m)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(n&lt;m)<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">return</span> fac[n]*inf[m]%p*inf[n-m]%p;<br>&#125;<br><span class="hljs-function">ll <span class="hljs-title">lucas</span><span class="hljs-params">(<span class="hljs-type">int</span> n,<span class="hljs-type">int</span> m)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(n&lt;m)<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span>(n&lt;p)<span class="hljs-keyword">return</span> <span class="hljs-built_in">C</span>(n,m);<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">lucas</span>(n/p,m/p)*<span class="hljs-built_in">C</span>(n%p,m%p)%p;<br>&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>证明</strong></p>
+<p>设 <span class="math inline">\(n=sp+q,m=tp+r\)</span> ，且 <span
+class="math inline">\(0\le q,r&lt;p\)</span> ，构造多项式 <span
+class="math display">\[
+(1+x)^n=(1+x)^{sp+q}=((1+x)^p)^s(1+x)^q
+\]</span> 因为对任意的 <span
+class="math inline">\(1&lt;i&lt;p,p\mid\dbinom{p}{i}\)</span> ，所以
+<span class="math display">\[
+(1+x)^p=1+x^p\mod p
+\]</span> 所以 <span class="math display">\[
+(1+x)^{sp+q}=(1+x^p)^s(1+x)^q=\sum_{i=0}^s\dbinom
+six^{ip}·\sum_{j=0}^q\dbinom qjx^j\mod p
+\]</span> 比较等式两端 <span class="math inline">\(x^{tp+r}\)</span>
+的系数，则有 <span class="math display">\[
+\dbinom {sp+q}{tp+r}=\dbinom st\dbinom qr
+\]</span> 即定理得证。</p>
+</blockquote>
+<h3 id="康托展开">康托展开</h3>
+<p><del>咕咕咕</del></p>
+<blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://oi-wiki.org/math/combinatorics/cantor/">康托展开-OI-wiki</a></p>
+</blockquote>
+<h3 id="鸽巢原理">鸽巢原理</h3>
+<p><span class="math inline">\(n\)</span> 物品入 <span
+class="math inline">\(k\)</span> 盒，至少 <span
+class="math inline">\(1\)</span> 盒的物品 <span
+class="math inline">\(\ge \lceil\dfrac nk\rceil\)</span></p>
+<h2 id="概率和期望">概率和期望</h2>
+<h3 id="概率">概率</h3>
+<p>概率就是一件事 <span class="math inline">\(A\)</span>
+发生的可能性，记作 <span class="math inline">\(P(A)\)</span> 。</p>
+<p><span class="math inline">\(P(A)\)</span> 是一个 <span
+class="math inline">\([0,1]\)</span> 之间的实数。</p>
+<p>如果 <span class="math inline">\(P(A)=0\)</span> ，则 <span
+class="math inline">\(A\)</span> 是不可能事件；</p>
+<p>如果 <span class="math inline">\(P(A)=1\)</span> ，则 <span
+class="math inline">\(A\)</span> 是必然事件；</p>
+<p>如果 <span class="math inline">\(P(A)\in(0,1)\)</span> ，则 <span
+class="math inline">\(A\)</span> 是随机事件。</p>
+<h3 id="互斥事件">互斥事件</h3>
+<p>如果 <span class="math inline">\(A\)</span> 和 <span
+class="math inline">\(B\)</span> 不同时发生，即 <span
+class="math inline">\(P(AB)=0\)</span> ，则称 <span
+class="math inline">\(A\)</span> 和 <span
+class="math inline">\(B\)</span> 是互斥事件。</p>
+<p>如果它们总有一个会发生，即 <span
+class="math inline">\(P(A)+P(B)=1\)</span> ，则称 <span
+class="math inline">\(A\)</span> 和 <span
+class="math inline">\(B\)</span> 是对立事件，此时记 <span
+class="math inline">\(B=\overline{A}\)</span> 。</p>
+<p>如果 <span class="math inline">\(n\)</span>
+个互斥事件等概率发生（且总有一个会发生），则每个事件的概率都是 <span
+class="math inline">\(\dfrac 1n\)</span> 。</p>
+<h3 id="无关事件">无关事件</h3>
+<p>如果 <span class="math inline">\(A\)</span> 发生与否不影响
+发生的概率，则称 <span class="math inline">\(A\)</span> 和 <span
+class="math inline">\(B\)</span> 是无关事件。</p>
+<p>此时有 <span class="math inline">\(P(AB)=P(A)P(B)\)</span> 。</p>
+<p>多数概率题的答案都是“方案数/总方案数”！</p>
+<h3 id="概率容斥">概率容斥</h3>
+<p>概率的容斥公式与集合的容斥公式类似，这里仅举三个事件的例子： <span
+class="math display">\[
+P(A\cup B\cup C)=P(A)+P(B)+P(C)-P(AB)-P(AC)-P(BC)+P(ABC)
+\]</span></p>
+<h3 id="二项分布">二项分布</h3>
+<p><span class="math inline">\(n\)</span>
+次独立重复事件，每次事件发生的概率为 <span
+class="math inline">\(p\)</span> ，则事件发生 <span
+class="math inline">\(i\)</span> 次的概率为 <span
+class="math display">\[
+P(X=i)=\dbinom nip^i(1-p)^{n-i}
+\]</span></p>
+<blockquote>
+<p><strong>背景</strong></p>
+<p>在 <span class="math inline">\(n\)</span>
+次独立重复的伯努利试验中，设每次试验中事件 <span
+class="math inline">\(A\)</span> 发生的概率为 <span
+class="math inline">\(p\)</span> 。用 <span
+class="math inline">\(X\)</span> 表示 <span
+class="math inline">\(n\)</span> 重伯努利试验中事件 <span
+class="math inline">\(A\)</span> 发生的次数，则 <span
+class="math inline">\(X\)</span> 的可能取值为 <span
+class="math inline">\(0,1,\cdots,n\)</span> ，且对每一个 <span
+class="math inline">\(k(0\le k\le n)\)</span> 事件 <span
+class="math inline">\(\{X=k\}\)</span> 即为“ <span
+class="math inline">\(n\)</span> 次试验中事件 <span
+class="math inline">\(A\)</span> 恰好发生 <span
+class="math inline">\(K\)</span> 次”，随机变量 <span
+class="math inline">\(X\)</span> 的离散概率分布即为二项分布（Binomial
+Distribution）。</p>
+</blockquote>
+<h3 id="超几何分布">超几何分布</h3>
+<p><span class="math inline">\(n\)</span> 个物品，<span
+class="math inline">\(m\)</span> 个特殊物品，随机选择 <span
+class="math inline">\(k\)</span> 个，则选出 <span
+class="math inline">\(i\)</span> 个特殊物品的概率为 <span
+class="math display">\[
+P(X=i)=\dfrac {\dbinom mi\dbinom {n-m}{k-i}}{\dbinom nk}
+\]</span></p>
+<h3 id="条件概率">条件概率</h3>
+<p><span class="math inline">\(B\)</span> 在 <span
+class="math inline">\(A\)</span> 发生的前提下发生的概率为 <span
+class="math inline">\(P(B\mid A)\)</span> 。</p>
+<p>对于任意事件 <span class="math inline">\(A,B\)</span> ，都有 <span
+class="math inline">\(P(AB)=P(A)P(B\mid A)\)</span> ，</p>
+<p>如果是多个事件，可以推广 <span
+class="math inline">\(P(ABC)=P(A)P(B\mid A)P(C\mid AB)\)</span> 。</p>
+<h3 id="全概率公式">*全概率公式</h3>
+<p><span
+class="math inline">\(P(B)=P(A)P(B|A)+P(\overline{A})P(B|\overline{A})\)</span>
+。</p>
+<p>若 <span class="math inline">\(A_1,A_2,\cdots ,A_n\)</span>
+互斥，且恰有一个会发生，则</p>
+<p><span class="math inline">\(P(B)=P(A_1)P(B|A_1)+P(A_2)P(B|A_2)+\cdots
++P(A_n)P(B|A_n)\)</span> 。</p>
+<h3 id="离散随机变量的期望">离散随机变量的期望</h3>
+<p>若一个随机量 <span class="math inline">\(X\)</span> 有 <span
+class="math inline">\(n\)</span> 种可能取值，取值为 <span
+class="math inline">\(a_i\)</span> 的概率为 <span
+class="math inline">\(P(X=a_i)\)</span> ，则定义 <span
+class="math inline">\(X\)</span> 的期望为 <span class="math display">\[
+E(x)=\sum_{i=1}^na_iP(X=a_i)
+\]</span></p>
+<h3 id="期望的线性性">期望的线性性</h3>
+<p><span class="math display">\[
+E(aX+bY)=aE(X)+bE(Y)
+\]</span></p>
+<h3 id="相互独立的值的期望">相互独立的值的期望</h3>
+<p>当 <span class="math inline">\(X,Y\)</span>
+两个随机量互相独立（即一个量的取值不影响另一个）时，<span
+class="math inline">\(E(XY)=E(X)E(y)\)</span> 。</p>
+<h3 id="期望递推">期望递推</h3>
+<p>有点类似于DP的思想。</p>
+<p>如果一个状态由若干的前驱状态转移而来，且前驱状态的期望和转移来的概率均已知，那么我们就可以通过递推来求出这个状态的期望，而无需从头开始求。</p>
+<h3 id="期望dp">期望DP</h3>
+<p>咕咕咕</p>
+<h2 id="扩展阅读">扩展阅读</h2>
+<blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://oi-wiki.org/math/combinatorics/combination/">组合数学
+OI-wiki</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://oi-wiki.org/math/expectation/">概率论
+OI-wiki</a></p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>组合数学</div>
+      <div>https://qwerx29.github.io/posts/44bce474.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>QWERx29</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年8月12日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2022年8月12日</div>
+        </div>
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/55f2dbb7.html" title="高斯消元">
+                        <span class="hidden-mobile">高斯消元</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://lib.baomitu.com/waline/2.5.1/waline.min.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/waline/2.5.1/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline-og4uonkgt-qwerx29.vercel.app","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/qq","https://unpkg.com/@waline/emojis@1.0.1/tieba"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"placeholder":null,"avatar":"retro","avatarCDN":"https://seccdn.libravatar.org/avatar/","avatarForce":false,"highlight":true},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br/> <div style="font-size: 0.85rem"> <span id="jinrishici-sentence">正在加载今日诗词....</span> <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> <br/> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> <br/> <a href="https://icp.gov.moe/?keyword=20229229" target="_blank">萌ICP备20229229号</a>
+
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+    <!-- cnzz Analytics Icon -->
+    <span id="cnzz_stat_icon_1281109328" style="display: none"></span>
+  
+  </div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+                        options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/js/diy/text.js"></script>
+<script src="/js/diy/title.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"log":false});</script></body>
+</html>
