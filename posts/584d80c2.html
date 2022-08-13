@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.paulzzh.tech/touhou/random">
 <meta property="article:published_time" content="2022-08-13T04:14:30.000Z">
-<meta property="article:modified_time" content="2022-08-13T07:19:19.186Z">
+<meta property="article:modified_time" content="2022-08-13T12:39:49.800Z">
 <meta property="article:author" content="QWERx29">
 <meta property="article:tag" content="学习">
 <meta name="twitter:card" content="summary_large_image">
@@ -303,7 +303,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.1k 字
+          12k 字
         
       </span>
     
@@ -314,7 +314,7 @@
         
         
         
-          11 分钟
+          20 分钟
         
       </span>
     
@@ -369,7 +369,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年8月13日 下午
+                    本文最后更新于：2022年8月13日 晚上
                   
                 
               </p>
@@ -812,6 +812,303 @@ m-1,(a,m)&gt;1,b\ge\varphi(m)\)</span> ，均有 <span
 class="math inline">\(a^b\equiv a^{b\bmod\varphi(m)+\varphi(m)}\pmod
 m\)</span> 。</p>
 <p>这些定理的证明需要用到抽象代数中的群论知识，故跳过。</p>
+<h3 id="乘法逆元">乘法逆元</h3>
+<p>设 <span class="math inline">\(1\le a&lt;m\)</span> ，若存在 <span
+class="math inline">\(1\le b&lt;m\)</span> 满足 <span
+class="math inline">\(ab\equiv1\pmod m\)</span> ，则称 <span
+class="math inline">\(b\)</span> 是 <span
+class="math inline">\(a\)</span> 在模 <span
+class="math inline">\(m\)</span>
+意义下的<strong>乘法逆元</strong>，简称<strong>逆元</strong>，记作 <span
+class="math inline">\(a^{-1}\)</span> 。</p>
+<p>若 <span class="math inline">\((a,m)=d&gt;1\)</span>，则 <span
+class="math inline">\(d\mid (ab\bmod m)\)</span> ，因此 <span
+class="math inline">\(a\)</span> 存在逆元的充要条件是 <span
+class="math inline">\((a,m)=1\)</span> 。</p>
+<p>根据欧拉定理，<span class="math inline">\(a^{-1}\equiv
+a^{\varphi(m)-1}\pmod m\)</span> 。</p>
+<p>如果 <span class="math inline">\(p\)</span> 为质数，则 <span
+class="math inline">\(a^{-1}\equiv a^{p-2}\pmod m\)</span> 。</p>
+<p>因为这种做法要求出欧拉函数，当 <span class="math inline">\(m\)</span>
+较大（超过 <span class="math inline">\(10^9\)</span>
+）时复杂度过高。所以当 <span class="math inline">\(m\)</span>
+不是质数时，我们一般用扩展欧几里得算法求逆元。</p>
+<h4 id="线性逆元">线性逆元</h4>
+<p>当我们需要的逆元都较小而又很多时，可以用线性逆元一次性求出 <span
+class="math inline">\(1\sim n\)</span> 的所有逆元。</p>
+<p>设 <span class="math inline">\(p=k·i+r,1&lt;i&lt;p,r&lt;i\)</span>
+，则 <span class="math inline">\(k=\lfloor\dfrac pi\rfloor\)</span>
+<span class="math display">\[
+k·i+r \equiv 0 \pmod p
+\]</span> 两边同时乘 <span class="math inline">\(i^{-1}r^{-1}\)</span>
+，则 <span class="math display">\[
+k·r^{-1}+i^{-1} \equiv 0 \pmod p
+\]</span> 故 <span class="math inline">\(i^{-1}=-k·r^{-1}=-\left\lfloor
+\dfrac pi \right\rfloor r^{-1}\)</span></p>
+<p>因为 <span class="math inline">\(r^{-1}\)</span>
+已经求出，所以可以递推求出 <code>inv</code>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">inv[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; ++i) inv[i] = inv[mod % i] * (mod - mod / i) % mod;<br></code></pre></td></tr></table></figure>
+<h3 id="线性同余方程">线性同余方程</h3>
+<p>关于 <span class="math inline">\(x\)</span> 的形如 <span
+class="math inline">\(ax\equiv b\pmod m\)</span> 的方程称为线性
+由乘法逆元的定义可知，</p>
+<p>若 <span class="math inline">\((a,m)=1\)</span> ，则该同余方程的解为
+<span class="math inline">\(x=ba^{-1}\pmod m\)</span> 。</p>
+<p>若 <span class="math inline">\((a,m)\ne-1\)</span> ，设 <span
+class="math inline">\(d=(a,m)\)</span> 。若 <span
+class="math inline">\(d\mid b\)</span> ，则方程两边及模数同时除 <span
+class="math inline">\(d\)</span> 即可；否则方程无解。</p>
+<p>例如 <span class="math inline">\(3x=2\bmod6\)</span> 就是无解的。</p>
+<h4 id="二元一次不定方程">二元一次不定方程</h4>
+<p>形如 <span class="math inline">\(ax+by=c\)</span>
+的方程称为二元一次不定方程。</p>
+<p>因为 <span class="math inline">\(ax+by=c\)</span> 可写作 <span
+class="math inline">\(ax=c\bmod b\)</span> ，</p>
+<p>因此对于二元一次不定方程 <span class="math inline">\(ax+by=c\)</span>
+，方程两边同时除以 <span class="math inline">\((a,b,c)\)</span>
+后，即可得到其通解为 <span
+class="math inline">\(x=x_0+bt,y=y_0-at\)</span> ，其中 <span
+class="math inline">\(x_0=ca^{-1} \bmod b,y_0=\dfrac {ax_0-c}b \bmod
+a\)</span> 。</p>
+<h4 id="ex-gcd-解线性同余方程">ex-GCD 解线性同余方程</h4>
+<p>当 <span class="math inline">\(m\)</span> 很大的时候，通过求 <span
+class="math inline">\(m\)</span> 的欧拉函数得到 <span
+class="math inline">\(a\)</span> 的逆元复杂度过高。</p>
+<p>ex-GCD 算法就是通过辗转相除得到方程 <span
+class="math inline">\(ax+by=1\)</span>（ <span
+class="math inline">\((a,b)=1\)</span> ）的一组解，从而得到 <span
+class="math inline">\(a\)</span> 模 <span
+class="math inline">\(b\)</span>
+意义下的逆元，解出线性同余方程或二元一次不定方程。</p>
+<p>在遇到需要求逆元的问题时，如果模数是质数，我们一般用费马小定理或线性逆元求解；如果模数不是质数，则用
+ex-GCD 求解。</p>
+<h3 id="线性同余方程组">线性同余方程组</h3>
+<p>形如 <span class="math display">\[
+\left\{
+\begin{array}{aligned}
+x \equiv a_1 \pmod{m_1} \\
+x \equiv a_2 \pmod{m_2} \\
+\cdots \\
+x \equiv a_n \pmod{m_n}
+\end{array}
+\right.
+\]</span> 的方程组称为线性同余方程组。</p>
+<p>该方程组的解形如 <span class="math inline">\(x\equiv A\pmod
+M\)</span> ，其中 <span
+class="math inline">\(M=\operatorname{lcm}(m_1.m_2,\cdots,m_n)\)</span>
+。</p>
+<h4 id="中国剩余定理crt">中国剩余定理（CRT）</h4>
+<p>当 <span class="math inline">\(m_1,m_2,\cdots,m_n\)</span>
+两两互质时，我们可以直接用公式求解。</p>
+<p>设 <span class="math inline">\(M=m_1m_2\cdots
+m_n=\operatorname{lcm}(m_1,m_2,\cdots,m_n),M_i=\dfrac{M}{m_i},N_i=M_i^{-1}\pmod{m_i}\)</span>
+，则 <span class="math display">\[
+x=\sum_{i=1}^na_iM_iN_i\bmod M
+\]</span> 因为对于任意的 <span class="math inline">\(M_j,j\ne i\)</span>
+，均有 <span class="math inline">\(m_i\mid M_j\)</span> ，所以 <span
+class="math display">\[
+x
+\equiv \sum_{j=1}^n a_j M_j N_j
+\equiv a_i M_i N_i
+\equiv a_i M_i M_i^{-1}
+\equiv a_i
+\pmod{m_i}
+\]</span> 逆元用 ex-Gcd 求解即可。</p>
+<p>举个例子，用中国剩余定理解方程组：<span class="math inline">\(x
+\equiv 2 \pmod 3,x \equiv 3 \pmod 5,x \equiv 4 \pmod 7\)</span> 。 <span
+class="math display">\[
+\begin{aligned}
+&amp;a_1=2 \quad m_1=3 \quad M_1=35 \quad N_1 = 35^{-1} = 2^{-1} = 2
+\pmod 3\\
+&amp;a_2=3 \quad m_2=5 \quad M_2=21 \quad N_2 = 21^{-1} = 1^{-1} = 1
+\pmod 5\\
+&amp;a_3=4 \quad m_3=7 \quad M_3=15 \quad N_3 = 15^{-1} = 1^{-1} = 1
+\pmod 7\\
+&amp;x = (2×35×2+3×21×1+4×15×1) \bmod 105 = 263 \bmod 105 = 53\\
+&amp;x \equiv 53 \pmod{105}
+\end{aligned}
+\]</span></p>
+<h4 id="扩展中国剩余定理excrt">* 扩展中国剩余定理（exCRT）</h4>
+<p>当 <span class="math inline">\(m_1,m_2,\cdots,m_n\)</span>
+不互质时，方程组不存在公式解（ <span
+class="math inline">\(m_i^{-1}\)</span> 可能不存在）。</p>
+<p>但我们可以用扩展中国剩余定理（exCRT）算法使用<strong>增量法</strong>求解。</p>
+<p>即：我们已经知道 <span class="math inline">\(x=x_0\bmod M\)</span>
+，现在新增了一个方程 <span class="math inline">\(x=a_i\bmod m_i\)</span>
+。</p>
+<p>我们把这两个方程写成带余除法的形式： <span class="math display">\[
+x=x_0+pM=a_i+qm_i
+\]</span> 则有 <span class="math display">\[
+pM-qm_i=a_i-x_0
+\]</span> 两边除 <span class="math inline">\(d=(M,m_i)\)</span>
+后，用ex-Gcd解这个不定方程，可以解出 <span
+class="math inline">\(p,q\)</span> （如果无解说明原方程就无解）。</p>
+<p>取 <span class="math inline">\(p\)</span> 在 <span
+class="math inline">\([0,\dfrac{m_i}d)\)</span> 范围内的一组解，则有
+<span class="math display">\[
+x=x_0+pM \mod M×m_i/d
+\]</span> 例如 <span class="math display">\[
+\begin{aligned}
+x_0=3,M=4,&amp;a_2=7,m_2=10\\
+x=3+4p&amp;=7+10q\\
+4p-10q&amp;=4\\
+2p-5q&amp;=2\\
+p=1,q&amp;=0\\
+x=3+4×1&amp;=7\mod 20\\
+------&amp;-------\\
+x_0=7,M=20,&amp;a_3=11,m_3=14\\
+x=7+20p&amp;=11+14q\\
+20p-14q&amp;=4\\
+10p-7q&amp;=2\\
+p=3,q&amp;=4\\
+x=7+20×3&amp;=67\mod 140\\
+------&amp;-------\\
+\end{aligned}
+\]</span></p>
+<h3 id="指数同余方程">指数同余方程</h3>
+<h4 id="离散对数">离散对数</h4>
+<p>形如 <span class="math inline">\(a^x\equiv b\pmod p\)</span>
+的方程称为指数同余方程。</p>
+<p>根据高中知识，“ <span class="math inline">\(x=\log_a b\)</span>
+”。</p>
+<p>我们称此时的 <span class="math inline">\(x\)</span> 是模 <span
+class="math inline">\(p\)</span> 意义下以 <span
+class="math inline">\(a\)</span> 为底 <span
+class="math inline">\(b\)</span> 的<strong>（离散）对数</strong>。</p>
+<h4 id="大步小步bsgs算法">大步小步（BSGS）算法</h4>
+<p>在NOIP范围内，我们只需了解 <span class="math inline">\(p\)</span>
+为质数的做法。<del>其实</del> <span class="math inline">\(p\)</span>
+<del>不是质数也不难做</del>。</p>
+<p>如果暴力求离散对数，我们需要遍历 <span class="math inline">\(0\sim
+p-2\)</span> 所有的 <span class="math inline">\(x\)</span> ，复杂度
+<span class="math inline">\(\mathcal O(p)\)</span>
+，模数在<code>int</code>范围内时都会T飞。</p>
+<p>我们将 <span class="math inline">\(1,a,a^2,\cdots,a^{k-1}\)</span>
+的值存入一个 <code>unordered_map</code> 中，其中 <span
+class="math inline">\(k=\lfloor\sqrt p\rfloor+1\)</span> 。</p>
+<p>然后，我们求出 <span class="math inline">\(a^{-k}=a^{p-1-k}\)</span>
+，并计算 <span class="math inline">\(b,ba^{-k},ba^{-2k},ba^{-3k},\cdots,
+ba^{-k^2}\)</span> 的值，并在 <code>unordered_map</code> 中查询。</p>
+<p>若查询成功，即有 <span class="math inline">\(ba^{-ik}=a^j\)</span>
+，则 <span class="math inline">\(b=a^{ik+j}\)</span> 。</p>
+<p>（以上计算都在模 <span class="math inline">\(p\)</span>
+意义下进行）</p>
+<p>算法复杂度为 <span class="math inline">\(\mathcal O(\sqrt p)\)</span>
+，在 <span class="math inline">\(p\le10^{12}\)</span>
+时效率都非常优秀。</p>
+<p>举个例子：解 <span class="math inline">\(3^x\equiv4\pmod{31}\)</span>
+<span class="math display">\[
+\begin{aligned}
+a&amp;=3 \quad b=4 \quad p=31 \quad k=6\\
+3^1 &amp;\equiv 3 \quad 3^2 \equiv 9 \quad 3^3 \equiv 27 \quad 3^4
+\equiv 19 \quad 3^5 \equiv 26 \pmod{31}\\
+3^6 &amp;\equiv 16 \quad 3^{-6} \equiv 2 \pmod{31}\\
+4×3^{-6} &amp;\equiv 8 \pmod{31}\\
+4×3^{-12} &amp;\equiv 16 \pmod{31}\\
+4×3^{-18} &amp;\equiv 1 \equiv 3^0 \pmod{31}\\
+4 &amp;\equiv 13^{18+0} \equiv 3^{18} \pmod{31}\\
+x&amp;=18
+\end{aligned}
+\]</span></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp">unordered_map&lt;<span class="hljs-type">int</span>&gt; mp;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">BSGS</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>    <span class="hljs-type">int</span> k = <span class="hljs-built_in">sqrt</span>(p) + <span class="hljs-number">1</span>, r = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; p; ++i) mp[r] = i, r = (ll)r * a % p;<br>    r = <span class="hljs-built_in">qpow</span>(a, p - <span class="hljs-number">1</span> - k);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; k; ++i) &#123;<br>        <span class="hljs-keyword">if</span>(mp.<span class="hljs-built_in">count</span>(a)) <span class="hljs-keyword">return</span> i * k + mp[a];<br>        a = (ll)a * r % p;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>——什么？？</p>
+<p><span class="math inline">\(p\)</span>
+是质数，竟然还有无解？？？？</p>
+<p><span class="math inline">\(p=7,a=2,b=3\)</span></p>
+<p><span class="math inline">\(a=2,a^2=4,a^3=1,a^4=2,a^5=4,a^6=1\cdots
+(\text{mod }7)\)</span></p>
+<p><strong>QAQ</strong></p>
+<blockquote>
+<p><strong>无需求逆元的版本</strong></p>
+<p>以上做法中通过 <span class="math inline">\(ik+j\)</span> 构造出所求的
+<span class="math inline">\(x\)</span> ，过程中需要求 <span
+class="math inline">\(a^{-k}\)</span> 。</p>
+<p>但如果改用 <span class="math inline">\(ik-j\)</span> 来构造
+，就可以绕开求逆元的过程。值得注意的是，这样也将不再依赖「 <span
+class="math inline">\(p\)</span> 是质数」这一条件。</p>
+<p>具体来说，取 <span class="math inline">\(k=\lceil\sqrt
+n\rceil\)</span> ，我们希望找到一组 <span
+class="math inline">\(i,j\)</span> 使得 <span
+class="math inline">\(a^{ik-j}\equiv b\pmod p\)</span> 。</p>
+<p>这等价于 <span class="math inline">\((a^k)^i\equiv ba^j\pmod
+p\)</span> 。</p>
+<p>与上面的做法类似，我们先将 <span
+class="math inline">\(a^0b=b,ab,a^2b,\cdots,a^{k-1}b\)</span> （以 <span
+class="math inline">\(a^jb\)</span> 为键，<span
+class="math inline">\(j\)</span> 为值）存入 <code>unordered_map</code>
+中；再用</p>
+<p>在 <code>unordered_map</code> 中查询。</p>
+<p>若成功成功，则由对应的 <span class="math inline">\(i,j\)</span>
+构造答案 ；否则返回 <span class="math inline">\(-1\)</span>
+表示无解。</p>
+<p>需要注意的是 <span class="math inline">\(x=0\)</span> 无法被 <span
+class="math inline">\(x=ik-j(0\le j&lt;k,1\le i\le k)\)</span>
+覆盖，需要特判，即：如果 <span class="math inline">\(b=1\)</span> 且
+<span class="math inline">\(a\ne0\)</span> ，则直接返回 <span
+class="math inline">\(x=0\)</span> 。</p>
+</blockquote>
+<h3 id="阶和原根-高次同余方程">*阶和原根 高次同余方程</h3>
+<h4 id="阶和原根">阶和原根</h4>
+<p>为什么在实数集一定有解的指数方程在模意义下会出现无解情况？</p>
+<p>拿刚才的例子来说，因为 <span
+class="math inline">\(2^3\bmod7=1\)</span> ，也就是说，数列 <span
+class="math inline">\(\{2^n\}\)</span> 在模 <span
+class="math inline">\(7\)</span> 意义下的循环节是 <span
+class="math inline">\(3\)</span> 而不是 <span
+class="math inline">\(7-1=6\)</span> 。</p>
+<p>我们称这个“循环节”为 <span class="math inline">\(2\)</span>
+的<strong>阶</strong>，记为 <span
+class="math inline">\(\delta(2)=3\)</span> 。</p>
+<p>严格定义：若 <span class="math inline">\(a^m=1\bmod p\)</span>
+，且对于任意的 <span class="math inline">\(1\leq i&lt;m,a^i\neq 1\bmod
+p\)</span> ，则称 <span class="math inline">\(a\)</span> 在模 <span
+class="math inline">\(p\)</span> 意义下的阶为 <span
+class="math inline">\(m\)</span> 。</p>
+<p>若这样的 <span class="math inline">\(m\)</span> 不存在即 <span
+class="math inline">\((a,p)&gt;1\)</span> ，则记 <span
+class="math inline">\(\delta(a)=0\)</span></p>
+<p>例如在模 <span class="math inline">\(7\)</span> 意义下，<span
+class="math inline">\(\delta(1)=1,\delta(2)=3,\delta(3)=6,\delta(4)=3,\delta(5)=6,\delta(6)=2\)</span>
+。</p>
+<p>若 <span class="math inline">\(\delta(a)=\delta(p)\)</span> ，则称
+<span class="math inline">\(a\)</span> 是模 <span
+class="math inline">\(p\)</span> 意义下的<strong>原根</strong>（也称
+<span class="math inline">\(a\)</span> 是 <span
+class="math inline">\(p\)</span> 的原根）。此时，<span
+class="math inline">\(1,a,a^2,\cdots ,a^{\varphi(p)-1}\)</span> 取遍所有
+<span class="math inline">\(1\sim p\)</span> 中与 <span
+class="math inline">\(p\)</span> 互质的数。</p>
+<h4 id="阶和原根的求法">阶和原根的求法</h4>
+<p>由欧拉定理，容易证明：<span
+class="math inline">\(\delta(a)\mid\varphi(p)\)</span> 。</p>
+<p>因此我们从小到大枚举 <span class="math inline">\(\varphi(p)\)</span>
+的所有因数 <span class="math inline">\(m\)</span> 求 <span
+class="math inline">\(a^m\)</span> 即可。复杂度 <span
+class="math inline">\(\mathcal{O}{\sqrt p}\)</span> 。</p>
+<p>求原根时，我们从 <span class="math inline">\(2\)</span> 开始枚举
+<span class="math inline">\(g\)</span> ，若 <span
+class="math inline">\(\delta(g)=\varphi(p)\)</span> ，则 <span
+class="math inline">\(q\)</span> 是 <span
+class="math inline">\(p\)</span> 的原根。</p>
+<p>因为所有的 <span class="math inline">\(g^j,(j,\varphi(p))=1\)</span>
+都是 <span class="math inline">\(p\)</span> 的原根，所以 <span
+class="math inline">\(p\)</span> 的原根有 <span
+class="math inline">\(\varphi(\varphi(p))\)</span>
+个，而且基本上均匀分布，所以一般来说试 <span
+class="math inline">\(20\)</span> 个以内就可以试出原根。</p>
+<h4 id="高次同余方程">高次同余方程</h4>
+<p>在NOIP范围内，我们只能解最简单的一种高次同余方程，即形如 <span
+class="math inline">\(x^a\equiv b \bmod p\)</span> ，其中 <span
+class="math inline">\(p\)</span> 为质数的方程。</p>
+<p>我们求出 <span class="math inline">\(p\)</span> 的一个原根 <span
+class="math inline">\(g\)</span> ，两边同时对 <span
+class="math inline">\(g\)</span> 取对数，则 <span
+class="math display">\[
+a\log_gx=\log_gb \bmod \varphi(p)
+\]</span> BSGS求出 <span class="math inline">\(\log_g b\)</span>
+，ex-Gcd解出 <span class="math inline">\(\log_gx\)</span> （注意这里是对
+<span class="math inline">\(\varphi(p)\)</span> 取模），最后由 <span
+class="math inline">\(x=g^{\log_gx}\)</span> 即可算出答案。</p>
 
                 
               </div>
