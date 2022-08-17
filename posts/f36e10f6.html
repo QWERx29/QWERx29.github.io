@@ -16,26 +16,26 @@
   <meta name="author" content="QWERx29">
   <meta name="keywords" content="">
   
-    <meta name="description" content="如题。">
+    <meta name="description" content="༼ つ ◕_◕ ༽つ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hugo搭建个人博客">
-<meta property="og:url" content="https://qwerx29.github.io/posts/3bc0bbc9.html">
+<meta property="og:title" content="状压DP">
+<meta property="og:url" content="https://qwerx29.github.io/posts/f36e10f6.html">
 <meta property="og:site_name" content="Φάντασος">
-<meta property="og:description" content="如题。">
+<meta property="og:description" content="༼ つ ◕_◕ ༽つ">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/08/08/UurlkDcMdIZ49xN.png">
-<meta property="article:published_time" content="2022-08-08T12:21:58.000Z">
-<meta property="article:modified_time" content="2022-08-08T12:25:40.381Z">
+<meta property="og:image" content="https://s2.loli.net/2022/08/16/XQoK9gNGW81TIZS.jpg">
+<meta property="article:published_time" content="2022-08-17T06:13:05.000Z">
+<meta property="article:modified_time" content="2022-08-17T06:18:33.057Z">
 <meta property="article:author" content="QWERx29">
-<meta property="article:tag" content="杂谈">
+<meta property="article:tag" content="学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.loli.net/2022/08/08/UurlkDcMdIZ49xN.png">
+<meta name="twitter:image" content="https://s2.loli.net/2022/08/16/XQoK9gNGW81TIZS.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Hugo搭建个人博客 - Φάντασος</title>
+  <title>状压DP - Φάντασος</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -280,7 +280,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hugo搭建个人博客"></span>
+            <span id="subtitle" data-typed-text="状压DP"></span>
           
         </div>
 
@@ -291,8 +291,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-08 20:21" pubdate>
-          2022年8月8日 晚上
+        <time datetime="2022-08-17 14:13" pubdate>
+          2022年8月17日 下午
         </time>
       </span>
     
@@ -303,7 +303,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          3.3k 字
         
       </span>
     
@@ -314,7 +314,7 @@
         
         
         
-          2 分钟
+          6 分钟
         
       </span>
     
@@ -364,12 +364,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hugo搭建个人博客</h1>
+            <h1 style="display: none">状压DP</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年8月8日 晚上
+                    本文最后更新于：2022年8月17日 下午
                   
                 
               </p>
@@ -377,56 +377,206 @@
             
               <div class="markdown-body">
                 
-                <h3 id="开始">🎟️开始</h3>
-<h4 id="安装chocolatey或scoop">0.安装<a
-target="_blank" rel="noopener" href="https://chocolatey.org/">Chocolatey</a>或<a
-target="_blank" rel="noopener" href="https://scoop.sh/">Scoop</a></h4>
-<p>以下以Chocolatey为例，Scoop与之相似，可参阅<a
-target="_blank" rel="noopener" href="https://gohugo.io/getting-started/installing">官方文档</a>。</p>
-<p>安装后打开终端，输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ choco --version<br></code></pre></td></tr></table></figure>
-<p>检查安装是否成功</p>
-<h4 id="安装hugo">1.安装Hugo</h4>
-<p>输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ choco install hugo -confirm    <span class="hljs-comment">#普通版本</span><br></code></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ choco install hugo-extended -confirm    <span class="hljs-comment">#带有Sass/SCSS的扩展版本</span><br></code></pre></td></tr></table></figure>
-<h4 id="创建站点">2.创建站点</h4>
-<p>输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hugo new site quickstart<br></code></pre></td></tr></table></figure>
-<p>就会在<code>quickstart</code>目录下创建Hugo站点</p>
-<h4 id="添加主题">3.添加主题</h4>
-<p>此处以<code>Kagome</code>为例，<a
-target="_blank" rel="noopener" href="https://themes.gohugo.io/">其他主题</a></p>
-<p>依次执行以下三行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> quickstart<br>$ git init<br>$ git submodule add https://github.com/miiiku/hugo-theme-kagome.git ./themes/kagome    <span class="hljs-comment">#此处的链接可根据需求替换</span><br></code></pre></td></tr></table></figure>
-<p>然后更改配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">echo</span> theme = \&quot;ananke\&quot; &gt;&gt; config.toml<br></code></pre></td></tr></table></figure>
-<h4 id="写下第一篇文章">4.写下第一篇文章</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hugo new posts/my-first-post.md<br></code></pre></td></tr></table></figure>
-<p>文章会带一个<code>Format Matter</code></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">---<br>title: &quot;My First Post&quot;<br>date: 2022-08-08T20:00:11+08:00<br><span class="hljs-section">draft: true</span><br><span class="hljs-section">---</span><br></code></pre></td></tr></table></figure>
-<p>当要发布文章时，将<code>draft: true</code>
-改为<code>false</code>即可</p>
-<h4 id="本地预览">5.本地预览</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hugo server -D<br></code></pre></td></tr></table></figure>
-<p>打开<a
-target="_blank" rel="noopener" href="http://localhost:1313">http://localhost:1313</a>查看效果</p>
-<h4 id="主题配置">6.主题配置</h4>
-<p>在<code>config.toml</code>中编辑即可</p>
-<h3 id="部署">🪁部署</h3>
-<h4 id="初始化">初始化</h4>
-<p>执行<code>hugo -D</code>生成<code>./public</code>文件夹后，依次执行以下指令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> ~/quickstart/public  <span class="hljs-comment"># 生成的 HTML 文件保存在 &quot;public&quot; 目录中，&quot;public&quot; 文件夹会被转换为 Git 库。 </span><br>$ git init  <span class="hljs-comment"># 初始化 Git 库。</span><br></code></pre></td></tr></table></figure>
-<h4 id="添加远程库">添加远程库</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git remote add origin git@github.com:&lt;YOURNAME&gt;/&lt;YOURNAME&gt;.github.io.git<br></code></pre></td></tr></table></figure>
-<h4 id="提交更改">提交更改</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git status  <span class="hljs-comment"># 查看当前修改状态。</span><br>$ git add .  <span class="hljs-comment"># 添加所有修改过的文件。你也可以只添加某个文件。</span><br>$ git commit -m <span class="hljs-string">&quot;Add a new post&quot;</span>  <span class="hljs-comment"># commit message.</span><br></code></pre></td></tr></table></figure>
-<h4 id="推送">推送</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git push -u origin main<br></code></pre></td></tr></table></figure>
-<h4 id="完结撒花">完结撒花🎉</h4>
-<h3 id="进阶">✨进阶</h3>
-<p>略</p>
+                <h2 id="二进制-与-位运算">二进制 与 位运算</h2>
+<p>位运算就是基于整数的二进制表示进行的运算。由于计算机内部就是以二进制来存储数据，位运算是相当快的。</p>
+<p>基本的位运算共 <span class="math inline">\(6\)</span>
+种，分别为按位与、按位或、按位异或、按位取反、左移和右移。为了方便叙述，下文中省略“按位”。</p>
+<h3 id="关于优先级">关于优先级</h3>
+<p>位运算的优先级低于算术运算符（除了取反），而按位与、按位或及异或低于比较运算符（详见
+<a target="_blank" rel="noopener" href="https://oi-wiki.org/lang/op/">运算页面</a>
+），所以使用时需多加注意，在必要时添加括号。</p>
+<h3 id="位运算的应用">位运算的应用</h3>
+<p>位运算一般有三种作用：</p>
+<ol type="1">
+<li>高效地进行某些运算，代替其它低效的方式。</li>
+<li>表示集合。（常用于 <strong>状压DP</strong>）</li>
+<li>题目本来就要求进行位运算。</li>
+</ol>
+<p>需要注意的是，用位运算代替其它运算方式（即第一种应用）在很多时候并不能带来太大的优化，反而会使代码变得复杂，使用时需要斟酌。（但像“乘
+2 的非负整数次幂”和“除以 2
+的非负整数次幂”就最好使用位运算，因为此时使用位运算可以优化复杂度。）</p>
+<h3 id="的幂的应用">2 的幂的应用</h3>
+<p>由于位运算针对的是变量的二进制位，因此可以推广出许多与 2
+的整数次幂有关的应用。</p>
+<p>将一个数乘（除） 2 的非负整数次幂：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">mulPowerOfTwo</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m)</span> </span>&#123; <span class="hljs-keyword">return</span> n &lt;&lt; m; &#125; <span class="hljs-comment">// 计算 n*(2^m)</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">divPowerOfTwo</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m)</span> </span>&#123; <span class="hljs-keyword">return</span> n &gt;&gt; m; &#125; <span class="hljs-comment">// 计算 n/(2^m)</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><font color="FF0000">注意</font></p>
+<p>我们平常写的除法是向 <span class="math inline">\(0\)</span>
+取整，而这里的右移是向下取整（注意这里的区别），即当数大于等于 <span
+class="math inline">\(0\)</span> 时两种方法等价，当数小于<span
+class="math inline">\(0\)</span> 时会有区别，如： <code>-1 / 2</code>
+的值为 <span class="math inline">\(0\)</span> ，而
+<code>-1 &gt;&gt; 1</code> 的值为 <span
+class="math inline">\(-1\)</span> 。</p>
+</blockquote>
+<p>判断一个数是不是 <span class="math inline">\(2\)</span>
+的非负整数次幂：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isPowerOfTwo</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123; <span class="hljs-keyword">return</span> n &gt; <span class="hljs-number">0</span> &amp;&amp; (n &amp; (n - <span class="hljs-number">1</span>)) == <span class="hljs-number">0</span>; &#125;<br></code></pre></td></tr></table></figure>
+<p>对 <span class="math inline">\(2\)</span> 的非负整数次幂取模：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">modPowerOfTwo</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> mod)</span> </span>&#123; <span class="hljs-keyword">return</span> x &amp; (mod - <span class="hljs-number">1</span>); &#125;<br></code></pre></td></tr></table></figure>
+<h4 id="交换两数">交换两数</h4>
+<blockquote>
+<p>这种方式只能用来交换两个整数，使用范围有限。</p>
+<p>对于一般情况下的交换操作，推荐直接调用 <code>algorithm</code> 库中的
+<code>std::swap</code> 函数。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-type">int</span> &amp;a, <span class="hljs-type">int</span> &amp;b)</span> </span>&#123; a ^= b ^= a ^= b; &#125;     <span class="hljs-comment">//过于玄妙</span><br></code></pre></td></tr></table></figure>
+<h4 id="操作二进制位">操作二进制位</h4>
+<p>获取一个数二进制的某一位：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//获取 a 的第 b 位，最低位编号为 0</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getBit</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>&#123; <span class="hljs-keyword">return</span> (a &gt;&gt; b) &amp; <span class="hljs-number">1</span>; &#125;     <br></code></pre></td></tr></table></figure>
+<p>将一个数二进制的某一位设置为 <span class="math inline">\(0\)</span>
+：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//将 a 的第 b 位设置为 0 ，最低位编号为 0</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">unsetBit</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>&#123; <span class="hljs-keyword">return</span> a &amp; ~(<span class="hljs-number">1</span> &lt;&lt; b); &#125;	<br></code></pre></td></tr></table></figure>
+<p>将一个数二进制的某一位设置为 <span class="math inline">\(1\)</span>
+：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//将 a 的第 b 位设置为 1 ，最低位编号为 0</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">setBit</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>&#123; <span class="hljs-keyword">return</span> a | (<span class="hljs-number">1</span> &lt;&lt; b); &#125;<br></code></pre></td></tr></table></figure>
+<p>将一个数二进制的某一位取反：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//将 a 的第 b 位取反 ，最低位编号为 0</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">flapBit</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>&#123; <span class="hljs-keyword">return</span> a ^ (<span class="hljs-number">1</span> &lt;&lt; b); &#125;<br></code></pre></td></tr></table></figure>
+<p>这些操作相当于将一个 <span class="math inline">\(32\)</span>
+位整型变量当作一个长度为 <span class="math inline">\(32\)</span>
+的布尔数组。</p>
+<p>在此基础上，可以手写实现 <code>bitset</code>。</p>
+<h4 id="模拟集合操作">模拟集合操作</h4>
+<p>一个数的二进制表示可以看作是一个集合（ <span
+class="math inline">\(0\)</span> 表示不在集合中，<span
+class="math inline">\(1\)</span> 表示在集合中）。比如集合 <span
+class="math inline">\(\{1,3,4,8\}\)</span> ，可以表示成 <span
+class="math inline">\((100011010)_2\)</span>
+。而对应的位运算也就可以看作是对集合进行的操作。</p>
+<table>
+<thead>
+<tr class="header">
+<th>操作</th>
+<th>集合表示</th>
+<th>位运算语句</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>交集</td>
+<td><span class="math inline">\(a \cap b\)</span></td>
+<td><code>a &amp; b</code></td>
+</tr>
+<tr class="even">
+<td>并集</td>
+<td><span class="math inline">\(a \cup b\)</span></td>
+<td><code>a | b</code></td>
+</tr>
+<tr class="odd">
+<td>补集</td>
+<td><span class="math inline">\(\bar{a}\)</span></td>
+<td><code>~ a</code>（全集为二进制都是 1）</td>
+</tr>
+<tr class="even">
+<td>差集</td>
+<td><span class="math inline">\(a \setminus b\)</span></td>
+<td><code>a &amp; (~ b)</code></td>
+</tr>
+<tr class="odd">
+<td>对称集</td>
+<td><span class="math inline">\(a\triangle b\)</span></td>
+<td><code>a ^ b</code></td>
+</tr>
+</tbody>
+</table>
+<p>子集遍历：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 遍历 u 的非空子集</span><br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> s = u; s; s = (s - <span class="hljs-number">1</span>) &amp; u) &#123;<br>  <span class="hljs-comment">// s 是 u 的一个非空子集</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>用这种方法可以在 <span
+class="math inline">\(\mathcal{O}(2^{\operatorname{popcount}(u)})\)</span>
+（ <span class="math inline">\(\operatorname{popcount}(u)\)</span> 表示
+<span class="math inline">\(u\)</span> 二进制中 <span
+class="math inline">\(1\)</span> 的个数）的时间复杂度内遍历 <span
+class="math inline">\(u\)</span> 的子集，进而可以在 <span
+class="math inline">\(\mathcal{O}(3^n)\)</span> 的时间复杂度内遍历大小为
+<span class="math inline">\(n\)</span>
+的集合的每个子集的子集。（复杂度为 <span
+class="math inline">\(\mathcal{O}(3^n)\)</span> 是因为每个元素都有
+不在大子集中/只在大子集中/同时在大小子集中 三种状态。）</p>
+<h3 id="内建函数">内建函数</h3>
+<p>GCC 中还有一些用于位运算的内建函数：</p>
+<ol type="1">
+<li><code>int __builtin_ffs(int x)</code> ：返回 <span
+class="math inline">\(x\)</span> 的二进制末尾最后一个 <span
+class="math inline">\(1\)</span> 的位置，位置的编号从 <span
+class="math inline">\(1\)</span> 开始（最低位编号为 <span
+class="math inline">\(1\)</span> ）。当 <span
+class="math inline">\(x\)</span> 为 <span
+class="math inline">\(0\)</span> 时返回 <span
+class="math inline">\(0\)</span> 。</li>
+<li><code>int __builtin_clz(unsigned int x)</code> ：返回 <span
+class="math inline">\(x\)</span> 的二进制的前导 <span
+class="math inline">\(0\)</span> 的个数。当 <span
+class="math inline">\(x\)</span> 为 <span
+class="math inline">\(0\)</span> 时，结果未定义。</li>
+<li><code>int __builtin_ctz(unsigned int x)</code> ：返回 <span
+class="math inline">\(x\)</span> 的二进制末尾连续 <span
+class="math inline">\(0\)</span> 的个数。当 <span
+class="math inline">\(x\)</span> 为 <span
+class="math inline">\(0\)</span> 时，结果未定义。</li>
+<li><code>int __builtin_clrsb(int x)</code> ：当 <span
+class="math inline">\(x\)</span> 的符号位为 <span
+class="math inline">\(0\)</span> 时返回 <span
+class="math inline">\(x\)</span> 的二进制的前导 <span
+class="math inline">\(0\)</span> 的个数减一，否则返回 <span
+class="math inline">\(x\)</span> 的二进制的前导 <span
+class="math inline">\(1\)</span> 的个数减一。</li>
+<li><code>int __builtin_popcount(unsigned int x)</code> ：返回 <span
+class="math inline">\(x\)</span> 的二进制中 <span
+class="math inline">\(1\)</span> 的个数。</li>
+<li><code>int __builtin_parity(unsigned int x)</code> ：判断 <span
+class="math inline">\(x\)</span> 的二进制中 <span
+class="math inline">\(1\)</span> 的个数的奇偶性。</li>
+</ol>
+<p>这些函数都可以在函数名末尾添加 <code>l</code> 或 <code>ll</code> （如
+<code>__builtin_popcountll</code> ）来使参数类型变为 (
+<code>unsigned</code> ) <code>long</code> 或 ( <code>unsigned</code> )
+<code>long long</code> （返回值仍然是 <code>int</code> 类型）。
+例如，我们有时候希望求出一个数以二为底的对数，如果不考虑 <code>0</code>
+的特殊情况，就相当于这个数二进制的位数 <code>-1</code> ，而一个数
+<code>n</code> 的二进制表示的位数可以使用
+<code>32-__builtin_clz(n)</code> 表示，因此
+<code>31-__builtin_clz(n)</code> 就可以求出 <code>n</code>
+以二为底的对数。</p>
+<p>由于这些函数是内建函数，经过了编译器的高度优化，运行速度十分快（有些甚至只需要一条指令）。</p>
+<h2 id="状压dp">状压DP</h2>
+<p>状态压缩动态规划，简称状压DP。</p>
+<h3 id="状态压缩">状态压缩</h3>
+<p>当状态维数 <span class="math inline">\(n\)</span> 很多但每一维状态数
+<span class="math inline">\(k\)</span> 都很少（一般是 <span
+class="math inline">\(2\)</span> ）的时候，我们可以用一个 <span
+class="math inline">\(n\)</span> 位 <span
+class="math inline">\(k\)</span> 进制整数来表示这 <span
+class="math inline">\(n\)</span> 维状态。</p>
+<h3 id="从-mathcalon-到-mathcal-o2n">从 <span
+class="math inline">\(\mathcal{O}(n!)\)</span> 到 <span
+class="math inline">\(\mathcal O(2^n)\)</span></h3>
+<p>状压DP是最接近暴力的一种DP，因为它可以完整地记录每一种状态。</p>
+<p>但它又比 <span class="math inline">\(\mathcal O(n!)\)</span>
+的纯暴力搜索要优一些，因为它舍弃了状态的更新<strong>顺序</strong>的记录。</p>
+<p>所以很多情况下，状压DP就是将 <span class="math inline">\(\mathcal
+O(n!)\)</span> 的暴力优化到 <span class="math inline">\(\mathcal
+O(2^n)\)</span> 的另一个暴力的过程。</p>
+<h3 id="子集枚举">子集枚举</h3>
+<p>上面算法的瓶颈在于枚举 <span class="math inline">\(S\)</span> 的子集
+<span class="math inline">\(T\)</span> 仍然需要 <span
+class="math inline">\(\mathcal O(2^n)\)</span>
+的复杂度，但其实多数情况下 <span class="math inline">\(S\)</span>
+的子集数是远远小于 <span class="math inline">\(2^n\)</span> 的。</p>
+<p>我们只需把</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> T = <span class="hljs-number">1</span>; T &lt;= S; ++T) <span class="hljs-keyword">if</span>((S &amp; T) == T)<br></code></pre></td></tr></table></figure>
+<p>改为</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> T = S; T; T = (T - <span class="hljs-number">1</span>) &amp; S)<br></code></pre></td></tr></table></figure>
+<p>即可使得 <span class="math inline">\(T\)</span> 仅枚举到 <span
+class="math inline">\(S\)</span> 的所有非空子集。</p>
+<p>因为 <span class="math inline">\(S\)</span> 取遍所有子集，所以枚举的
+<span class="math inline">\(T\)</span> 共有 <span
+class="math inline">\(\sum_{i=0}^n\dbinom{n}{i}2^i=3^n\)</span> 个。</p>
+<h3 id="合理运用小范围数据">合理运用小范围数据</h3>
+<p>状压DP中 <span class="math inline">\(2^n\)</span>
+的复杂度使得题目中的某些数据范围也会很小（一般在 <span
+class="math inline">\(25\)</span> 以下）。当遇到 <span
+class="math inline">\(25\)</span> 以下的数据范围时一定要敏感。</p>
 
                 
               </div>
@@ -445,7 +595,17 @@ target="_blank" rel="noopener" href="http://localhost:1313">http://localhost:131
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/" class="category-chain-item">技术教程</a>
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="category-chain-item">动态规划</a>
   
   
 
@@ -460,7 +620,7 @@ target="_blank" rel="noopener" href="http://localhost:1313">http://localhost:131
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%9D%82%E8%B0%88/">#杂谈</a>
+        <a href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
       
     </div>
   
@@ -472,8 +632,8 @@ target="_blank" rel="noopener" href="http://localhost:1313">http://localhost:131
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hugo搭建个人博客</div>
-      <div>https://qwerx29.github.io/posts/3bc0bbc9.html</div>
+      <div>状压DP</div>
+      <div>https://qwerx29.github.io/posts/f36e10f6.html</div>
     </div>
     <div class="license-meta">
       
@@ -485,13 +645,13 @@ target="_blank" rel="noopener" href="http://localhost:1313">http://localhost:131
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月8日</div>
+          <div>2022年8月17日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年8月8日</div>
+          <div>2022年8月17日</div>
         </div>
       
       <div class="license-meta-item">
@@ -520,18 +680,12 @@ target="_blank" rel="noopener" href="http://localhost:1313">http://localhost:131
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/fab451a5.html" title="并查集">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">并查集</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/6d4014b7.html" title="堆">
-                        <span class="hidden-mobile">堆</span>
+                      <a href="/posts/9ba26914.html" title="树形DP">
+                        <span class="hidden-mobile">树形DP</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
