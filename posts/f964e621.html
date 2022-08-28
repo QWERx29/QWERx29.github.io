@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/08/14/ENmOM8FzAIailrZ.png">
 <meta property="article:published_time" content="2022-08-14T02:05:24.000Z">
-<meta property="article:modified_time" content="2022-08-14T11:51:02.626Z">
+<meta property="article:modified_time" content="2022-08-21T09:09:12.654Z">
 <meta property="article:author" content="QWERx29">
 <meta property="article:tag" content="资源">
 <meta name="twitter:card" content="summary_large_image">
@@ -196,35 +196,39 @@
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark-fill"></i>
+                索引
               </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+              </div>
             </li>
           
         
@@ -249,6 +253,30 @@
                 <i class="iconfont icon-link-fill"></i>
                 友链
               </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-exp-fill"></i>
+                其他
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="http://phnatasus.tk/reference/zh/">
+                    <i class="iconfont icon-code"></i>
+                    C++参考手册
+                  </a>
+                
+              </div>
             </li>
           
         
@@ -303,7 +331,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          2.8k 字
         
       </span>
     
@@ -314,7 +342,7 @@
         
         
         
-          3 分钟
+          5 分钟
         
       </span>
     
@@ -369,7 +397,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年8月14日 晚上
+                    本文最后更新于：2022年8月21日 下午
                   
                 
               </p>
@@ -377,409 +405,46 @@
             
               <div class="markdown-body">
                 
-                <p>（右键查看源代码）</p>
-<h3 id="符号">符号</h3>
-<table>
-<thead>
-<tr class="header">
-<th>指令</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>_</code></td>
-<td><span class="math inline">\(A_1\)</span></td>
-</tr>
-<tr class="even">
-<td><code>.</code></td>
-<td><span class="math inline">\(0.5\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>'</code></td>
-<td><span class="math inline">\(&#39;\)</span></td>
-</tr>
-<tr class="even">
-<td><code>’</code></td>
-<td><span class="math inline">\(’\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>(</code></td>
-<td><span class="math inline">\((\)</span></td>
-</tr>
-<tr class="even">
-<td><code>)</code></td>
-<td><span class="math inline">\()\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>[</code></td>
-<td><span class="math inline">\([\)</span></td>
-</tr>
-<tr class="even">
-<td><code>]</code></td>
-<td><span class="math inline">\(]\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>&#123;</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>&#125;</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>@</code></td>
-<td><span class="math inline">\(@\)</span></td>
-</tr>
-<tr class="even">
-<td><code>/</code></td>
-<td><span class="math inline">\(/\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>\</code> (backslash-space)</td>
-<td><span class="math inline">\(\ \)</span></td>
-</tr>
-<tr class="even">
-<td><code>\_</code></td>
-<td><span class="math inline">\(\_\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>\,</code></td>
-<td><span class="math inline">\(\,\)</span></td>
-</tr>
-<tr class="even">
-<td><code>\;</code></td>
-<td><span class="math inline">\(\;\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>\:</code></td>
-<td><span class="math inline">\(\:\)</span></td>
-</tr>
-<tr class="even">
-<td><code>\!</code></td>
-<td><span class="math inline">\(\!\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>\&#123;</code></td>
-<td><span class="math inline">\(\{\)</span></td>
-</tr>
-<tr class="even">
-<td><code>\&#125;</code></td>
-<td><span class="math inline">\(\}\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>\\</code></td>
-<td><span class="math inline">\(\\\)</span></td>
-</tr>
-<tr class="even">
-<td><code>\&amp;</code></td>
-<td><span class="math inline">\(\&amp;\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>\#</code></td>
-<td><span class="math inline">\(\#\)</span></td>
-</tr>
-<tr class="even">
-<td><code>\%</code></td>
-<td><span class="math inline">\(\%\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>\&gt;</code></td>
-<td><span class="math inline">\(\&gt;\)</span></td>
-</tr>
-<tr class="even">
-<td><code>\|</code></td>
-<td><span class="math inline">\(\|\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>\$</code></td>
-<td><span class="math inline">\(\$\)</span></td>
-</tr>
-<tr class="even">
-<td><code>&amp;</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>#</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>%</code></td>
-<td><span class="math inline">\(%\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>^</code></td>
-<td><span class="math inline">\(2^{10}\)</span></td>
-</tr>
-<tr class="even">
-<td><code>&lt;</code></td>
-<td><span class="math inline">\(&lt;\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>&gt;</code></td>
-<td><span class="math inline">\(&gt;\)</span></td>
-</tr>
-<tr class="even">
-<td><code>|</code></td>
-<td><span class="math inline">\(|\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>~</code></td>
-<td><span class="math inline">\(~\)</span></td>
-</tr>
-</tbody>
-</table>
-<h3 id="a">A</h3>
-<table>
-<thead>
-<tr class="header">
-<th>指令</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>\above</code></td>
-<td><span class="math inline">\(a\above{1pt} b\)</span></td>
-</tr>
-<tr class="even">
-<td><code>\abovewithdelims</code></td>
-<td>$a+1 b $</td>
-</tr>
-<tr class="odd">
-<td><code>\Aboxed</code></td>
-<td>$$</td>
-</tr>
-<tr class="even">
-<td><code>\abs</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>\absolutevalue</code></td>
-<td><span class="math inline">\(\absolutevalue\)</span></td>
-</tr>
-<tr class="even">
-<td><code>\acomm</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="odd">
-<td><code>\acos</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="even">
-<td><code>\acosecant</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="odd">
-<td><code>\acosine</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="even">
-<td><code>\acot</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="odd">
-<td><code>\acotangent</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="even">
-<td><code>\acsc</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="odd">
-<td><code>\acute</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>\adjustlimits</code></td>
-<td><em>mathtools</em></td>
-</tr>
-<tr class="odd">
-<td><code>\admat</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="even">
-<td><code>\aleph</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>\alpha</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>\alwaysDashedLine</code></td>
-<td><strong>bussproofs</strong></td>
-</tr>
-<tr class="odd">
-<td><code>\alwaysNoLine</code></td>
-<td><strong>bussproofs</strong></td>
-</tr>
-<tr class="even">
-<td><code>\alwaysRootAtBottom</code></td>
-<td><strong>bussproofs</strong></td>
-</tr>
-<tr class="odd">
-<td><code>\alwaysRootAtTop</code></td>
-<td><strong>bussproofs</strong></td>
-</tr>
-<tr class="even">
-<td><code>\alwaysSingleLine</code></td>
-<td><strong>bussproofs</strong></td>
-</tr>
-<tr class="odd">
-<td><code>\alwaysSolidLine</code></td>
-<td><strong>bussproofs</strong></td>
-</tr>
-<tr class="even">
-<td><code>\amalg</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>\And</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>\angle</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>\anticommutator</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="even">
-<td><code>\antidiagonalmatrix</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="odd">
-<td><code>\approx</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>\approxeq</code></td>
-<td><strong>ams</strong></td>
-</tr>
-<tr class="odd">
-<td><code>\arccos</code></td>
-<td><strong>base</strong>, <em>physics</em></td>
-</tr>
-<tr class="even">
-<td><code>\arccosecant</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="odd">
-<td><code>\arccosine</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="even">
-<td><code>\arccot</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="odd">
-<td><code>\arccotangent</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="even">
-<td><code>\arccsc</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="odd">
-<td><code>\arcsec</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="even">
-<td><code>\arcsecant</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="odd">
-<td><code>\arcsin</code></td>
-<td><strong>base</strong>, <em>physics</em></td>
-</tr>
-<tr class="even">
-<td><code>\arcsine</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="odd">
-<td><code>\arctan</code></td>
-<td><strong>base</strong>, <em>physics</em></td>
-</tr>
-<tr class="even">
-<td><code>\arctangent</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="odd">
-<td><code>\arg</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>\array</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>\ArrowBetweenLines</code></td>
-<td><em>mathtools</em></td>
-</tr>
-<tr class="even">
-<td><code>\arrowvert</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>\Arrowvert</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>\asec</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="odd">
-<td><code>\asecant</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="even">
-<td><code>\asin</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="odd">
-<td><code>\asine</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="even">
-<td><code>\ast</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>\asymp</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>\atan</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="odd">
-<td><code>\atangent</code></td>
-<td><em>physics</em></td>
-</tr>
-<tr class="even">
-<td><code>\atop</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>\atopwithdelims</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>\AXC</code></td>
-<td><strong>bussproofs</strong></td>
-</tr>
-<tr class="odd">
-<td><code>\Axiom</code></td>
-<td><strong>bussproofs</strong></td>
-</tr>
-<tr class="even">
-<td><code>\AxiomC</code></td>
-<td><strong>bussproofs</strong></td>
-</tr>
-</tbody>
-</table>
+                <p><strong>（右键可查看指令）</strong></p>
+<h3 id="声调-变音符号">声调 / 变音符号</h3>
+<p><span class="math inline">\(\dot{a}\)</span> <span
+class="math inline">\(\ddot{a}\)</span> <span
+class="math inline">\(\acute{a}\)</span> <span
+class="math inline">\(\grave{a}\)</span></p>
+<p><span class="math inline">\(\check{a}\)</span> <span
+class="math inline">\(\breve{a}\)</span> <span
+class="math inline">\(\tilde{a}\)</span> <span
+class="math inline">\(\bar{a}\)</span></p>
+<p><span class="math inline">\(\hat{a}\)</span> <span
+class="math inline">\(\widehat{a}\)</span> <span
+class="math inline">\(\vec{a}\)</span></p>
+<h3 id="标准函数">标准函数</h3>
+<p><span class="math inline">\(\exp_a b=a^b\)</span> <span
+class="math inline">\(\exp b=e^b\)</span> <span
+class="math inline">\(10^m\)</span></p>
+<p><span class="math inline">\(\sin A\)</span> <span
+class="math inline">\(\cos B\)</span> <span class="math inline">\(\tan C
+\sec d \csc e \cot f\)</span></p>
+<h3 id="空格">空格</h3>
+<h3 id="颜色">颜色</h3>
+<h4 id="语法">语法</h4>
+<p>字体颜色：<code>&#123;\color&#123;色调&#125;表达式&#125;</code></p>
+<p>背景颜色：<code>&#123;\color&#123;文字色调&#125;\colorbox&#123;背景色调&#125;&#123;表达式(可以打中文)&#125;&#125;</code></p>
+<p>色调也可以写颜色编码</p>
+<p><del>（颜色渲染不出来，只能这样了）</del></p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-built_in">$</span><span class="hljs-keyword">\color</span>&#123;<span class="hljs-params">#</span>f37ce4&#125;Color<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Aquamarine&#125;Aquamarine&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span><span class="hljs-keyword">\color</span>&#123;Black&#125;Black<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Blue&#125;Blue&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;BlueViolet&#125;BlueViolet&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Brown&#125;Brown&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;CadetBlue&#125;CadetBlue&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;CornflowerBlue&#125;CornflowerBlue&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Cyan&#125;Cyan&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;DarkOrchid&#125;DarkOrchid&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;ForestGreen&#125;ForestGreen&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Fuchsia&#125;Fuchsia&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Goldenrod&#125;Goldenrod&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Gold&#125;Gold&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Gray&#125;Gray&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;CadetBlue&#125;CadetBlue&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Green&#125;Green&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;GreenYellow&#125;GreenYellow&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Lavender&#125;Lavender&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;LimeGreen&#125;LimeGreen&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Magenta&#125;Magenta&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Maroon&#125;Maroon&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Orange&#125;Orange&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;OrangeRed&#125;OrangeRed&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Orchid&#125;Orchid&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Plum&#125;Plum&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Purple&#125;Purple&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Red&#125;Red&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;RoyalBlue&#125;RoyalBlue&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Salmon&#125;Salmon&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;SeaGreen&#125;SeaGreen&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;SkyBlue&#125;SkyBlue&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;SpringGreen&#125;SpringGreen&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Tan&#125;Tan&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Thistle&#125;Thistle&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Turquoise&#125;Turquoise &#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Violet&#125;Violet&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;White&#125;White&#125;<span class="hljs-keyword">\gets</span><span class="hljs-built_in">$</span>这是白= =<br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;Yellow&#125;Yellow&#125;<span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span>&#123;<span class="hljs-keyword">\color</span>&#123;YellowGreen&#125;YellowGreen&#125;<span class="hljs-built_in">$</span><br><br>随便举个例子：  <br><br><span class="hljs-built_in">$</span>x=<span class="hljs-keyword">\dfrac</span>&#123;-b<span class="hljs-keyword">\pm</span><span class="hljs-keyword">\sqrt</span>&#123;<span class="hljs-keyword">\color</span>&#123;Red&#125;b<span class="hljs-built_in">^</span>2-4ac&#125;&#125;&#123;<span class="hljs-keyword">\color</span>&#123;Blue&#125;2a&#125;<span class="hljs-built_in">$</span><br><br><span class="hljs-built_in">$</span><span class="hljs-keyword">\color</span>&#123;Blue&#125;<span class="hljs-keyword">\colorbox</span>&#123;Yellow&#125;&#123;LaTeX公式大全&#125;<span class="hljs-built_in">$</span><br></code></pre></td></tr></table></figure>
+<h3 id="把数学公式框起来">把数学公式框起来</h3>
+<p><span class="math display">\[
+\boxed{\sum\limits_{i = 1}^{n} i = \dfrac{n(n - 1)}{2}}
+\]</span></p>
+<p>ps:对于行内模式同样有效，不过大多情况用于独立模式。</p>
+<p><strong>参考文章</strong></p>
+<p><a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/IowaBattleship/latex-gong-shi-tai-quan">https://www.luogu.com.cn/blog/IowaBattleship/latex-gong-shi-tai-quan</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://katex.org/docs/supported.html">https://katex.org/docs/supported.html</a></p>
+<p><a
+target="_blank" rel="noopener" href="http://docs.mathjax.org/en/latest/input/tex/macros/index.html">http://docs.mathjax.org/en/latest/input/tex/macros/index.html</a></p>
 
                 
               </div>
@@ -844,7 +509,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年8月14日</div>
+          <div>2022年8月21日</div>
         </div>
       
       <div class="license-meta-item">
