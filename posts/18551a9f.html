@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/mWVi6X9Q143Bh2q.webp">
 <meta property="article:published_time" content="2022-08-10T13:48:01.000Z">
-<meta property="article:modified_time" content="2022-08-28T12:37:18.080Z">
+<meta property="article:modified_time" content="2022-08-31T12:00:59.320Z">
 <meta property="article:author" content="QWERx29">
 <meta property="article:tag" content="杂谈">
 <meta name="twitter:card" content="summary_large_image">
@@ -276,6 +276,14 @@
                     C++参考手册
                   </a>
                 
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://oi-wiki.org/">
+                    <i class="iconfont icon-book"></i>
+                    OI Wiki
+                  </a>
+                
               </div>
             </li>
           
@@ -331,7 +339,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.1k 字
+          6.5k 字
         
       </span>
     
@@ -342,7 +350,7 @@
         
         
         
-          7 分钟
+          11 分钟
         
       </span>
     
@@ -397,7 +405,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年8月28日 晚上
+                    本文最后更新于：2022年8月31日 晚上
                   
                 
               </p>
@@ -412,12 +420,18 @@ target="_blank" rel="noopener" href="https://jamstack.org/generators/">这里</a
 <span class="math inline">\(\text{Star}&gt;2k\)</span>
 的框架<del>（不一定按顺序）</del></p>
 <p>下面介绍的都是一些基本操作，进阶内容详见---&gt;🕊️</p>
-<p>正因如此，介绍过程<del>相对比较</del>简略，仅会描述入门级的内容。当然在<del>不久的</del>将来<del>可能</del>会单独写几篇详细介绍的文章，主要针对人气较高的生成器<del>（似乎都已经写完了诶(❁´◡`❁)）</del></p>
+<p>正因如此，介绍过程<del>相对比较</del>简略，仅会描述入门级的内容。当然在<del>不久的</del>将来<del>可能</del>会单独写几篇详细介绍的文章，主要针对<del>人气较高</del>的生成器<del>（似乎都已经写完了诶(❁´◡`❁)）</del></p>
 <p>如果这里没有您想要了解的，欢迎在评论区留言~~</p>
+<p><del>文章有些长，建议跳读</del></p>
 <h3 id="准备工作">准备工作</h3>
 <ul>
 <li>Git环境和GitHub账号</li>
 <li><del>终端</del></li>
+</ul>
+<h3 id="注意事项">注意事项</h3>
+<ul>
+<li><p>如有报错，请检查代理是否开启、包管理器版本是否符合要求等，如仍有问题，<del>建议多尝试几次</del>。当然错误原因都是英语，<del>看不懂可以<code>BDFS</code>一下</del>QwQ。</p></li>
+<li><p>下文中，若无特殊说明，则需在<code>Repo--Settings--Pages</code>中选择从主分支的根目录部署。待<code>GitHub Actions</code>跑完后就可以看到站点（<code>&lt;YOURNAME&gt;.github.io/&lt;PROJECT_NAME&gt;</code>）。</p></li>
 </ul>
 <hr />
 <center>
@@ -470,7 +484,6 @@ alt="MkDocs预览" />
 <h3 id="部署">🏹部署</h3>
 <p>添加远程库并执行自带的部署命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git init<br>$ git remote add origin https://github.com/&lt;YOURNMAE&gt;/&lt;PROJECT_NAME&gt;.git<br>$ mkdocs gh-deploy<br></code></pre></td></tr></table></figure>
-<p>片刻后就会在<code>&lt;YOURNAME&gt;.github.io/&lt;PROJECT_NAME&gt;</code>看到搭建好的网站</p>
 <h3 id="section">🎉</h3>
 <h2 id="docsify">Docsify</h2>
 <blockquote>
@@ -502,7 +515,6 @@ target="_blank" rel="noopener" href="https://docsify.js.org/#/zh-cn/">官方文�
 <h3 id="部署-1">📸部署</h3>
 <p><del>经典操作</del></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git init<br>$ git add .<br>$ git commit -m <span class="hljs-string">&#x27;&lt;COMMIT_MESSAGE&gt;&#x27;</span><br>$ git remote add origin https://github.com/&lt;YOURNAME&gt;/&lt;PROJECT_NAME&gt;.git<br>$ git push -u origin main<br></code></pre></td></tr></table></figure>
-<p>转到GitHub仓库设置----Pages----Branch选择main，就可以在<code>&lt;YOURNAME&gt;.github.io/&lt;PROJECT_NAME&gt;</code>看到搭建好的网站</p>
 <h3 id="section-1">🎉</h3>
 <h2 id="next.js">Next.js</h2>
 <blockquote>
@@ -583,7 +595,7 @@ target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:40
 target="_blank" rel="noopener" href="https://jekyllrb.com/docs/">官方文档</a>进行操作，或通过<code>BDFS</code>参考一些进阶方法</p>
 <p><del>原因是要写<code>JS</code>（逃</del></p>
 <h3 id="写作-3">🖊️写作</h3>
-<p><code>JS</code>+<code>Markdown</code>，那就🕊️了吧</p>
+<p><code>JS</code>+<code>Markdown</code>，<del>那就🕊️了吧</del></p>
 <h3 id="部署-3">🎸部署</h3>
 <p>经典操作++</p>
 <p>需要注意的是，如果你的个性链接是以<code>/myblog</code>之类结尾，需要更改<code>_config.yml</code>中的<code>baseurl</code>项</p>
@@ -591,27 +603,95 @@ target="_blank" rel="noopener" href="https://jekyllrb.com/docs/">官方文档</a
 <h2 id="nuxt">Nuxt</h2>
 <p><code>Vue</code>？</p>
 <p><del>再见</del></p>
-<p><del>我就会安装</del></p>
 <p><del>为什么这么靠前</del></p>
-<p>咕咕咕🕊️</p>
+<p><del>咕咕咕🕊️</del></p>
+<p><a
+target="_blank" rel="noopener" href="https://nuxtjs.org/docs/get-started/installation">官方文档</a></p>
+<h4 id="安装">💡安装</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ yarn create nuxt-app &lt;project-name&gt;<br></code></pre></td></tr></table></figure>
+<h4 id="写作-4">👀写作</h4>
+<p>去他的Vue</p>
+<h4 id="部署-4">👑部署</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ yarn generate<br></code></pre></td></tr></table></figure>
+<p><del>然后又是经典操作</del></p>
+<p>然而需要注意的是，我们需要在<code>nuxt.config.js</code>中加入下面几行</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-attr">generate</span>: &#123;<br>    <span class="hljs-attr">dir</span>: <span class="hljs-string">&#x27;docs&#x27;</span>,<br>    <span class="hljs-attr">subFolders</span>: <span class="hljs-literal">false</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>并设置GitHub Pages使用<code>/docs</code>部署页面</p>
+<h4 id="section-4">🎉</h4>
 <h2 id="docusaurus">Docusaurus</h2>
 <p>好慢啊（bushi</p>
-<h3 id="安装">安装</h3>
+<p><a target="_blank" rel="noopener" href="https://v2.docusaurus.io/">文档</a></p>
+<h3 id="安装-1">🥪安装</h3>
 <p>疯狂跑命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npx create-docusaurus@latest my-website classic<br>$ <span class="hljs-built_in">cd</span> my-website<br>$ npm run start<br></code></pre></td></tr></table></figure>
-<h3 id="部署-4">部署</h3>
+<h3 id="写作-5">🧹写作</h3>
+<p>写<code>MarkDown</code>即可</p>
+<h3 id="部署-5">✈️部署</h3>
 <p>更改<code>docusaurus.config.js</code>，设置域名、子域、仓库所有者、仓库名……</p>
 <p>用<strong><code>Git Bash</code></strong>执行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ GIT_USER=&lt;YOURNAME&gt; yarn deploy<br></code></pre></td></tr></table></figure>
 <p>跑一下就好了</p>
-<h4 id="section-4">🎉</h4>
+<h3 id="section-5">🎉</h3>
 <h2 id="hexo">Hexo</h2>
 <p>参见<a href="/posts/39651.html">此文</a></p>
 <h2 id="slate">Slate</h2>
+<blockquote>
+<p>Please note, only Linux and macOS are officially supported at this
+time. While slate should work on Windows, it is unsupported.</p>
+</blockquote>
+<p><del>好！</del></p>
+<p><a target="_blank" rel="noopener" href="https://slatedocs.github.io/slate/">文档</a></p>
 <h2 id="gitbook">GitBook</h2>
 <p>在<a target="_blank" rel="noopener" href="https://gitbook.com">官网</a>上注册账号，按提示搞就行</p>
 <p><del>似乎对国内网络不太友好</del></p>
-<h2 id="sphinx">Sphinx</h2>
+<h2 id="docute">Docute</h2>
+<p>方便至极</p>
+<p><a target="_blank" rel="noopener" href="https://docute.egoist.dev/zh/">官方文档</a></p>
+<h3 id="开始-4">🎲开始</h3>
+<p>在工作目录下新建一个<code>index.html</code>，写入以下内容</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My Docs<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://unpkg.com/docute@4/dist/docute.css&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;docute&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/docute@4/dist/docute.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">      <span class="hljs-keyword">new</span> <span class="hljs-title class_">Docute</span>(&#123;</span><br><span class="language-javascript">        <span class="hljs-attr">target</span>: <span class="hljs-string">&#x27;#docute&#x27;</span></span><br><span class="language-javascript">      &#125;)</span><br><span class="language-javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>接着新建一个<code>README.md</code>文件，作为网站首页</p>
+<h3 id="写作-6">🧩写作</h3>
+<p>So easy!</p>
+<p>不就是Markdown吗</p>
+<h3 id="部署-6">🍡部署</h3>
+<p>经典操作+10086</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git init<br>$ git add .<br>$ git commit -m <span class="hljs-string">&#x27;init&#x27;</span><br>$ git remote add origin https://github.com/&lt;YOURNAME&gt;/&lt;PROJECT_NAME&gt;.git<br>$ git push -u origin main<br></code></pre></td></tr></table></figure>
+<h3 id="section-6">🎉</h3>
+<h2 id="astro">Astro</h2>
+<p>快极了</p>
+<p><a
+target="_blank" rel="noopener" href="https://docs.astro.build/zh-cn/getting-started/">官方文档</a>（有中文诶！好评）</p>
+<h3 id="开始-5">⏱️开始</h3>
+<h5 id="初始化-3">初始化</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ yarn create astro<br></code></pre></td></tr></table></figure>
+<p>按情况选择安装内容</p>
+<h5 id="预览">预览</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ yarn start<br></code></pre></td></tr></table></figure>
+<h3 id="写作-7">📌写作</h3>
+<p>在<code>src/pages</code>中写<code>.astro</code>或<code>.md</code>文档均可</p>
+<h3 id="部署-7">🍄部署</h3>
+<p>先<del>经典操作一条龙服务</del>，然后在<code>Pages</code>设置中选择从<code>Workflow</code>部署</p>
+<p>接着选择自行创建，在网页编辑器中写入下面内容</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Github</span> <span class="hljs-string">Pages</span> <span class="hljs-string">Astro</span> <span class="hljs-string">CI</span><br><br><span class="hljs-attr">on:</span><br>  <span class="hljs-comment"># Trigger the workflow every time you push to the `main` branch</span><br>  <span class="hljs-comment"># Using a different branch name? Replace `main` with your branch’s name</span><br>  <span class="hljs-attr">push:</span><br>    <span class="hljs-attr">branches:</span> [ <span class="hljs-string">main</span> ]<br>  <span class="hljs-comment"># Allows you to run this workflow manually from the Actions tab on GitHub.</span><br>  <span class="hljs-attr">workflow_dispatch:</span><br>  <br><span class="hljs-comment"># Allow this job to clone the repo and create a page deployment</span><br><span class="hljs-attr">permissions:</span><br>  <span class="hljs-attr">contents:</span> <span class="hljs-string">read</span><br>  <span class="hljs-attr">pages:</span> <span class="hljs-string">write</span><br>  <span class="hljs-attr">id-token:</span> <span class="hljs-string">write</span><br><br><span class="hljs-attr">jobs:</span><br>  <span class="hljs-attr">build:</span><br>    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span><br>    <span class="hljs-attr">steps:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Checkout</span> <span class="hljs-string">your</span> <span class="hljs-string">repository</span> <span class="hljs-string">using</span> <span class="hljs-string">git</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v2</span>          <br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Install,</span> <span class="hljs-string">build,</span> <span class="hljs-string">and</span> <span class="hljs-string">upload</span> <span class="hljs-string">your</span> <span class="hljs-string">site</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">withastro/action@v0</span><br><br>  <span class="hljs-attr">deploy:</span><br>    <span class="hljs-attr">needs:</span> <span class="hljs-string">build</span><br>    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span><br>    <span class="hljs-attr">environment:</span><br>      <span class="hljs-attr">name:</span> <span class="hljs-string">github-pages</span><br>      <span class="hljs-attr">url:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">steps.deployment.outputs.page_url</span> <span class="hljs-string">&#125;&#125;</span><br>    <span class="hljs-attr">steps:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span> <span class="hljs-string">to</span> <span class="hljs-string">GitHub</span> <span class="hljs-string">Pages</span><br>        <span class="hljs-attr">id:</span> <span class="hljs-string">deployment</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/deploy-pages@v1</span><br></code></pre></td></tr></table></figure>
+<p>并命名为<code>deploy.yml</code></p>
+<p>之后会自动触发部署</p>
+<p>当然，我们改变了仓库内容，下次在本地修改前需要先执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git pull https://github.com/&lt;YOURNAME&gt;/&lt;PROJECT_NAME&gt;.git<br></code></pre></td></tr></table></figure>
+<p>再<code>push</code></p>
+<h3 id="section-7">🎉</h3>
+<h2 id="gridea">Gridea</h2>
+<p><del>有GUI啊，那没事了</del></p>
+<h3 id="开始-6">🍀开始</h3>
+<p>安装<a target="_blank" rel="noopener" href="https://gridea.dev/">Gridea</a></p>
+<p>配置GitHub用户和仓库信息，点击左下角的<code>检测远程连接</code>，确认无误后点击同步即可</p>
+<blockquote>
+<p>注：请关闭代理</p>
+</blockquote>
+<h3 id="写作-8">🌈写作</h3>
+<p>软件内置了Markdown编辑器，直接写作即可</p>
+<h3 id="部署-8">🛶部署</h3>
+<p><strong>同步=部署</strong></p>
 
                 
               </div>
@@ -676,7 +756,7 @@ target="_blank" rel="noopener" href="https://jekyllrb.com/docs/">官方文档</a
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年8月28日</div>
+          <div>2022年8月31日</div>
         </div>
       
       <div class="license-meta-item">
