@@ -663,7 +663,7 @@ alt="Remark42" />
 <p>示例：</p>
 <figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mel">&#123;% meting <span class="hljs-string">&quot;5221167&quot;</span> <span class="hljs-string">&quot;netease&quot;</span> <span class="hljs-string">&quot;song&quot;</span> %&#125;<br></code></pre></td></tr></table></figure>
 
-    <div id="aplayer-WiDUBEIN" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-sXkSQnCX" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="5221167" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 <p>有关参数如下</p>
@@ -1022,21 +1022,29 @@ live2d-widget-model-z16</code></pre>
             
   <article id="comments" lazyload>
     
-  <div id="gitalk-container"></div>
   <script type="text/javascript">
-    Fluid.utils.loadComments('#gitalk-container', function() {
-      Fluid.utils.createCssLink('/css/gitalk.css')
-      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
-        var options = Object.assign(
-          {"clientID":"4be39adc7ad960a96c66","clientSecret":"2225f321e31c064918015f512993127261f5e49b","repo":"blog-commits","owner":"QWERx29","admin":["QWERx29"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
-          {
-            id: '93489f15ee25744a89c9103cd18a835e'
-          }
-        )
-        var gitalk = new Gitalk(options);
-        gitalk.render('gitalk-container');
-      });
-    });
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'QWERx29/blog-comments');
+      s.setAttribute('issue-term', 'title');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
   </script>
   <noscript>Please enable JavaScript to view the comments</noscript>
 
