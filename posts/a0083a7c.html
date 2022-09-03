@@ -1,0 +1,1023 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="QWERx29">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="👀">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tarjan和他的奇妙算法">
+<meta property="og:url" content="https://qwerx29.github.io/posts/a0083a7c.html">
+<meta property="og:site_name" content="Φάντασος">
+<meta property="og:description" content="👀">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img1.imgtp.com/2022/09/03/RlAlU4Y2.jpeg">
+<meta property="article:published_time" content="2022-09-03T09:13:44.000Z">
+<meta property="article:modified_time" content="2022-09-03T09:22:39.725Z">
+<meta property="article:author" content="QWERx29">
+<meta property="article:tag" content="学习">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img1.imgtp.com/2022/09/03/RlAlU4Y2.jpeg">
+  
+  
+  
+  <title>Tarjan和他的奇妙算法 - Φάντασος</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"qwerx29.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"always","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"24ea714b1933c2aeebeb7c89a81846f6","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":21311045,"cnzz":1281109328,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?24ea714b1933c2aeebeb7c89a81846f6";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    <!-- 51.la Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('//js.users.51.la/21311045.js');
+      }
+    </script>
+  
+
+  
+    <!-- cnzz Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('//s4.cnzz.com/z_stat.php?id=1281109328&show=pic');
+      }
+    </script>
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Φάντασος</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark-fill"></i>
+                索引
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-exp-fill"></i>
+                其他
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://qwerx29.github.io/reference/zh/">
+                    <i class="iconfont icon-code"></i>
+                    C++参考手册
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://oi-wiki.org/">
+                    <i class="iconfont icon-book"></i>
+                    OI Wiki
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://api.ixiaowai.cn/mcapi/mcapi.php') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Tarjan和他的奇妙算法"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-09-03 17:13" pubdate>
+          2022年9月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          9 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Tarjan和他的奇妙算法</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年9月3日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="有向图的连通性">有向图的连通性</h2>
+<p>在有向图中，（弱）连通与任意两点间可达是不同的概念。描述有向图中“任意两点间可达”的性质需要引入<strong>强连通性</strong>。</p>
+<h3 id="强连通性">强连通性</h3>
+<ul>
+<li><strong>强连通</strong>：如果对于图中两点 <span
+class="math inline">\(u,v\)</span> ，存在一条 <span
+class="math inline">\(u\)</span> 到 <span
+class="math inline">\(v\)</span> 的路径且也存在一条 <span
+class="math inline">\(v\)</span> 到 <span
+class="math inline">\(u\)</span> 的路径，那么称这两点是强连通的。</li>
+<li><strong>强连通图</strong>：如果图 <span class="math inline">\(\text
+G\)</span> 中任意两点都是强连通的，那么 <span
+class="math inline">\(\text G\)</span> 被称作强连通图。</li>
+<li><strong>强连通分量</strong>：对图 <span class="math inline">\(\text
+G\)</span> 来说，若 <span class="math inline">\(\text G&#39;\)</span>
+为其子图且 <span class="math inline">\(\text G&#39;\)</span>
+为强连通图，则 <span class="math inline">\(\text G&#39;\)</span> 被称作
+<span class="math inline">\(\text G\)</span> 的强连通分量</li>
+<li><strong>极大强连通分量</strong>：<span class="math inline">\(\text
+G&#39;\)</span> 为 <span class="math inline">\(\text G\)</span>
+的强连通分量，且 <span class="math inline">\(\text G&#39;\)</span>
+不是任何 <span class="math inline">\(\text G\)</span>
+的其他强连通分量的子图，那么 <span class="math inline">\(\text
+G&#39;\)</span> 为 <span class="math inline">\(\text G\)</span>
+的极大强连通分量。</li>
+</ul>
+<p>一般默认“强连通分量”指的就是极大强连通分量。</p>
+<p>对于一个无向图来说，强连通和连通等价，所以不单独研究强连通分量。</p>
+<p>对于有向图来说，我们一般使用 Tarjan
+算法来找出所有的极大强连通分量。</p>
+<h3 id="tarjan-算法求强连通分量">Tarjan 算法求强连通分量</h3>
+<p>Tarjan 算法中涉及的一些概念：</p>
+<ul>
+<li><strong>dfs 树</strong>：以 dfs 的形式遍历图中的每一个点一次，dfs
+经过的边和经过的点构成的树 (图不连通时，dfs 树会构成一个森林)。dfs
+树的树根定义为第一个 dfs 的节点。</li>
+<li><strong>dfs 序</strong>：对图进行 dfs
+时经过每个点的顺序构成的序列。</li>
+<li><strong>树边</strong>：dfs 树上的边。</li>
+<li><strong>返祖边</strong>：dfs 树外，由 dfs
+树中的子节点指向祖先节点的边。</li>
+<li><strong>横插边</strong>：dfs 树外，两端点在 dfs
+树种没有祖孙关系的边。</li>
+</ul>
+<p>返祖边和横插边都属于<strong>非树边</strong>。</p>
+<p>在<strong>无向图</strong>中，dfs
+树的非树边只会出现返祖边，不会出现横插边。</p>
+<p>在<strong>有向图</strong>中，dfs
+树的非树边可能出现返祖边和横插边，但横插边只会从 dfs 序大的点指向 dfs
+序小的点。</p>
+<ul>
+<li><span class="math inline">\(dfn(u)\)</span> ：<span
+class="math inline">\(u\)</span> 的 dfs 序；</li>
+<li><span class="math inline">\(low(u)\)</span> ：从 <span
+class="math inline">\(u\)</span>
+出发，<strong>不经过横插边</strong>能到达的<strong>最小</strong> <span
+class="math inline">\(dfn\)</span> 。</li>
+<li><span class="math inline">\(bel(u)\)</span> ：<span
+class="math inline">\(u\)</span> 所属的强连通分量的编号。</li>
+</ul>
+<hr />
+<p>对于一条横插边 <span class="math inline">\(u\rightarrow v\)</span>
+来说 ( <span class="math inline">\(u\)</span> 为当前节点)，由于 <span
+class="math inline">\(u\)</span> 不在 <span
+class="math inline">\(v\)</span> 的子树中，所以从 <span
+class="math inline">\(v\)</span> 出发不一定能到达 <span
+class="math inline">\(u\)</span> ，因此 <span
+class="math inline">\(u,v\)</span>
+不一定属于同一强连通分量，所以这条横插边没有实际意义。</p>
+<p>而对于返祖边 <span class="math inline">\(u\rightarrow v\)</span>
+来说，这条边使得 <span class="math inline">\(u\)</span>
+的所有深度大于等于 <span class="math inline">\(v\)</span> 的祖先都和
+<span class="math inline">\(u\)</span>
+能互相到达，所以是有实际意义的。</p>
+<p>通过刚刚的讨论，我们可以挖掘出 <span
+class="math inline">\(low\)</span> 数组更深层的含义：</p>
+<p>对 <span class="math inline">\(u\)</span> 来说，只有它在 dfs
+树中的某些祖先能到达它，而 <span class="math inline">\(low\)</span>
+数组代表的就是从这个点出发能到达的深度最小 (最靠上) 的祖先的 <span
+class="math inline">\(dfn\)</span>
+。由此能够计算出图的各种连通性信息。</p>
+<p>为了求出各强连通分量中含有哪些结点，我们在 dfs
+的同时，用一个栈来记录检查过的点。具体来说，dfs 到结点 <span
+class="math inline">\(u\)</span> 时：</p>
+<ol type="1">
+<li>将 <span class="math inline">\(u\)</span> 进栈；</li>
+<li>继续 dfs 和用<strong>返祖边</strong>更新 <span
+class="math inline">\(u\)</span> 的 <span
+class="math inline">\(low\)</span> ；</li>
+<li>如果 <span class="math inline">\(dfn(u)=low(u)\)</span>
+，那么栈中的所有元素构成一个新的强连通分量，将 <span
+class="math inline">\(u\)</span> 和栈中在 <span
+class="math inline">\(u\)</span> 之后的所有节点标记并出栈。</li>
+</ol>
+<p>判断一条边 <span class="math inline">\(e:u\rightarrow v\)</span>
+的类型也很简单：</p>
+<ul>
+<li>（未 dfs 的）<strong>树边</strong>：<span
+class="math inline">\(dfn(u)\)</span> 未赋值，说明 <span
+class="math inline">\(u\)</span> 未被检查，需要 dfs 到 <span
+class="math inline">\(u\)</span> 。</li>
+<li><strong>返祖边</strong>：<span class="math inline">\(v\)</span>
+未被标记，说明 <span class="math inline">\(v\)</span> 是 <span
+class="math inline">\(u\)</span> 在 dfs 树中的祖先， 是返祖边，需要更新
+<span class="math inline">\(low(u)\)</span> 。</li>
+<li><strong>横插边</strong>：<span class="math inline">\(v\)</span>
+被标记过，那么 <span class="math inline">\(e\)</span>
+是横插边，直接跳过即可。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">tarjan</span><span class="hljs-params">(<span class="hljs-type">int</span> u)</span> </span>&#123;<br>    dfn[u] = low[u] = ++cnt; st[++top] = u;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> v: e[u]) &#123;<br>        <span class="hljs-keyword">if</span> (!dfn[v]) <span class="hljs-built_in">tarjan</span>(v), low[u] = <span class="hljs-built_in">min</span>(low[u], low[v]);<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!bel[v]) low[u] = <span class="hljs-built_in">min</span>(low[u], dfn[v]);<br>    &#125;<br>    <span class="hljs-keyword">if</span> (low[u] == dfn[u]) &#123;<br>        ++scc;<br>        <span class="hljs-type">int</span> v;<br>        <span class="hljs-keyword">do</span> &#123;<br>            v = stk[top--], bel[v] = scc;<br>            <span class="hljs-comment">// do somthing with node v in scc</span><br>        &#125; <span class="hljs-keyword">while</span> (v != u);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>注</p>
+<p>以上代码中第 5 行处 <code>low[u] = min(low[u], dfn[v])</code>
+如果严格按照 <span class="math inline">\(low(u)\)</span>
+的定义，应该写作 <code>low[u] = min(low[u], low[v])</code>。</p>
+<p>但这两种写法在 Tarjan 算法求解有向图的强连通分量时没有任何区别，因为
+<span class="math inline">\(low(u)\)</span> 的作用只是帮助判断
+的子树中是否存在能到达 <span class="math inline">\(u\)</span>
+的祖先的返祖边，具体走到哪个祖先节点、是否了走多条返祖边等等我们并不关心。</p>
+<p>而在无向图的 Tarjan 算法中，这里的更新将必须写作
+<code>low[u] = min(low[u], dfn[v])</code>，所以这里也用这种写法，避免混淆。</p>
+</blockquote>
+<h3 id="缩点">缩点</h3>
+<p>强连通分量最大的作用就是使复杂的有向一般图问题转化为有向无环图 (DAG)
+问题。</p>
+<p>我们知道，有向无环图问题是可以通过<strong>拓扑排序</strong>用队列和动态规划解决的。</p>
+<p>我们将所有的强连通分量都收缩成新图中的一个点，并在新图中只建出原图中连接不同强连通分量的边，即可将有向一般图转化为有向无环图。这个过程就叫做<strong>缩点</strong>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> u = <span class="hljs-number">1</span>; u &lt;= n; ++u)<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> v: e[u])<br>        <span class="hljs-keyword">if</span>(bel[u] != bel[v]) <span class="hljs-comment">// u, v 不在同一强连通分量中</span><br>            new_e[bel[u]].<span class="hljs-built_in">push_back</span>(bel[v]);<br></code></pre></td></tr></table></figure>
+<p>这样我们就得到了将每个强连通分量缩成一个点，保留强连通分量之间的边的新图
+(DAG)。</p>
+<h2 id="无向图的连通性">无向图的连通性</h2>
+<p>在无向图中，“（弱）连通”与“强连通”是没有区别的——连通块内任意两个点都是互相可达的。</p>
+<p>因此在无向图中，我们可以考虑更强的连通性：（点 / 边）双连通性。</p>
+<h3 id="点双连通性-与-割点">点双连通性 与 割点</h3>
+<p><strong>点双连通分量</strong>：若 <span class="math inline">\(\text
+G\)</span>
+的某个子图的每两个点之间都存在<strong>至少两条不经过除起点和终点外相同的点的路径</strong>，则称该子图为点双连通分量。</p>
+<p>特别的，一个仅含两个点一条边的子图也是点双连通分量。(尽管这样感觉很奇怪？)</p>
+<p><strong>割点</strong>：删除该结点和该结点所连接的所有边后，图中连通块数量增加的结点称为割点。</p>
+<p>对无向图来说，<strong>点双连通分量</strong>就是为不存在割点的连通子图。</p>
+<p>我们通常默认考虑的是<strong>极大</strong>点双连通分量。</p>
+<p>割点属于多个点双连通分量；其他点唯一地属于某个点双连通分量；每条边唯一地属于某个点双连通分量。</p>
+<h3 id="tarjan-算法求割点">Tarjan 算法求割点</h3>
+<p>由于我们现在是在无向图中考虑“双连通”性，所以对</p>
+<p>的定义需要做一些调整：</p>
+<ul>
+<li><span class="math inline">\(low(u)\)</span> ：从 <span
+class="math inline">\(u\)</span>
+出发，经过<strong>至多一条</strong>返祖边能到达的最小 <span
+class="math inline">\(dfn\)</span> 。</li>
+</ul>
+<p>设我们要判断 <span class="math inline">\(u\)</span> 是不是割点，在
+dfs 树中：</p>
+<ol type="1">
+<li>若 <span class="math inline">\(u\)</span> 为根，则 <span
+class="math inline">\(u\)</span> 有两个及以上儿子等价于 <span
+class="math inline">\(u\)</span> 为割点。</li>
+<li>若 <span class="math inline">\(u\)</span> 不是根，则如果该结点 <span
+class="math inline">\(u\)</span> 在 dfs 树中的任意一个子结点 <span
+class="math inline">\(v\)</span> 满足 <span
+class="math inline">\(low(v)\ge dfn(u)\)</span> ，那么 <span
+class="math inline">\(v\)</span> 就是割点。</li>
+</ol>
+<p>更进一步的，我们可以直接求出：</p>
+<ul>
+<li><span class="math inline">\(cut(u)\)</span> ：删去 <span
+class="math inline">\(v\)</span>
+及其相邻的边后，图中连通块数量的增量。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 求割点</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">tarjan</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> pre = <span class="hljs-number">0</span>)</span> </span>&#123; <span class="hljs-comment">// pre 记录 u 的父亲，规定根的父亲为 0</span><br>    dfn[u] = low[u] = ++tot;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> v: e[u]) &#123;<br>        <span class="hljs-keyword">if</span> (v == pre) <span class="hljs-keyword">continue</span>; <span class="hljs-comment">// 跳过父亲</span><br>        <span class="hljs-keyword">if</span> (!dfn[v]) &#123;<br>            <span class="hljs-built_in">tarjan</span>(v, u), low[u] = <span class="hljs-built_in">min</span>(low[u], low[v]);<br>            <span class="hljs-keyword">if</span> (low[v] &gt;= dfn[u]) ++cut[u];<br>        &#125; <span class="hljs-keyword">else</span> low[u] = <span class="hljs-built_in">min</span>(low[u], dfn[v]); <span class="hljs-comment">// 返祖边</span><br>    &#125;<br>    <span class="hljs-keyword">if</span> (!pre) --cut[u]; <span class="hljs-comment">// 根结点需额外 - 1</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 求点双连通分量</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">tarjan</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> pre = <span class="hljs-number">0</span>)</span> </span>&#123; <span class="hljs-comment">// pre 记录 u 的父亲，规定根的父亲为 0</span><br>    dfn[u] = low[u] = ++tot, stk[++top] = u;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> v: e[u]) &#123;<br>        <span class="hljs-keyword">if</span> (v == pre) <span class="hljs-keyword">continue</span>; <span class="hljs-comment">// 跳过父亲</span><br>        <span class="hljs-keyword">if</span> (!dfn[v]) &#123;<br>            <span class="hljs-built_in">tarjan</span>(v, u), low[u] = <span class="hljs-built_in">min</span>(low[u], low[v]);<br>            <span class="hljs-keyword">if</span> (low[v] &gt;= dfn[u]) &#123;<br>                ++cut[u], ++bcc;<br>                com[bcc].<span class="hljs-built_in">push_back</span>(u); <span class="hljs-comment">// 将 u 加入点双连通分量</span><br>                <span class="hljs-type">int</span> w;<br>                <span class="hljs-keyword">do</span> &#123; w = stk[top--], com[bcc].<span class="hljs-built_in">push_back</span>(w); &#125;<br>                <span class="hljs-keyword">while</span> (v != w); <span class="hljs-comment">// 只 pop 到 v 为止，v 与 u 之间可能还有其他点 </span><br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> low[u] = <span class="hljs-built_in">min</span>(low[u], dfn[v]); <span class="hljs-comment">// 返祖边</span><br>    &#125;<br>    <span class="hljs-keyword">if</span> (!pre) --cut[u]; <span class="hljs-comment">// 根结点需额外 - 1</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="边双连通性-与-割边">边双连通性 与 割边</h3>
+<p><strong>边双连通分量</strong>：若 <span class="math inline">\(\text
+G\)</span>
+的某个子图的每两个点之间都存在<strong>至少两条不经过相同的边的路径</strong>，则称该子图为边双连通分量。</p>
+<p><strong>割边</strong>
+(<strong>桥</strong>)：割掉后会使连通块个数增加的边称为割边。</p>
+<p>对无向图来说，<strong>边双连通分量</strong>就是为不存在割边的连通子图。</p>
+<p>我们通常默认考虑的是<strong>极大</strong>边双连通分量。</p>
+<p>割边不属于任何边双连通分量；其余边唯一地属于某个边双连通分量；每个点唯一地属于某个边双连通分量。</p>
+<h3 id="tarjan-算法求割边-和-边双联通分量">Tarjan 算法求割边 和
+边双联通分量<a
+target="_blank" rel="noopener" href="https://faioj.brynhild.online/wiki/notes/2022S/day14/#tarjan_2">¶</a></h3>
+<p>判断 <span class="math inline">\(u\rightarrow v\)</span>
+是否为割边，只需比较 <span class="math inline">\(low(v)\)</span> 和
+<span class="math inline">\(dfn(u)\)</span> 的大小：</p>
+<ul>
+<li>若 <span class="math inline">\(low(v)&gt;dfn(u)\)</span> 则说明结点
+<span class="math inline">\(v\)</span>
+的子树内的所有结点无法通过返祖边到达结点 <span
+class="math inline">\(u\)</span> 或 <span
+class="math inline">\(u\)</span> 的祖先，因此这条边为割边。</li>
+</ul>
+<p>求边双联通分量时，同样使用一个栈记录访问过的结点。当 <span
+class="math inline">\(dfn(u) = low(u)\)</span> 时，说明 <span
+class="math inline">\(u\)</span> 的子树中没有能到达 <span
+class="math inline">\(u\)</span>
+的祖先的返祖边，因此此时栈中的结点构成一个新的边双联通分量。（也可以在此时判定
+<span class="math inline">\(u\)</span> 连向父节点的边为桥）</p>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>在边双连通的问题中，<strong>重边是不能忽略的</strong>，因此在 dfs
+时不能仅传父节点而要传父节点连过来的边。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// Tarjan 求割边 和 边双连通分量</span><br><span class="hljs-keyword">using</span> edge = pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;;<br>vector&lt;edge&gt; e[N];<br><span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add_edge</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> v)</span> </span>&#123;<br>    ++cnt;<br>    e[u].<span class="hljs-built_in">push_back</span>(<span class="hljs-built_in">make_pair</span>(v, cnt));<br>    e[v].<span class="hljs-built_in">push_back</span>(<span class="hljs-built_in">make_pair</span>(u, cnt));<br>&#125;<br><span class="hljs-type">int</span> tot = <span class="hljs-number">0</span>, dfn[N], low[N];<br><span class="hljs-type">int</span> bcc = <span class="hljs-number">0</span>, bel[N];<br><span class="hljs-type">int</span> top = <span class="hljs-number">0</span>, stk[N];<br><span class="hljs-type">bool</span> bridge[N];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">tarjan</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> pre = <span class="hljs-number">0</span>)</span> </span>&#123; <span class="hljs-comment">// pre 记录走到 u 的边的编号</span><br>    dfn[u] = low[u] = ++tot, stk[++top] = u;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> ee : e[u]) &#123;<br>        <span class="hljs-type">int</span> v = ee.first;<br>        <span class="hljs-keyword">if</span> (ee.second == pre) <span class="hljs-keyword">continue</span>; <span class="hljs-comment">// 跳过刚走过的边</span><br>        <span class="hljs-keyword">if</span> (!dfn[v]) &#123;<br>            <span class="hljs-built_in">tarjan</span>(v, ee.second), low[u] = <span class="hljs-built_in">min</span>(low[u], low[v]);<br>            <span class="hljs-keyword">if</span> (dfn[u] &gt; low[v]) bridge[ee.second] = <span class="hljs-literal">true</span>;<br>        &#125;<br>        <span class="hljs-keyword">else</span><br>            low[u] = <span class="hljs-built_in">min</span>(low[u], dfn[v]); <span class="hljs-comment">// 返祖边</span><br>    &#125;<br>    <span class="hljs-keyword">if</span> (dfn[u] == low[u]) &#123;<br>        ++bcc, bridge[pre] = <span class="hljs-literal">true</span>;<br>        <span class="hljs-type">int</span> v;<br>        <span class="hljs-keyword">do</span> v = stk[top--], bel[v] = bcc;<br>        <span class="hljs-keyword">while</span> (v != u);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="总结">总结</h2>
+<ul>
+<li><strong>强连通分量</strong>是指满足任意两个结点都能互相到达的有向图的子图。</li>
+<li><strong>割点</strong>是指无向图中删除会使连通块数量增加的结点。</li>
+<li><strong>点双连通分量</strong>是指无向图中没有割点的子图。</li>
+<li><strong>割边</strong>是指无向图中删除会使连通块数量增加的边。</li>
+<li><strong>边双连通分量</strong>是指无向图中没有割边的子图。</li>
+</ul>
+<p>均可使用 Tarjan 算法在 <span class="math inline">\(\mathcal
+O(n)\)</span> 时间内求解。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%9B%BE%E8%AE%BA/" class="category-chain-item">图论</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Tarjan和他的奇妙算法</div>
+      <div>https://qwerx29.github.io/posts/a0083a7c.html</div>
+    </div>
+    <div class="license-meta">
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年9月3日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2022年9月3日</div>
+        </div>
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/7e454910.html" title="树链剖分">
+                        <span class="hidden-mobile">树链剖分</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://lib.baomitu.com/waline/2.5.1/waline.min.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/waline/2.5.1/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline-og4uonkgt-qwerx29.vercel.app","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/qq","https://unpkg.com/@waline/emojis@1.0.1/tieba"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"placeholder":null,"avatar":"retro","avatarCDN":"https://seccdn.libravatar.org/avatar/","avatarForce":false,"highlight":true},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br/> <div style="font-size: 0.85rem"> <span id="jinrishici-sentence">正在加载今日诗词....</span> <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> <br/> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> <br/> <a href="https://icp.gov.moe/?keyword=20229229" target="_blank">萌ICP备20229229号</a>
+
+    </div>
+  
+  
+  
+  
+    <!-- cnzz Analytics Icon -->
+    <span id="cnzz_stat_icon_1281109328" style="display: none"></span>
+  
+  </div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+                        options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/diy/text.js"></script>
+<script src="/js/diy/title.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"log":false});</script></body>
+</html>

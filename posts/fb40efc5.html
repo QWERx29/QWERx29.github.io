@@ -16,24 +16,24 @@
   <meta name="author" content="QWERx29">
   <meta name="keywords" content="">
   
-    <meta name="description" content="也许是一种数据结构">
+    <meta name="description" content="😶‍🌫️">
 <meta property="og:type" content="article">
-<meta property="og:title" content="哈希表">
-<meta property="og:url" content="https://qwerx29.github.io/posts/850f2080.html">
+<meta property="og:title" content="拓扑排序">
+<meta property="og:url" content="https://qwerx29.github.io/posts/fb40efc5.html">
 <meta property="og:site_name" content="Φάντασος">
-<meta property="og:description" content="也许是一种数据结构">
+<meta property="og:description" content="😶‍🌫️">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/08/17/ck1Vs4zmhbEQUeY.jpg">
-<meta property="article:published_time" content="2022-08-10T05:18:50.357Z">
-<meta property="article:modified_time" content="2022-08-17T06:31:04.080Z">
+<meta property="og:image" content="https://img1.imgtp.com/2022/09/03/zqWGOzVX.jpeg">
+<meta property="article:published_time" content="2022-09-03T09:13:19.000Z">
+<meta property="article:modified_time" content="2022-09-03T09:14:49.691Z">
 <meta property="article:author" content="QWERx29">
 <meta property="article:tag" content="学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.loli.net/2022/08/17/ck1Vs4zmhbEQUeY.jpg">
+<meta name="twitter:image" content="https://img1.imgtp.com/2022/09/03/zqWGOzVX.jpeg">
   
   
   
-  <title>哈希表 - Φάντασος</title>
+  <title>拓扑排序 - Φάντασος</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -288,7 +288,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="哈希表"></span>
+            <span id="subtitle" data-typed-text="拓扑排序"></span>
           
         </div>
 
@@ -299,8 +299,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-10 13:18" pubdate>
-          2022年8月10日 下午
+        <time datetime="2022-09-03 17:13" pubdate>
+          2022年9月3日 下午
         </time>
       </span>
     
@@ -311,7 +311,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.4k 字
+          631 字
         
       </span>
     
@@ -322,7 +322,7 @@
         
         
         
-          8 分钟
+          2 分钟
         
       </span>
     
@@ -374,12 +374,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">哈希表</h1>
+            <h1 style="display: none">拓扑排序</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年8月17日 下午
+                    本文最后更新于：2022年9月3日 下午
                   
                 
               </p>
@@ -387,160 +387,37 @@
             
               <div class="markdown-body">
                 
-                <p><strong>哈希表</strong>（<code>Hash Table</code>）又称<strong>散列表</strong>，是一种以
-<code>key-value</code> 形式存储数据的数据结构。</p>
-<p>所谓以 <code>key-value</code> 形式存储数据，是指任意的
-<code>key</code>
-都<strong>唯一</strong>对应到内存中的某个位置。只需要给出查找的值
-<code>key</code>，就可以快速地找到其对应的 <code>value</code>。</p>
-<p>可以把哈希表理解为一种高级的<strong>数组</strong>，这种数组的下标可以是大整数，浮点数，字符串，甚至结构体。</p>
-<h3 id="哈希函数">哈希函数</h3>
-<p>要让 <code>key</code> 对应到内存中的位置，就要为 <code>key</code>
-计算索引，也就是计算 <code>value</code> 的存储位置。根据
-<code>key</code>
-计算索引的函数就叫做<strong>哈希函数</strong>，也称<strong>散列函数</strong>。</p>
-<p>在 OI 中，最常见的情况是 <code>key</code> 为整数的情况。当
-<code>key</code> 的范围比较小的时候，可以直接把 <code>key</code>
-作为数组的下标；但当 <code>key</code>
-的范围比较大，就需要用到哈希表。一般把 <code>key</code>
-模一个较大的质数作为索引，也就是取 <span
-class="math inline">\(f(x)=x\operatorname{mod} M\)</span>
-作为哈希函数。</p>
-<p>另一种可能出现的情况是 <code>key</code> 为字符串的情况，但在 OI
-中，一般不直接把字符串作为
-<code>key</code>，而是先算出字符串的哈希值（将在下一节中介绍），再把其哈希值作为
-<code>key</code> 插入到哈希表里。</p>
-<p>能为 <code>key</code> 计算索引之后，我们就可以知道每个
-<code>value</code> 应该放在哪里了。假设我们用数组 <span
-class="math inline">\(a\)</span> 存放数据，哈希函数是 <span
-class="math inline">\(\mathcal{f}\)</span> ，那键值对 <span
-class="math inline">\((key,value)\)</span> 就应该放在 <span
-class="math inline">\(a[\mathcal{f}(key)]\)</span> 上。</p>
-<p>无论 <span class="math inline">\(key\)</span>
-是什么类型，范围多大，<span
-class="math inline">\(\mathcal{f}(key)\)</span>
-都应是在可接受范围内的整数，可以作为数组的下标。</p>
-<h3 id="冲突">冲突</h3>
-<p>对于任意的 <span class="math inline">\(key\)</span>
-，如果哈希函数计算出来的索引都不相同，那只用根据索引把 <span
-class="math inline">\((key,value)\)</span>
-放到对应的位置就行了。但实际上，常常会出现两个不同的 <span
-class="math inline">\(key\)</span>
-，他们用哈希函数计算出来的索引是相同的。这时候就需要一些方法来处理冲突，常用的方法是<strong>拉链法</strong>。</p>
-<h4 id="拉链法">拉链法</h4>
-<p>拉链法也称<strong>开散列法</strong>（open hashing）。</p>
-<p>拉链法是在每个存放数据的地方建立一个<strong>链表</strong>，如果有多个
-<span class="math inline">\(key\)</span>
-索引到同一个地方，只用把他们都放到那个位置的链表里就行了。查询的时候需要把对应位置的链表整个扫描一遍，对其中的每个数据比较其
-<span class="math inline">\(key\)</span> 与查询的 <span
-class="math inline">\(key\)</span> 是否一致。如果索引的范围是 <span
-class="math inline">\(0 \sim M-1\)</span> ，哈希表的大小为 <span
-class="math inline">\(N\)</span> ，那么一次查询需要进行期望 <span
-class="math inline">\(\mathcal{O}(\dfrac{N}{M})\)</span> 次比较。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">const</span> <span class="hljs-type">int</span> SIZE = <span class="hljs-number">1e6</span>+<span class="hljs-number">5</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> M = <span class="hljs-number">999997</span>;   <span class="hljs-comment">// 或 1e6+7</span><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">HashTable</span> &#123;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span> &#123;<br>        <span class="hljs-type">int</span> next, value, key;<br>    &#125; data[SIZE];<br>    <span class="hljs-type">int</span> head[M], size;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-type">int</span> key)</span> </span>&#123; <span class="hljs-keyword">return</span> (key % M+M)%M; &#125;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-type">int</span> key)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> p = head[<span class="hljs-built_in">f</span>(key)]; p; p = data[p].next)<br>            <span class="hljs-keyword">if</span> (data[p].key == key) <span class="hljs-keyword">return</span> data[p].value;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">modify</span><span class="hljs-params">(<span class="hljs-type">int</span> key, <span class="hljs-type">int</span> value)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> p = head[<span class="hljs-built_in">f</span>(key)]; p; p = data[p].next)<br>            <span class="hljs-keyword">if</span> (data[p].key == key) <span class="hljs-keyword">return</span> data[p].value = value;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> key, <span class="hljs-type">int</span> value)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">get</span>(key) != <span class="hljs-number">-1</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>        data[++size] = (Node)&#123;head[<span class="hljs-built_in">f</span>(key)], value, key&#125;;<br>        head[<span class="hljs-built_in">f</span>(key)] = size;<br>        <span class="hljs-keyword">return</span> value;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<h4 id="闭散列法">闭散列法</h4>
-<p>闭散列方法把所有记录直接存储在散列表中，如果发生冲突则根据某种方式继续进行探查。</p>
-<p>比如线性探查法：如果在 <code>d</code> 处发生冲突，就依次检查
-<code>d + 1</code> ， <code>d + 2</code> ……</p>
-<p>当散列表接近存满时，查找效率较差；存满后不能再插入新元素。</p>
-<p><del><strong>比赛中直接使用 <code>&lt;unordered_map&gt;</code>
-即可！</strong></del></p>
-<h2 id="字符串-hash">字符串 Hash</h2>
-<p><strong>字符串 Hash</strong>
-是一种高效处理字符串匹配问题的<strong>近似算法</strong>，其核心思想在于将难以快速比较的字符串映射到一个<strong>值域较小</strong>（但也不能过小）、可以<strong>方便比较</strong>的范围。</p>
-<p>我们定义一个把字符串映射到整数的函数 <span
-class="math inline">\(\mathcal{f}\)</span> ，这个 <span
-class="math inline">\(\mathcal{f}\)</span> 称为是<strong>字符串 Hash
-函数</strong>。</p>
-<p>我们希望这个函数 <span class="math inline">\(\mathcal{f}\)</span>
-可以方便地帮我们判断两个字符串是否相等。具体来说，我们希望在 Hash
-函数值不一样的时候，两个字符串一定不一样。需要注意的是：其否命题不一定总是成立，也就是说：不相同的字符串经过
-Hash 函数映射也可能得到相同的值，这种现象称作 <strong>Hash
-冲突</strong>。</p>
-<p>通常我们采用的是<strong>多项式 Hash</strong> 的方法，即 <span
-class="math inline">\(\mathcal{f}=\sum s[i]\times base^i
-(\operatorname{mod} MOD)\)</span> 或 <span class="math inline">\(f(s) =
-\sum s[i] \times {base}^{|s|-i} \pmod{MOD}\)</span>
-（虽然前一种看起来更简洁，但在实际使用中会出现麻烦的“对齐问题”，因此更常用实际上的是<strong>后一种</strong>定义）。</p>
-<p>这里面的 <span class="math inline">\(base\)</span> 和 <span
-class="math inline">\(MOD\)</span> 需要选取得足够合适才行，以使得 Hash
-函数的值分布尽量均匀，尽量避免发生 Hash 冲突。</p>
-<p>如果 <span class="math inline">\(base\)</span> 和 <span
-class="math inline">\(MOD\)</span> 互质，在输入随机的情况下，这个 Hash
-函数在 <span class="math inline">\([0,M)\)</span>
-上每个值概率相等，此时单次比较的冲突率为 <span
-class="math inline">\(\dfrac{1}{M}\)</span>
-。所以，哈希的模数一般会选用<strong>大质数</strong>。</p>
-<h3 id="冲突率">冲突率</h3>
-<p>若进行 <span class="math inline">\(n\)</span> 次比较，每次冲突率
-<span class="math inline">\(\dfrac{1}{M}\)</span> ，那么总冲突率是 <span
-class="math inline">\(1-\left(1-\dfrac 1 M\right)^n\)</span>
-。在随机数据下，若 <span class="math inline">\(M=10^9 +
-7,n=10^6\)</span> ，冲突率约为 <span class="math inline">\(\dfrac
-1{1000}\)</span> ，并不是能够完全忽略不计的。</p>
-<p>一种特殊的情形是利用 <code>unsigned long long</code>
-类型的自然溢出特性（相当于对 <span class="math inline">\(M =
-2^{64}\)</span>
-取模），这能有效简化代码实现。但有经验的出题人很可能会对此定向构造数据，显著提高自然溢出的冲突率，甚至确保发生
-Hash 冲突。</p>
-<p>因此，进行字符串哈希时，为了安全起见，经常会分别取两组不同的 <span
-class="math inline">\(base\)</span> 和 <span
-class="math inline">\(MOD\)</span> 分别计算 Hash
-值，这样哈希函数的值域就能扩大到两者之积，错误率就能进一步减小了。<del>但由于这种写法较为繁琐，所以一般情况下还是会只使用一组质数或者干脆使用自然溢出。</del></p>
-<h3 id="多次询问子串哈希">多次询问子串哈希</h3>
-<p>单次计算一个字符串的哈希值复杂度是 <span
-class="math inline">\(\mathcal{O}(n)\)</span> ，其中 <span
-class="math inline">\(n\)</span>
-为串长，与暴力匹配没有区别，如果需要多次询问一个字符串的子串的哈希值，每次重新计算效率非常低下。</p>
-<p>一般采取的方法是对整个字符串先预处理出每个前缀的哈希值，将哈希值看成一个
-<span class="math inline">\(b\)</span> 进制的数对 <span
-class="math inline">\(M\)</span>
-取模的结果，这样的话每次就能快速求出子串的哈希了：</p>
-<p>令 <span class="math inline">\(f_i(s)\)</span> 表示 <span
-class="math inline">\(f(s[1..i])\)</span> ，那么 <span
-class="math inline">\(f(s[l..r])=f_r(s)-f_{l-1}(s) \times
-b^{r-l+1}\)</span> ，其中 <span class="math inline">\(b^{r-l+1}\)</span>
-可以预处理出来。</p>
-<p>这样就可以在 <span class="math inline">\(\mathcal{O}(n)\)</span>
-的预处理后每次 <span class="math inline">\(\mathcal{O}(1)\)</span>
-地计算子串的哈希值了。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">const</span> <span class="hljs-type">int</span> MOD=<span class="hljs-number">1e9</span>+<span class="hljs-number">7</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> base=<span class="hljs-number">19260817</span>;<br>ll pw[N],hs[N];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n,<span class="hljs-type">char</span>* s)</span></span>&#123;<br>    pw[<span class="hljs-number">0</span>]=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;++i)&#123;<br>        pw[i]=pw[i<span class="hljs-number">-1</span>]*base%MOD;<br>        hs[i]=(hs[i<span class="hljs-number">-1</span>]*base+s[i])%MOD;<br>    &#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">inline</span> ll <span class="hljs-title">mod</span><span class="hljs-params">(ll x)</span></span>&#123; <span class="hljs-keyword">return</span> (x%MOD+MOD)%MOD; &#125;<br><span class="hljs-function"><span class="hljs-keyword">inline</span> ll <span class="hljs-title">hash</span><span class="hljs-params">(<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r)</span></span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">mod</span>(hs[r]-hs[l<span class="hljs-number">-1</span>]*pw[r-l+<span class="hljs-number">1</span>]);<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>推导过程： <span class="math display">\[
-\begin{aligned}
-    f(s) &amp;= \sum_{i=1}^{|s|}{s[i]*base^{|s|-i}} \\
-    \\
-    \mathrm{hs}[x] &amp;= f(s[1\dots x]) =
-\sum_{i=1}^{x}{s[i]*base^{x-i}} \\
-    \mathrm{hs}[x+1] &amp;= f(s[1\dots x+1]) =
-\sum_{i=1}^{x+1}{s[i]*base^{x+1-i}} \\
-    &amp;= \sum_{i=1}^{x}{s[i]*base^{x+1-i}} +s[x+1]*base^{0} \\
-    &amp;= base * \sum_{i=1}^{x}{s[i]*base^{x-i}} + s[x+1] \\
-    &amp;= \mathrm{hs}[x] * base +s[x+1] \\
-    \\
-    \mathrm{hash}(l,r) &amp;= f(s[l\dots r]) \\
-    &amp;= \sum_{i=1}^{r-l+1}{s[l+i-1]*base^{r-l+1-i}} \\
-    &amp;= \sum_{j=l}^{r}{s[j]*base^{r-j}} \\
-    &amp;= \sum_{i=1}^{r}{s[i]*base^{r-i}} -
-\sum_{i=1}^{l-1}{s[i]*base^{r-i}} \\
-    &amp;= \mathrm{hs}[r] - base^{r-l+1} *
-\sum_{i=1}^{l-1}{s[i]*base^{l-1-i}} \\
-    &amp;= \mathrm{hs}[r] - base^{r-l+1} * \mathrm{hs}[l-1]
-\end{aligned}
-\]</span></p>
-<h3 id="字符串-hash-的应用">字符串 Hash 的应用</h3>
-<h4 id="字符串匹配">字符串匹配</h4>
-<p>求出模式串的哈希值后，求出文本串每个长度为模式串长度的子串的哈希值，分别与模式串的哈希值比较即可。</p>
-<h4 id="字符串最小循环节">字符串最小循环节</h4>
-<p><em>引理</em></p>
-<p>字符串 <span class="math inline">\(s[1\cdots n]\)</span> 的循环节为
-<span class="math inline">\(d\)</span> 的充分必要条件为 <span
-class="math inline">\(s[1..n-d]=s[d+1..n]\)</span> 。</p>
-<p><del>读者自证不难。</del></p>
-<p>枚举字符串长度的所有约数，使用 Hash 判断即可。</p>
-<h4 id="特殊变换">特殊变换</h4>
-<h4 id="最长回文子串">最长回文子串</h4>
-<p>二分答案，判断是否可行时枚举回文中心（对称轴），哈希判断两侧是否相等。需要分别预处理正着和倒着的哈希值。时间复杂度
-<span class="math inline">\(\mathcal{O}(n\log n)\)</span> 。</p>
+                <p><strong>有向无环图</strong> (DAG)：一个有向图，且不存在环。</p>
+<p>考虑将边 <span class="math inline">\(u\rightarrow v\)</span>
+具体为“做 <span class="math inline">\(v\)</span> 之前要先做 <span
+class="math inline">\(u\)</span>
+”，那么拓扑排序能求出每件事应该在什么时候做，也就是说满足每件事的前置事件都做完后它才能开始做的一种安排，称为<strong>拓扑序</strong>。</p>
+<p>举例：下图的（一个）拓扑序为 <span
+class="math inline">\(1,2,4,3\)</span> 。</p>
+<p><img src="https://img1.imgtp.com/2022/09/03/HGvtKeT4.png" srcset="/img/loading.gif" lazyload /></p>
+<p>拓扑序不是唯一的，因为有些点之间不存在拓扑关系。</p>
+<p>如图，<span class="math inline">\(2,3\)</span>
+间不存在拓扑关系，所以拓扑序可以为 <span
+class="math inline">\(1,2,3,4\)</span> 或者 <span
+class="math inline">\(1,3,2,4\)</span> 。</p>
+<p><img src="https://img1.imgtp.com/2022/09/03/WIMa3AT9.png" srcset="/img/loading.gif" lazyload /></p>
+<p>当然如果要求字典序最小/大的拓扑序那肯定是唯一的。</p>
+<p><strong>入度</strong>：指向某个点的有向边条数。</p>
+<h2 id="算法实现">算法实现</h2>
+<ol type="1">
+<li>找出所有入度为 <span class="math inline">\(0\)</span> 的点，加到队列
+<span class="math inline">\(q\)</span> 的队尾；</li>
+<li>取出 <span class="math inline">\(q\)</span> 的队头 ，删去从 <span
+class="math inline">\(u\)</span> 出发的所有边，并将 <span
+class="math inline">\(u\)</span> 加入拓扑序中。</li>
+</ol>
+<p>其中我们不用真的枚举一遍找入度为 <span
+class="math inline">\(0\)</span> 的点，而只要在删边 <span
+class="math inline">\(u\rightarrow v\)</span> 的时候判断一下 <span
+class="math inline">\(v\)</span> 的入度是否减小到 <span
+class="math inline">\(0\)</span> 就可以判断用不用入队了。</p>
+<p>复杂度 <span class="math inline">\(\mathcal{O}(n+m)\)</span> 。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i)<br>    <span class="hljs-keyword">if</span>(du[i] == <span class="hljs-number">0</span>) q.<span class="hljs-built_in">push</span>(i);<br><span class="hljs-keyword">while</span>(q.<span class="hljs-built_in">empty</span>() != <span class="hljs-number">1</span>) &#123;<br>    u = q.<span class="hljs-built_in">front</span>(); q.<span class="hljs-built_in">pop</span>(); topo[++cnt] = u;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> v: e[u]) &#123; <span class="hljs-comment">// 用 vector 存图</span><br>        du[v]--;<br>        <span class="hljs-keyword">if</span>(du[v] == <span class="hljs-number">0</span>) q.<span class="hljs-built_in">push</span>(v);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -569,17 +446,7 @@ class="math inline">\(s[1..n-d]=s[d+1..n]\)</span> 。</p>
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-chain-item">数据结构</a>
-  
-  
-
-      </span>
-    
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="category-chain-item">字符串</a>
+  <a href="/categories/%E5%9B%BE%E8%AE%BA/" class="category-chain-item">图论</a>
   
   
 
@@ -606,21 +473,21 @@ class="math inline">\(s[1..n-d]=s[d+1..n]\)</span> 。</p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>哈希表</div>
-      <div>https://qwerx29.github.io/posts/850f2080.html</div>
+      <div>拓扑排序</div>
+      <div>https://qwerx29.github.io/posts/fb40efc5.html</div>
     </div>
     <div class="license-meta">
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月10日</div>
+          <div>2022年9月3日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年8月17日</div>
+          <div>2022年9月3日</div>
         </div>
       
       <div class="license-meta-item">
@@ -661,9 +528,9 @@ class="math inline">\(s[1..n-d]=s[d+1..n]\)</span> 。</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/18551a9f.html" title="5分钟搭建博客系列">
+                      <a href="/posts/f216fabe.html" title="最短路">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">5分钟搭建博客系列</span>
+                        <span class="hidden-mobile">最短路</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -671,8 +538,8 @@ class="math inline">\(s[1..n-d]=s[d+1..n]\)</span> 。</p>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/13859c4d.html" title="ST表/稀疏表">
-                        <span class="hidden-mobile">ST表/稀疏表</span>
+                      <a href="/posts/9acb5cb3.html" title="最小生成树">
+                        <span class="hidden-mobile">最小生成树</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

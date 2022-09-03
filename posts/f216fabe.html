@@ -16,24 +16,24 @@
   <meta name="author" content="QWERx29">
   <meta name="keywords" content="">
   
-    <meta name="description" content="也许是一种数据结构">
+    <meta name="description" content="🥶">
 <meta property="og:type" content="article">
-<meta property="og:title" content="哈希表">
-<meta property="og:url" content="https://qwerx29.github.io/posts/850f2080.html">
+<meta property="og:title" content="最短路">
+<meta property="og:url" content="https://qwerx29.github.io/posts/f216fabe.html">
 <meta property="og:site_name" content="Φάντασος">
-<meta property="og:description" content="也许是一种数据结构">
+<meta property="og:description" content="🥶">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/08/17/ck1Vs4zmhbEQUeY.jpg">
-<meta property="article:published_time" content="2022-08-10T05:18:50.357Z">
-<meta property="article:modified_time" content="2022-08-17T06:31:04.080Z">
+<meta property="og:image" content="https://img1.imgtp.com/2022/09/03/CgmDV9bK.jpeg">
+<meta property="article:published_time" content="2022-09-03T09:13:28.000Z">
+<meta property="article:modified_time" content="2022-09-03T09:16:24.920Z">
 <meta property="article:author" content="QWERx29">
 <meta property="article:tag" content="学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.loli.net/2022/08/17/ck1Vs4zmhbEQUeY.jpg">
+<meta name="twitter:image" content="https://img1.imgtp.com/2022/09/03/CgmDV9bK.jpeg">
   
   
   
-  <title>哈希表 - Φάντασος</title>
+  <title>最短路 - Φάντασος</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -288,7 +288,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="哈希表"></span>
+            <span id="subtitle" data-typed-text="最短路"></span>
           
         </div>
 
@@ -299,8 +299,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-10 13:18" pubdate>
-          2022年8月10日 下午
+        <time datetime="2022-09-03 17:13" pubdate>
+          2022年9月3日 下午
         </time>
       </span>
     
@@ -311,7 +311,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.4k 字
+          3.3k 字
         
       </span>
     
@@ -322,7 +322,7 @@
         
         
         
-          8 分钟
+          6 分钟
         
       </span>
     
@@ -374,12 +374,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">哈希表</h1>
+            <h1 style="display: none">最短路</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年8月17日 下午
+                    本文最后更新于：2022年9月3日 下午
                   
                 
               </p>
@@ -387,160 +387,145 @@
             
               <div class="markdown-body">
                 
-                <p><strong>哈希表</strong>（<code>Hash Table</code>）又称<strong>散列表</strong>，是一种以
-<code>key-value</code> 形式存储数据的数据结构。</p>
-<p>所谓以 <code>key-value</code> 形式存储数据，是指任意的
-<code>key</code>
-都<strong>唯一</strong>对应到内存中的某个位置。只需要给出查找的值
-<code>key</code>，就可以快速地找到其对应的 <code>value</code>。</p>
-<p>可以把哈希表理解为一种高级的<strong>数组</strong>，这种数组的下标可以是大整数，浮点数，字符串，甚至结构体。</p>
-<h3 id="哈希函数">哈希函数</h3>
-<p>要让 <code>key</code> 对应到内存中的位置，就要为 <code>key</code>
-计算索引，也就是计算 <code>value</code> 的存储位置。根据
-<code>key</code>
-计算索引的函数就叫做<strong>哈希函数</strong>，也称<strong>散列函数</strong>。</p>
-<p>在 OI 中，最常见的情况是 <code>key</code> 为整数的情况。当
-<code>key</code> 的范围比较小的时候，可以直接把 <code>key</code>
-作为数组的下标；但当 <code>key</code>
-的范围比较大，就需要用到哈希表。一般把 <code>key</code>
-模一个较大的质数作为索引，也就是取 <span
-class="math inline">\(f(x)=x\operatorname{mod} M\)</span>
-作为哈希函数。</p>
-<p>另一种可能出现的情况是 <code>key</code> 为字符串的情况，但在 OI
-中，一般不直接把字符串作为
-<code>key</code>，而是先算出字符串的哈希值（将在下一节中介绍），再把其哈希值作为
-<code>key</code> 插入到哈希表里。</p>
-<p>能为 <code>key</code> 计算索引之后，我们就可以知道每个
-<code>value</code> 应该放在哪里了。假设我们用数组 <span
-class="math inline">\(a\)</span> 存放数据，哈希函数是 <span
-class="math inline">\(\mathcal{f}\)</span> ，那键值对 <span
-class="math inline">\((key,value)\)</span> 就应该放在 <span
-class="math inline">\(a[\mathcal{f}(key)]\)</span> 上。</p>
-<p>无论 <span class="math inline">\(key\)</span>
-是什么类型，范围多大，<span
-class="math inline">\(\mathcal{f}(key)\)</span>
-都应是在可接受范围内的整数，可以作为数组的下标。</p>
-<h3 id="冲突">冲突</h3>
-<p>对于任意的 <span class="math inline">\(key\)</span>
-，如果哈希函数计算出来的索引都不相同，那只用根据索引把 <span
-class="math inline">\((key,value)\)</span>
-放到对应的位置就行了。但实际上，常常会出现两个不同的 <span
-class="math inline">\(key\)</span>
-，他们用哈希函数计算出来的索引是相同的。这时候就需要一些方法来处理冲突，常用的方法是<strong>拉链法</strong>。</p>
-<h4 id="拉链法">拉链法</h4>
-<p>拉链法也称<strong>开散列法</strong>（open hashing）。</p>
-<p>拉链法是在每个存放数据的地方建立一个<strong>链表</strong>，如果有多个
-<span class="math inline">\(key\)</span>
-索引到同一个地方，只用把他们都放到那个位置的链表里就行了。查询的时候需要把对应位置的链表整个扫描一遍，对其中的每个数据比较其
-<span class="math inline">\(key\)</span> 与查询的 <span
-class="math inline">\(key\)</span> 是否一致。如果索引的范围是 <span
-class="math inline">\(0 \sim M-1\)</span> ，哈希表的大小为 <span
-class="math inline">\(N\)</span> ，那么一次查询需要进行期望 <span
-class="math inline">\(\mathcal{O}(\dfrac{N}{M})\)</span> 次比较。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">const</span> <span class="hljs-type">int</span> SIZE = <span class="hljs-number">1e6</span>+<span class="hljs-number">5</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> M = <span class="hljs-number">999997</span>;   <span class="hljs-comment">// 或 1e6+7</span><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">HashTable</span> &#123;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span> &#123;<br>        <span class="hljs-type">int</span> next, value, key;<br>    &#125; data[SIZE];<br>    <span class="hljs-type">int</span> head[M], size;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-type">int</span> key)</span> </span>&#123; <span class="hljs-keyword">return</span> (key % M+M)%M; &#125;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-type">int</span> key)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> p = head[<span class="hljs-built_in">f</span>(key)]; p; p = data[p].next)<br>            <span class="hljs-keyword">if</span> (data[p].key == key) <span class="hljs-keyword">return</span> data[p].value;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">modify</span><span class="hljs-params">(<span class="hljs-type">int</span> key, <span class="hljs-type">int</span> value)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> p = head[<span class="hljs-built_in">f</span>(key)]; p; p = data[p].next)<br>            <span class="hljs-keyword">if</span> (data[p].key == key) <span class="hljs-keyword">return</span> data[p].value = value;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> key, <span class="hljs-type">int</span> value)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">get</span>(key) != <span class="hljs-number">-1</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>        data[++size] = (Node)&#123;head[<span class="hljs-built_in">f</span>(key)], value, key&#125;;<br>        head[<span class="hljs-built_in">f</span>(key)] = size;<br>        <span class="hljs-keyword">return</span> value;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<h4 id="闭散列法">闭散列法</h4>
-<p>闭散列方法把所有记录直接存储在散列表中，如果发生冲突则根据某种方式继续进行探查。</p>
-<p>比如线性探查法：如果在 <code>d</code> 处发生冲突，就依次检查
-<code>d + 1</code> ， <code>d + 2</code> ……</p>
-<p>当散列表接近存满时，查找效率较差；存满后不能再插入新元素。</p>
-<p><del><strong>比赛中直接使用 <code>&lt;unordered_map&gt;</code>
-即可！</strong></del></p>
-<h2 id="字符串-hash">字符串 Hash</h2>
-<p><strong>字符串 Hash</strong>
-是一种高效处理字符串匹配问题的<strong>近似算法</strong>，其核心思想在于将难以快速比较的字符串映射到一个<strong>值域较小</strong>（但也不能过小）、可以<strong>方便比较</strong>的范围。</p>
-<p>我们定义一个把字符串映射到整数的函数 <span
-class="math inline">\(\mathcal{f}\)</span> ，这个 <span
-class="math inline">\(\mathcal{f}\)</span> 称为是<strong>字符串 Hash
-函数</strong>。</p>
-<p>我们希望这个函数 <span class="math inline">\(\mathcal{f}\)</span>
-可以方便地帮我们判断两个字符串是否相等。具体来说，我们希望在 Hash
-函数值不一样的时候，两个字符串一定不一样。需要注意的是：其否命题不一定总是成立，也就是说：不相同的字符串经过
-Hash 函数映射也可能得到相同的值，这种现象称作 <strong>Hash
-冲突</strong>。</p>
-<p>通常我们采用的是<strong>多项式 Hash</strong> 的方法，即 <span
-class="math inline">\(\mathcal{f}=\sum s[i]\times base^i
-(\operatorname{mod} MOD)\)</span> 或 <span class="math inline">\(f(s) =
-\sum s[i] \times {base}^{|s|-i} \pmod{MOD}\)</span>
-（虽然前一种看起来更简洁，但在实际使用中会出现麻烦的“对齐问题”，因此更常用实际上的是<strong>后一种</strong>定义）。</p>
-<p>这里面的 <span class="math inline">\(base\)</span> 和 <span
-class="math inline">\(MOD\)</span> 需要选取得足够合适才行，以使得 Hash
-函数的值分布尽量均匀，尽量避免发生 Hash 冲突。</p>
-<p>如果 <span class="math inline">\(base\)</span> 和 <span
-class="math inline">\(MOD\)</span> 互质，在输入随机的情况下，这个 Hash
-函数在 <span class="math inline">\([0,M)\)</span>
-上每个值概率相等，此时单次比较的冲突率为 <span
-class="math inline">\(\dfrac{1}{M}\)</span>
-。所以，哈希的模数一般会选用<strong>大质数</strong>。</p>
-<h3 id="冲突率">冲突率</h3>
-<p>若进行 <span class="math inline">\(n\)</span> 次比较，每次冲突率
-<span class="math inline">\(\dfrac{1}{M}\)</span> ，那么总冲突率是 <span
-class="math inline">\(1-\left(1-\dfrac 1 M\right)^n\)</span>
-。在随机数据下，若 <span class="math inline">\(M=10^9 +
-7,n=10^6\)</span> ，冲突率约为 <span class="math inline">\(\dfrac
-1{1000}\)</span> ，并不是能够完全忽略不计的。</p>
-<p>一种特殊的情形是利用 <code>unsigned long long</code>
-类型的自然溢出特性（相当于对 <span class="math inline">\(M =
-2^{64}\)</span>
-取模），这能有效简化代码实现。但有经验的出题人很可能会对此定向构造数据，显著提高自然溢出的冲突率，甚至确保发生
-Hash 冲突。</p>
-<p>因此，进行字符串哈希时，为了安全起见，经常会分别取两组不同的 <span
-class="math inline">\(base\)</span> 和 <span
-class="math inline">\(MOD\)</span> 分别计算 Hash
-值，这样哈希函数的值域就能扩大到两者之积，错误率就能进一步减小了。<del>但由于这种写法较为繁琐，所以一般情况下还是会只使用一组质数或者干脆使用自然溢出。</del></p>
-<h3 id="多次询问子串哈希">多次询问子串哈希</h3>
-<p>单次计算一个字符串的哈希值复杂度是 <span
-class="math inline">\(\mathcal{O}(n)\)</span> ，其中 <span
-class="math inline">\(n\)</span>
-为串长，与暴力匹配没有区别，如果需要多次询问一个字符串的子串的哈希值，每次重新计算效率非常低下。</p>
-<p>一般采取的方法是对整个字符串先预处理出每个前缀的哈希值，将哈希值看成一个
-<span class="math inline">\(b\)</span> 进制的数对 <span
-class="math inline">\(M\)</span>
-取模的结果，这样的话每次就能快速求出子串的哈希了：</p>
-<p>令 <span class="math inline">\(f_i(s)\)</span> 表示 <span
-class="math inline">\(f(s[1..i])\)</span> ，那么 <span
-class="math inline">\(f(s[l..r])=f_r(s)-f_{l-1}(s) \times
-b^{r-l+1}\)</span> ，其中 <span class="math inline">\(b^{r-l+1}\)</span>
-可以预处理出来。</p>
-<p>这样就可以在 <span class="math inline">\(\mathcal{O}(n)\)</span>
-的预处理后每次 <span class="math inline">\(\mathcal{O}(1)\)</span>
-地计算子串的哈希值了。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">const</span> <span class="hljs-type">int</span> MOD=<span class="hljs-number">1e9</span>+<span class="hljs-number">7</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> base=<span class="hljs-number">19260817</span>;<br>ll pw[N],hs[N];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n,<span class="hljs-type">char</span>* s)</span></span>&#123;<br>    pw[<span class="hljs-number">0</span>]=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;++i)&#123;<br>        pw[i]=pw[i<span class="hljs-number">-1</span>]*base%MOD;<br>        hs[i]=(hs[i<span class="hljs-number">-1</span>]*base+s[i])%MOD;<br>    &#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">inline</span> ll <span class="hljs-title">mod</span><span class="hljs-params">(ll x)</span></span>&#123; <span class="hljs-keyword">return</span> (x%MOD+MOD)%MOD; &#125;<br><span class="hljs-function"><span class="hljs-keyword">inline</span> ll <span class="hljs-title">hash</span><span class="hljs-params">(<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r)</span></span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">mod</span>(hs[r]-hs[l<span class="hljs-number">-1</span>]*pw[r-l+<span class="hljs-number">1</span>]);<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>推导过程： <span class="math display">\[
-\begin{aligned}
-    f(s) &amp;= \sum_{i=1}^{|s|}{s[i]*base^{|s|-i}} \\
-    \\
-    \mathrm{hs}[x] &amp;= f(s[1\dots x]) =
-\sum_{i=1}^{x}{s[i]*base^{x-i}} \\
-    \mathrm{hs}[x+1] &amp;= f(s[1\dots x+1]) =
-\sum_{i=1}^{x+1}{s[i]*base^{x+1-i}} \\
-    &amp;= \sum_{i=1}^{x}{s[i]*base^{x+1-i}} +s[x+1]*base^{0} \\
-    &amp;= base * \sum_{i=1}^{x}{s[i]*base^{x-i}} + s[x+1] \\
-    &amp;= \mathrm{hs}[x] * base +s[x+1] \\
-    \\
-    \mathrm{hash}(l,r) &amp;= f(s[l\dots r]) \\
-    &amp;= \sum_{i=1}^{r-l+1}{s[l+i-1]*base^{r-l+1-i}} \\
-    &amp;= \sum_{j=l}^{r}{s[j]*base^{r-j}} \\
-    &amp;= \sum_{i=1}^{r}{s[i]*base^{r-i}} -
-\sum_{i=1}^{l-1}{s[i]*base^{r-i}} \\
-    &amp;= \mathrm{hs}[r] - base^{r-l+1} *
-\sum_{i=1}^{l-1}{s[i]*base^{l-1-i}} \\
-    &amp;= \mathrm{hs}[r] - base^{r-l+1} * \mathrm{hs}[l-1]
-\end{aligned}
-\]</span></p>
-<h3 id="字符串-hash-的应用">字符串 Hash 的应用</h3>
-<h4 id="字符串匹配">字符串匹配</h4>
-<p>求出模式串的哈希值后，求出文本串每个长度为模式串长度的子串的哈希值，分别与模式串的哈希值比较即可。</p>
-<h4 id="字符串最小循环节">字符串最小循环节</h4>
-<p><em>引理</em></p>
-<p>字符串 <span class="math inline">\(s[1\cdots n]\)</span> 的循环节为
-<span class="math inline">\(d\)</span> 的充分必要条件为 <span
-class="math inline">\(s[1..n-d]=s[d+1..n]\)</span> 。</p>
-<p><del>读者自证不难。</del></p>
-<p>枚举字符串长度的所有约数，使用 Hash 判断即可。</p>
-<h4 id="特殊变换">特殊变换</h4>
-<h4 id="最长回文子串">最长回文子串</h4>
-<p>二分答案，判断是否可行时枚举回文中心（对称轴），哈希判断两侧是否相等。需要分别预处理正着和倒着的哈希值。时间复杂度
-<span class="math inline">\(\mathcal{O}(n\log n)\)</span> 。</p>
+                <h3 id="floyd-算法">Floyd 算法</h3>
+<p><strong>Floyd
+算法</strong>用于求解<strong>无负环</strong>的图上<strong>任意两点间</strong>的最短路。</p>
+<p>算法本质上是邻接矩阵上进行动态规划：</p>
+<p><strong>状态设计</strong> 设 <span
+class="math inline">\(d(i,j,k)\)</span> 表示从 <span
+class="math inline">\(i\rightarrow j\)</span> ，中途经过 <span
+class="math inline">\(k\)</span> 中结点的最短路径。</p>
+<p><strong>初始状态</strong> <span
+class="math inline">\(d(i,j,0)=e_{i\rightarrow j}\)</span> ，为从 <span
+class="math inline">\(i\rightarrow j\)</span> 的边权，不存在时记为 <span
+class="math inline">\(+\infty\)</span> ，这就是有权图的邻接矩阵。</p>
+<p><strong>状态转移</strong> 在不含负环的图中，<span
+class="math inline">\(i\rightarrow j\)</span> 的最短路至多经过 <span
+class="math inline">\(k\)</span> 次，因此： <span
+class="math display">\[
+d(i,j,k) = \min\{d(i,j,k-1),d(i,k,k-1)+d(k,j,k-1)\}
+\]</span> 容易发现最后一维的 <span class="math inline">\(k\)</span>
+可以直接从状态中“移除”，即： <span class="math display">\[
+d(i,j) = \min\{d(i,j),d(i,k)+d(k,j)\}
+\]</span> 将不会影响状态转移的正确性。</p>
+<p>从以上 DP 状态转移过程中容易看出：Floyd 算法的三重 <code>for</code>
+循环需要<strong>先循环 <code>k</code></strong>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k = <span class="hljs-number">1</span>; k &lt;= n; k++)<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++)<br>            d[i][j] = <span class="hljs-built_in">min</span>(d[i][j], d[i][k] + d[k][j]);<br></code></pre></td></tr></table></figure>
+<h4 id="传递闭包">传递闭包</h4>
+<p>Floyd
+算法除了用来求解有权图中任意两点间的最短路，也可以用来求解无权图的<strong>传递闭包</strong>，即：图上任意两点间是否<strong>可达</strong>。</p>
+<p>只需把邻接矩阵换为无权的版本，把更新时的加法、取 <span
+class="math inline">\(\min\)</span> 改为与和或即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k = <span class="hljs-number">1</span>; k &lt;= n; k++)<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++)<br>            d[i][j] |= d[i][k] &amp; d[k][j];<br></code></pre></td></tr></table></figure>
+<h3 id="dijkstra-算法">Dijkstra 算法</h3>
+<p><strong>Dijkstra
+算法</strong>用于求解<strong>非负权</strong>图的<strong>单源</strong>最短路径。</p>
+<p>设源为 <span class="math inline">\(s\)</span> ，初始 <span
+class="math inline">\(dis[s]=0,dis[i]=+\infty\quad i\in(\text V\setminus
+\{s\})\)</span> 。</p>
+<p>将 <span class="math inline">\(\text V\)</span> 划分为已经求出 <span
+class="math inline">\(s\)</span> 到它的最短路长度的点集 <span
+class="math inline">\(A\)</span> ，尚未求出的点集 <span
+class="math inline">\(B\)</span> 。</p>
+<p>每次将 <span class="math inline">\(B\)</span> 中 <span
+class="math inline">\(dis\)</span> 最小的点取出，用这个点松弛其他 <span
+class="math inline">\(B\)</span> 中的结点，然后将这个 <span
+class="math inline">\(dis\)</span> 最小的点加入 <span
+class="math inline">\(A\)</span> 中。</p>
+<p>循环 <span class="math inline">\(n\)</span> 次即可得到 <span
+class="math inline">\(s\)</span> 到其他点的最短路长度，复杂度 <span
+class="math inline">\(\mathcal{O}(n^2)\)</span> 。</p>
+<h4 id="堆优化">堆优化</h4>
+<p>我们可以用堆 (优先队列) 来维护 <span class="math inline">\(B\)</span>
+中的结点，这样找到 <span class="math inline">\(B\)</span> 中 <span
+class="math inline">\(dis\)</span> 最小的结点的复杂度降至 <span
+class="math inline">\(\log m\)</span> 。</p>
+<p>松弛其他结点时，我们不从 <span class="math inline">\(1\sim n\)</span>
+枚举所有点，而是枚举该点的出边，如果发现某个点 <span
+class="math inline">\(dis\)</span> 变小后，我们将这个点新的 <span
+class="math inline">\(dis\)</span> 值塞入优先队列中。</p>
+<p>由于优先队列不自带去重，所以这样做可能会导致一个点被多次拿出 <span
+class="math inline">\(B\)</span> ，所以我们用 <span
+class="math inline">\(vis\)</span> 数组来判断一个点是否已经加入了 <span
+class="math inline">\(A\)</span> 。</p>
+<p>总复杂度 <span class="math inline">\(\mathcal{O}(m\log m)\)</span>
+。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br>    <span class="hljs-type">int</span> u = q.<span class="hljs-built_in">top</span>().id; q.<span class="hljs-built_in">pop</span>();<br>    <span class="hljs-keyword">if</span> (vis[u]) <span class="hljs-keyword">continue</span>;<br>    vis[u] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = head[u]; i; i = e[i].next) &#123;<br>        <span class="hljs-type">int</span> v = e[i].to;<br>        <span class="hljs-keyword">if</span> (dis[v] &gt; dis[u] + e[i].w) &#123;<br>            dis[v] = dis[u] + e[i].w;<br>            <span class="hljs-keyword">if</span> (!vis[v]) q.<span class="hljs-built_in">push</span>((node)&#123;dis[v], v&#125;);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<h6 id="线段树优化-dijkstra">线段树优化 Dijkstra</h6>
+<p>Dijkstra 算法中选择最近点的过程也可以用线段树进行优化，理论复杂度为
+<span class="math inline">\(\mathcal{O}(m\log n)\)</span>
+，但由于线段树常数较大，真实环境下堆中并不会总是有 <span
+class="math inline">\(\mathcal{O}(m)\)</span>
+个元素等原因，一般还是使用堆优化的 Dijkstra 算法。</p>
+</blockquote>
+<h3 id="spfa-算法">SPFA 算法</h3>
+<p><strong>SPFA
+算法</strong>用于求解<strong>含负权</strong>图的<strong>单源</strong>最短路。</p>
+<p>具体过程如下：</p>
+<ul>
+<li>维护一个队列；</li>
+<li>每次取出队首，用队首松弛与它相连的结点，若一个结点成功被松弛且这个结点目前不在队列里，则将它加入队尾；</li>
+<li>将队首从队列中弹出；</li>
+<li>重复执行直到队列为空。</li>
+</ul>
+<p>在随机情况下复杂度为 <span
+class="math inline">\(\mathcal{O}(km)(k\approx2)\)</span>
+，在构造数据下复杂度为 <span
+class="math inline">\(\mathcal{O}(nm)\)</span> 。</p>
+<blockquote>
+<p><strong>关于 SPFA：</strong></p>
+<ul>
+<li><strong>它死了</strong></li>
+</ul>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">spfa</span><span class="hljs-params">(<span class="hljs-type">int</span> s)</span> </span>&#123;<br>    q.<span class="hljs-built_in">push</span>(s);<br>    <span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br>        <span class="hljs-type">int</span> u=q.<span class="hljs-built_in">front</span>(); q.<span class="hljs-built_in">pop</span>(); ex[u]=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=head[u]; i; i = e[i].next) &#123;<br>            <span class="hljs-type">int</span> v = e[i].to;<br>            <span class="hljs-keyword">if</span> (dis[v] &gt; dis[u] + e[i].w) &#123;<br>                dis[v] = dis[u] + e[i].w;<br>                <span class="hljs-keyword">if</span> (!ex[v]) ex[v] = <span class="hljs-number">1</span>, q.<span class="hljs-built_in">push</span>(v);           <br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="spfa-判断负环">SPFA 判断负环</h4>
+<p><strong>负环</strong>的定义是：一条边权之和为负数的回路。</p>
+<p>你的任务是判断一张图中是否存在负环。</p>
+<p>我们在记录源到结点 <span class="math inline">\(i\)</span>
+的最短路长度 <span class="math inline">\(dis[i]\)</span> 的同时记录源到
+<span class="math inline">\(i\)</span> 最短路经过的点数 <span
+class="math inline">\(cnt[i]\)</span> 。</p>
+<p>若 <span class="math inline">\(u\)</span> 能松弛 <span
+class="math inline">\(i\)</span> ，则 <span
+class="math inline">\(dis[i]=dis[u]+e[u][i],\ cnt[i]=cnt[u]+1\)</span>
+。</p>
+<p>当发现有任一结点的 <span class="math inline">\(cnt&gt;n\)</span>
+时，那么证明这条最短路上有被重复遍历过的结点，说明这张图存在负环。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br>    u = q.<span class="hljs-built_in">front</span>(); vis[u] = <span class="hljs-number">0</span>; q.<span class="hljs-built_in">pop</span>();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = head[u]; i; i = e[i].next) &#123;<br>        v = e[i].v; w = e[i].w;<br>        <span class="hljs-keyword">if</span> (dis[u] + w &lt; dis[v]) &#123;<br>            dis[v] = dis[u] + w; cnt[v] = cnt[u] + <span class="hljs-number">1</span>; <span class="hljs-comment">// 记录最短路径的边数 </span><br>            <span class="hljs-keyword">if</span> (cnt[v] &gt;= n) &#123; <span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;YES&quot;</span>); <span class="hljs-keyword">return</span>; &#125; <span class="hljs-comment">// 有负环</span><br>            <span class="hljs-keyword">if</span> (!vis[v]) vis[v] = <span class="hljs-number">1</span>, q.<span class="hljs-built_in">push</span>(v);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;NO&quot;</span>); <span class="hljs-comment">// 无负环</span><br></code></pre></td></tr></table></figure>
+<h3 id="小结">小结</h3>
+<ul>
+<li><strong>Floyd</strong>：复杂度 <span class="math inline">\(\mathcal
+O(n^3)\)</span> ，实际应用较少；</li>
+<li><strong>Dijkstra（堆优化）</strong>：复杂度为 <span
+class="math inline">\(\mathcal{O}(m\log m)\)</span>
+，只可应用于<strong>非负权</strong>图；</li>
+<li><strong>SPFA</strong>：复杂度为 <span class="math inline">\(\mathcal
+O(km)\sim\mathcal{O}(nm)\)</span>
+，可用于<strong>负权图</strong>且可用来判断是否存在<strong>负环</strong>，但<strong>不建议在正式比赛中使用</strong>。</li>
+</ul>
+<hr />
+<h3 id="分层图">分层图</h3>
+<p><strong>分层图</strong>，就是将每个点根据状态的不同拆成若干个点，用拆出来的所有点建立新图（然后跑最短路或者别的算法）。</p>
+<h3 id="差分约束">差分约束</h3>
+<p>对未知数 <span class="math inline">\(x_1,x_2, \cdots ,x_n\)</span>
+，给定 <span class="math inline">\(m\)</span> 个约束，第 <span
+class="math inline">\(k\)</span> 约束可约化为 <span
+class="math inline">\(x_{u_k} \leq x_{v_k}+w_k\)</span> 的形式。</p>
+<p>将未知数当做点，将变量的值与 <span
+class="math inline">\(dis[i]\)</span> 对应，那么约束就是若干 <span
+class="math inline">\(dis[u]\le dis[v]+w\)</span> ，也就是有向有权边
+<span class="math inline">\(v \overset{w}{\rightarrow} u\)</span> 。</p>
+<p>如此建图后，求解最短路的 <span class="math inline">\(dis[i]\)</span>
+就是符合约束的<strong>最大</strong>的 <span
+class="math inline">\(x_i\)</span> 。</p>
+<p>注意体会这里求最短路得到的将是<strong>最大值</strong>，这是因为最短路的更新过程实际上是一系列结点的取值互相制约，不断减小的过程，因此最终得到的将是符合所有约束的最大取值。</p>
+<p>若图中出现负环，则最短路无法求解，也就对应着约束间差生了矛盾。</p>
+<p>如果想要求约束下的最小取值，则应使用最长路、判正环。</p>
+<p>由于图中边权有正有负，因此需要使用 SPFA 算法求解最短 / 长路、判负 /
+正环；在图具有某些特殊性质时也可使用 Tarjan 缩点 + 拓扑 DP
+的方式在明确的时间复杂度内求出最短 / 长路。</p>
 
                 
               </div>
@@ -569,17 +554,7 @@ class="math inline">\(s[1..n-d]=s[d+1..n]\)</span> 。</p>
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-chain-item">数据结构</a>
-  
-  
-
-      </span>
-    
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="category-chain-item">字符串</a>
+  <a href="/categories/%E5%9B%BE%E8%AE%BA/" class="category-chain-item">图论</a>
   
   
 
@@ -606,21 +581,21 @@ class="math inline">\(s[1..n-d]=s[d+1..n]\)</span> 。</p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>哈希表</div>
-      <div>https://qwerx29.github.io/posts/850f2080.html</div>
+      <div>最短路</div>
+      <div>https://qwerx29.github.io/posts/f216fabe.html</div>
     </div>
     <div class="license-meta">
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月10日</div>
+          <div>2022年9月3日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年8月17日</div>
+          <div>2022年9月3日</div>
         </div>
       
       <div class="license-meta-item">
@@ -661,9 +636,9 @@ class="math inline">\(s[1..n-d]=s[d+1..n]\)</span> 。</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/18551a9f.html" title="5分钟搭建博客系列">
+                      <a href="/posts/442f0570.html" title="欧拉路径">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">5分钟搭建博客系列</span>
+                        <span class="hidden-mobile">欧拉路径</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -671,8 +646,8 @@ class="math inline">\(s[1..n-d]=s[d+1..n]\)</span> 。</p>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/13859c4d.html" title="ST表/稀疏表">
-                        <span class="hidden-mobile">ST表/稀疏表</span>
+                      <a href="/posts/fb40efc5.html" title="拓扑排序">
+                        <span class="hidden-mobile">拓扑排序</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
