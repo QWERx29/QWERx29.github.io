@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/mWVi6X9Q143Bh2q.webp">
 <meta property="article:published_time" content="2022-08-10T13:48:01.000Z">
-<meta property="article:modified_time" content="2022-09-02T08:56:22.558Z">
+<meta property="article:modified_time" content="2022-09-03T03:21:07.218Z">
 <meta property="article:author" content="QWERx29">
 <meta property="article:tag" content="杂谈">
 <meta name="twitter:card" content="summary_large_image">
@@ -311,7 +311,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.9k 字
+          9.7k 字
         
       </span>
     
@@ -322,7 +322,7 @@
         
         
         
-          15 分钟
+          17 分钟
         
       </span>
     
@@ -379,7 +379,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年9月2日 下午
+                    本文最后更新于：2022年9月3日 上午
                   
                 
               </p>
@@ -745,6 +745,38 @@ target="_blank" rel="noopener" href="https://rust-lang.github.io/mdBook/">官方
 <p>在<code>book</code>目录下执行<em>经典操作</em></p>
 <h3 id="section-12">🎉</h3>
 <h2 id="svelte-kit">Svelte Kit</h2>
+<h3 id="安装-6">💊安装</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm create svelte@latest my-app<br>$ <span class="hljs-built_in">cd</span> my-app<br>$ npm install<br></code></pre></td></tr></table></figure>
+<h3 id="写作-12">🚧写作</h3>
+<p><del>不会</del></p>
+<p>通过</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm run dev<br></code></pre></td></tr></table></figure>
+<p>进行预览</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm run build<br></code></pre></td></tr></table></figure>
+<p>构建静态文件</p>
+<h3 id="部署-13">🍋部署</h3>
+<p><strong>下面方法仍有Bug，但不会被修复🕊️</strong></p>
+<h5 id="安装插件-1">安装插件</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm i -D @sveltejs/adapter-static<br></code></pre></td></tr></table></figure>
+<p>修改<code>svelte.config .js</code>使之形如下面文档</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// svelte.config.js</span><br><span class="hljs-keyword">import</span> adapter <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sveltejs/adapter-static&#x27;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-attr">kit</span>: &#123;<br>    <span class="hljs-attr">adapter</span>: <span class="hljs-title function_">adapter</span>(&#123;<br>      <span class="hljs-attr">fallback</span>: <span class="hljs-string">&#x27;200.html&#x27;</span><br>    &#125;),<br>    <span class="hljs-attr">prerender</span>: &#123; <span class="hljs-attr">entries</span>: [] &#125;,<br>    <span class="hljs-attr">paths</span>: &#123;<br>			<span class="hljs-attr">base</span>: dev ? <span class="hljs-string">&#x27;&#x27;</span> : <span class="hljs-string">&#x27;/your-repo-name&#x27;</span>,<br>		&#125;,<br>    <span class="hljs-comment">// 如果不想每次构建都添加`.nojykell`，可以添加下面一行</span><br>    <span class="hljs-comment">// appDir: &#x27;internal&#x27;,</span><br>    <span class="hljs-comment">// 这里的路径可以改为任何不以`_`开头的名称</span><br>  &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>新建<code>+layout.js</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// src/routes/+layout.js</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> ssr = <span class="hljs-literal">false</span>;<br></code></pre></td></tr></table></figure>
+<p>然后再构建静态文件，并将<code>build</code>目录下文件<code>push</code>到GitHub</p>
+<p>当然这样并不能正常显示二级页面，可以参阅<a
+target="_blank" rel="noopener" href="https://kit.svelte.dev/docs/introduction">官方文档</a>寻找解决方案，<del>反正我没找到🕊️</del></p>
+<h3 id="section-13">💣</h3>
+<h2 id="zola">Zola</h2>
+<h3 id="安装-7">📡安装</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ choco install zola<br>$ zola init my-blog<br></code></pre></td></tr></table></figure>
+<h3 id="写作-13">📍写作</h3>
+<p>参考<a
+target="_blank" rel="noopener" href="https://www.getzola.org/documentation/getting-started/overview/">官方文档</a></p>
+<p><del>当然也有一些主题🕊️</del></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ zola serve <span class="hljs-comment">#本地预览</span><br>$ zola build <span class="hljs-comment">#构建静态文件</span><br></code></pre></td></tr></table></figure>
+<h3 id="部署-14">🛫部署</h3>
+<p>把<code>build</code>目录下所有文件用<em>经典操作</em>扔到<code>GitHub</code>上就行</p>
+<h3 id="section-14">🎉</h3>
 
                 
               </div>
@@ -804,7 +836,7 @@ target="_blank" rel="noopener" href="https://rust-lang.github.io/mdBook/">官方
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年9月2日</div>
+          <div>2022年9月3日</div>
         </div>
       
       <div class="license-meta-item">
